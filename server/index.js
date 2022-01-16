@@ -4,7 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const environment = require("./config/environment");
 const logger = require("morgan");
-
+const organiserRoutes = require("./routes/index");
 const app = express();
 
 app.use(logger("dev"));
@@ -15,6 +15,8 @@ app.use(
   })
 );
 app.use(express.json());
+
+app.use("/", organiserRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Organizer Portal API", success: true });
