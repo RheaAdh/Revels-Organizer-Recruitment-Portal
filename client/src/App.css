@@ -99,11 +99,11 @@ button.rec-dot:focus {
   margin: 0 10px;
 }
 
-.row .user-box input {
+.row .user-box input,select{
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: white;
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
@@ -116,7 +116,7 @@ button.rec-dot:focus {
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: darkgray;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -124,12 +124,42 @@ button.rec-dot:focus {
 .row .user-box input:focus ~ label {
   top: -20px;
   left: 0;
-  background: linear-gradient(to right, #fb7ba2, #fce043);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: #696969;
   font-size: 12px;
 }
+.row .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #696969;
+  font-size: 12px;
+}
+
+.row .user-box input,select {
+  border-image: linear-gradient(to right, #b721ff 0%, red 100%);
+  border-image-slice: 1;
+}
+.slots select,.slots-in{
+  margin-top: 25px;
+}
+.btn {
+  
+  padding: 0.5rem 2rem ;
+  margin: 25px 0;
+  text-align: center;
+  color: white;
+  border: 1px solid #fff;
+  background-color: black;
+}
+.btn:hover {
+  
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
 
 /* Cards */
 .card {
@@ -236,26 +266,5 @@ button.rec-dot:focus {
   }
 }
 
-/* FORM */
-select {
-  width: 90%;
-  padding: 0.5rem;
-  margin: 1rem;
-  text-align: center;
-  background: black;
-  color: white;
-}
-.btn {
-  width: 30%;
-  padding: 0.5rem;
-  margin: 1rem;
-  text-align: center;
-  background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);
-}
-.btn:hover {
-  background: linear-gradient(to right, #fb7ba2, #fce043);
-  cursor: pointer;
-}
-::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-}
+
+

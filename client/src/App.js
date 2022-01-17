@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Revels Logo here</h2>
+      <h2>Revels '22</h2>
       <h3 className="heading">Organizer Portal</h3>
       <div className="glider">
         <Carousel breakPoints={breakPoints}>
@@ -37,27 +37,21 @@ function App() {
         <p>
           1. All organizers are supposed to attend all the interviews they have
           chosen or else they will be blacklisted if they don't inform
-          beforehand.
-          <br />
+          beforehand
           <br />
           2. Organizer leaving a category after being chosen in one or
           interchange their category will be blacklisted.
           <br />
-          <br />
           3. Any act of misbehaving during time of work in the category will be
           blacklisted.
-          <br />
           <br />
           4. Organizers who don't attend meetings and contribute to the category
           will be blacklisted.
           <br />
-          <br />
           5. Any organizer having cgpa below 6 will not be shortlisted.
-          <br />
           <br />
           6. Blacklisted organizers wont receive certification and also wont be
           allowed to participate in future fests.
-          <br />
           <br />
         </p>
       </div>
