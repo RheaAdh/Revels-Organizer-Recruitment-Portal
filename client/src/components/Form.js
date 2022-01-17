@@ -24,6 +24,7 @@ function Form() {
       alert(response.msg);
     });
   };
+
   const [name, setName] = useState("");
   const [registration_no, setRegistration_no] = useState("");
   const [email, setEmail] = useState("");
@@ -36,7 +37,7 @@ function Form() {
   const [slot_2, setSlot_2] = useState("");
 
   const fields = (
-    <div class="user-box">
+    <div className="user-box">
       <input type="text" name="" required="" />
       <label>Username</label>
     </div>
@@ -45,7 +46,7 @@ function Form() {
   return (
     <form className="login-form">
       <div className="row">
-        <div class="user-box">
+        <div className="user-box">
           <input
             type="text"
             name=""
@@ -54,7 +55,7 @@ function Form() {
           />
           <label>Name</label>
         </div>
-        <div class="user-box">
+        <div className="user-box">
           <input
             type="text"
             name=""
@@ -65,7 +66,7 @@ function Form() {
         </div>
       </div>
       <div className="row">
-        <div class="user-box">
+        <div className="user-box">
           <input
             type="text"
             name=""
@@ -74,7 +75,7 @@ function Form() {
           />
           <label>Email ID</label>
         </div>
-        <div class="user-box">
+        <div className="user-box">
           <input
             type="text"
             name=""
@@ -85,7 +86,7 @@ function Form() {
         </div>
       </div>
       <div className="row">
-        <div class="user-box">
+        <div className="user-box">
           <input
             type="text"
             name=""
@@ -94,7 +95,7 @@ function Form() {
           />
           <label>Branch</label>
         </div>
-        <div class="user-box">
+        <div className="user-box">
           <input
             type="text"
             name=""
@@ -104,78 +105,95 @@ function Form() {
           <label>CGPA</label>
         </div>
       </div>
-      <div className="row">
-        <div class="user-box">
+      <div className="single-item-row">
+        <div className="user-box">
           <label>Preference 1</label>
+
           <select
-            id="cars"
-            name="cars"
+            id="pref1"
+            name="pref1"
             onChange={(e) => setPref_1(e.target.value)}
           >
-            <option value="volvo">Preference 1</option>
-            <option value="volvo">Proshow</option>
-            <option value="saab">Social Media</option>
-            <option value="audi">Graphics</option>
-            <option value="fiat"> Sponsorship</option>
-            <option value="audi">Publicity and Printing</option>
-            <option value="volvo">Logistics</option>
-            <option value="saab">Operations</option>
-            <option value="audi">Outstation management</option>
-            <option value="fiat"> App Development</option>
-            <option value="audi">System admin and Web</option>
+            <option value="default">Preference 1</option>
+            <option value="proshow">Proshow</option>
+            <option value="social media">Social Media</option>
+            <option value="graphics">Graphics</option>
+            <option value="sponsorship"> Sponsorship</option>
+            <option value="pnp">Publicity and Printing</option>
+            <option value="logistics">Logistics</option>
+            <option value="operations">Operations</option>
+            <option value="om">Outstation management</option>
+            <option value="appdev"> App Development</option>
+            <option value="webdev">System admin and Web</option>
           </select>
         </div>
-        <div class="user-box">
+      </div>
+      <div className="single-item-row">
+        <div className="user-box">
           <label>Preference 2</label>
           <select
-            id="cars"
-            name="cars"
+            id="pref2"
+            name="pref2"
             onChange={(e) => setPref_2(e.target.value)}
           >
-            <option value="volvo">Preference 2</option>
-            <option value="volvo">Proshow</option>
-            <option value="saab">Social Media</option>
-            <option value="audi">Graphics</option>
-            <option value="fiat"> Sponsorship</option>
-            <option value="audi">Publicity and Printing</option>
-            <option value="volvo">Logistics</option>
-            <option value="saab">Operations</option>
-            <option value="audi">Outstation management</option>
-            <option value="fiat"> App Development</option>
-            <option value="audi">System admin and Web</option>
+            <option value="default">Preference 2</option>
+            <option value="proshow">Proshow</option>
+            <option value="social media">Social Media</option>
+            <option value="graphics">Graphics</option>
+            <option value="sponsorship"> Sponsorship</option>
+            <option value="pnp">Publicity and Printing</option>
+            <option value="logistics">Logistics</option>
+            <option value="operations">Operations</option>
+            <option value="om">Outstation management</option>
+            <option value="appdev"> App Development</option>
+            <option value="webdev">System admin and Web</option>
           </select>
         </div>
       </div>
 
-      <div className="row">
-        <div class="user-box">
-          <label>Slot 1</label>
+      <div className="single-item-row">
+        <div className="user-box">
+          <label>Time Slot 1</label>
           <input
             type="datetime-local"
             style={{
               backgroundColor: "white",
               color: "black",
               marginTop: "2rem",
+              padding: "0.5rem",
+              margin: "1rem",
+              width: "90%",
+              textAlign: "center",
+              background: "black",
+              color: "white",
             }}
             onChange={(e) => setSlot_1(e.target.value)}
           ></input>
         </div>
-        <div class="user-box">
+      </div>
+      <div className="single-item-row">
+        <div className="user-box">
           <div>
-            <label>Slot 2</label>
+            <label>Time Slot 2</label>
             <input
               type="datetime-local"
               style={{
                 backgroundColor: "white",
                 color: "black",
                 marginTop: "2rem",
+                padding: "0.5rem",
+                margin: "1rem",
+                width: "90%",
+                textAlign: "center",
+                background: "black",
+                color: "white",
               }}
               onChange={(e) => setSlot_2(e.target.value)}
             ></input>
           </div>
         </div>
       </div>
-      <input type="submit" onClick={handleSubmit}></input>
+      <input className="btn" type="submit" onClick={handleSubmit}></input>
     </form>
   );
 }
