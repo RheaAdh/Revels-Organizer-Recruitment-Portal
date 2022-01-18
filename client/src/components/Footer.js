@@ -8,10 +8,10 @@ function Footer() {
         <img src={logo} />
       </div>
 
-      <div class="icons">
-        <i class="fa fa-instagram fa-2x"></i>
-        <i class="fa fa-facebook fa-2x"></i>
-        <i class="fa fa-google fa-2x"></i>
+      <div className="icons">
+        <i className="fa fa-instagram fa-2x"></i>
+        <i className="fa fa-facebook fa-2x"></i>
+        <i className="fa fa-google fa-2x"></i>
       </div>
       <p>Made by Web Dev & System Admin, Revels '22</p>
     </div>

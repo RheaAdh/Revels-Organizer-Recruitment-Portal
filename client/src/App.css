@@ -7,13 +7,20 @@
   text-align: center;
   color: white;
 }
+.App .revels {
+  margin-top: 35px;
+  font-size: 30px;
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff,
+    0 0 120px #0ff;
+}
 .glider {
   margin: 0 auto;
   width: 80%;
 }
 @media (max-width: 830px) {
   .glider {
-    width: 95%;
+    width: 98%;
   }
 }
 .heading {
@@ -28,7 +35,12 @@
 }
 @media screen and (max-width: 600px) {
   .heading {
-    font-size: 40px;
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .heading {
+    font-size: 30px;
   }
 }
 
@@ -71,7 +83,7 @@ button.rec-dot:focus {
   text-align: left;
 }
 .blacklist-text p {
-  font-size: 18px;
+  font-size: 15px;
   color: #848884;
 }
 .blacklist-text br {
@@ -99,7 +111,8 @@ button.rec-dot:focus {
   margin: 0 10px;
 }
 
-.row .user-box input,select{
+.row .user-box input,
+select {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -134,16 +147,17 @@ button.rec-dot:focus {
   font-size: 12px;
 }
 
-.row .user-box input,select {
+.row .user-box input,
+select {
   border-image: linear-gradient(to right, #b721ff 0%, red 100%);
   border-image-slice: 1;
 }
-.slots select,.slots-in{
+.slots select,
+.slots-in {
   margin-top: 25px;
 }
 .btn {
-  
-  padding: 0.5rem 2rem ;
+  padding: 0.5rem 2rem;
   margin: 25px 0;
   text-align: center;
   color: white;
@@ -151,7 +165,6 @@ button.rec-dot:focus {
   background-color: black;
 }
 .btn:hover {
-  
   color: black;
   background-color: white;
   cursor: pointer;
@@ -159,7 +172,6 @@ button.rec-dot:focus {
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
-
 
 /* Cards */
 .card {
@@ -195,6 +207,16 @@ button.rec-dot:focus {
   width: 80%;
   margin: 0 auto;
   height: 100%;
+}
+@media (max-width: 400px) {
+  .card {
+    height: 380px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .card-text {
+    font-size: 12px;
+  }
 }
 
 /* Footer Section */
@@ -265,6 +287,3 @@ button.rec-dot:focus {
     width: 80%;
   }
 }
-
-
-
