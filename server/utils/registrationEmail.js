@@ -28,7 +28,7 @@ const constructTemplate = (name) => {
   </head>
   
   <body>
-      <div style="background-color:#ececec;padding:0;margin:0 auto;font-weight:200;width:100%!important">
+      <div style="background-color:#ececec;padding:10px;margin:0 auto;font-weight:200;width:100%!important">
           <table align="center" border="0" cellspacing="0" cellpadding="0"
               style="table-layout:fixed;font-weight:200;font-family:Helvetica,Arial,sans-serif" width="100%">
               <tbody>

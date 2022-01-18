@@ -1,7 +1,11 @@
+const { Category } = require("../models/category");
 const { Organiser } = require("../models/organiser");
 const main = require("../utils/confirmationEmail");
 const constructTemplate = require("../utils/registrationEmail");
-
+const getDays = (date) => {
+  regStart = new Date("2022/01/29");
+  return parseInt((date - regStart) / (1000 * 60 * 60 * 24), 10);
+};
 const register = async (req, res) => {
   try {
     const {
@@ -30,15 +34,15 @@ const register = async (req, res) => {
         msg: "Please select slot for 2nd Preference",
       });
     }
-
+    const slot1 = getDays(new Date(slot_1));
+    const slot2 = getDays(new Date(slot_2));
     let category1 = null,
       category2 = null;
 
     category1 = await Category.findOne({
       category: pref_1,
     });
-
-    if (category1.slots[slot_1] <= 0) {
+    if (category1.slots[slot1] <= 0) {
       return res.send({
         success: false,
         msg: `Selected Slot not available for ${pref_1}. Check again!`,
@@ -50,7 +54,7 @@ const register = async (req, res) => {
         category: pref_2,
       });
 
-      if (category2.slots[slot_2] <= 0) {
+      if (category2.slots[slot2] <= 0) {
         return res.send({
           success: false,
           msg: `Selected Slot not available for ${pref_2}. Check again!`,
@@ -94,14 +98,14 @@ const register = async (req, res) => {
 
     const org = await organiser.save();
 
-    category1.slots[slot_1]--;
+    category1.slots[slot1]--;
     await Category.updateOne(
       { category: pref_1 },
       { $set: { slots: category1.slots } }
     );
 
     if (pref_2 != "Preference 2") {
-      category2.slots[slot_2]--;
+      category2.slots[slot2]--;
       await Category.updateOne(
         { category: pref_2 },
         { $set: { slots: category2.slots } }
@@ -121,7 +125,24 @@ const register = async (req, res) => {
       .json({ message: "Registeration failed. Please Try Again !!" });
   }
 };
+const addData = async (req, res) => {
+  const slots = [];
+  for (let i = 0; i < 28; i++) {
+    slots.push(1);
+  }
 
+  const category = new Category({
+    category: "APP",
+    slots: slots,
+  });
+  await category.save();
+
+  const cat = await Category.find({});
+  console.log(cat);
+
+  return res.send({ success: true, msg: "hello there" });
+};
 module.exports = {
   register,
+  addData,
 };

@@ -1,7 +1,7 @@
 const express = require("express");
 const { categoryOrganisers } = require("./admin/organiser.js");
 const router = express.Router();
-const { register } = require("./reg.js");
+const { register, addData } = require("./reg.js");
 const {
   organiserValidate,
   organiserValidationRules,
@@ -15,7 +15,7 @@ router.post(
   organiserValidate,
   register
 );
-
+router.post("/add", addData);
 //ADMIN ROUTES
 router.get("/registrations/:category", categoryOrganisers);
 

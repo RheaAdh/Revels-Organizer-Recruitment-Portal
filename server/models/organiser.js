@@ -38,10 +38,10 @@ const OrganiserSchema = new mongoose.Schema({
     type: String,
   },
   slot_1: {
-    type: Number,
+    type: String,
   },
   slot_2: {
-    type: Number,
+    type: String,
   },
 });
 
