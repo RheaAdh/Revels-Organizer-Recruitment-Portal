@@ -37,7 +37,7 @@ function App() {
         <p>
           1. All organizers are supposed to attend all the interviews they have
           chosen or else they will be blacklisted if they don't inform
-          beforehand 
+          beforehand
           <br />
           2. Organizer leaving a category after being chosen in one or
           interchange their category will be blacklisted.

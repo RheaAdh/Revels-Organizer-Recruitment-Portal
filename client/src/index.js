@@ -1,15 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Toaster } from 'react-hot-toast';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./index.css";
+import App from "./App";
+import AdminLogin from "./components/AdminLogin";
+import Admin from "./components/Admin";
+import reportWebVitals from "./reportWebVitals";
+import { Toaster } from "react-hot-toast";
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/admin" element={<AdminLogin />} />
+      <Route path="/admin/:category" element={<Admin />} />
+    </Routes>
     <Toaster />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

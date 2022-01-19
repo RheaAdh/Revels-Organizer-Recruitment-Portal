@@ -290,3 +290,11 @@ select {
 option {
   background-color: black;
 }
+
+.login-page {
+  font-size: 2rem;
+  padding: 3rem;
+}
+.admin {
+  color: white;
+}
