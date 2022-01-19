@@ -35,7 +35,8 @@ function Form() {
         slot_1,
         slot_2,
       };
-      const res = await axios.post("http://localhost:8000/register", data);
+      console.log("here");
+      const res = await axios.post("http://localhost:5000/register", data);
       console.log(res);
       if (res.data.success) {
         toast.success(`${res.data.msg} \n We will contact you soon.`, {
@@ -182,7 +183,7 @@ function Form() {
           </select>
         </div>
         <div className="user-box">
-          <label>Time Slot 1</label>
+          <label>Availability</label>
           <input
             type="date"
             onChange={(e) => setSlot_1(e.target.value)}
@@ -218,7 +219,7 @@ function Form() {
         </div>
         <div className="user-box">
           <div>
-            <label>Time Slot 2</label>
+            <label>Availability</label>
             <input
               type="date"
               onChange={(e) => setSlot_2(e.target.value)}

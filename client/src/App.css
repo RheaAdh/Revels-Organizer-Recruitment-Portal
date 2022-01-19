@@ -287,3 +287,6 @@ select {
     width: 80%;
   }
 }
+option {
+  background-color: black;
+}
