@@ -296,5 +296,16 @@ option {
   padding: 3rem;
 }
 .admin {
+  display: flex;
+  margin: 1rem;
   color: white;
+  justify-content: space-around;
+}
+
+.admin .left {
+  margin-left: 3rem;
+  margin-top: 3rem;
+}
+.person .btn {
+  margin-right: 2rem;
 }

@@ -14,7 +14,7 @@ const Login = () => {
       </div>
       <form className="login-form">
         <div className="row">
-          <div className="user-box">
+          <div className="user-box login">
             <input
               type="text"
               name=""
@@ -24,7 +24,8 @@ const Login = () => {
             />
             <label>Category ID</label>
           </div>
-          <div className="user-box">
+          <br />
+          <div className="user-box login">
             <input
               type="password"
               name=""
