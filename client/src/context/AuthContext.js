@@ -16,6 +16,7 @@ export default function AuthProvider({ children }) {
     console.log("restore user");
     console.log(user);
     const token = localStorage.getItem(TOKEN_ID);
+    console.log(token);
     if (token) {
       try {
         const token = localStorage.getItem(TOKEN_ID);
@@ -30,7 +31,9 @@ export default function AuthProvider({ children }) {
         console.log("im here");
         console.log(res);
         if (res.data.success) {
+          console.log(res.data.data);
           setUser(res.data.data);
+          setLoading(false);
           console.log("im here setuser");
           console.log(user);
         } else console.log("oops");

@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import { useAuth } from "../context/AuthContext";
-import { TOKEN_ID } from "../utils/constants";
+import { useAuth } from "../../context/AuthContext";
+import { TOKEN_ID } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
+import './Admin.css';
+
+
 const Login = () => {
   const auth = useAuth();
   const navigate = useNavigate();
+ 
+
   const [categoryId, setId] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = async (e) => {
@@ -35,6 +40,11 @@ const Login = () => {
           id: toastId,
         });
         localStorage.setItem(TOKEN_ID, res.data.data.token);
+        var str= "/admin/" + categoryId.substring(0,3);
+        console.log('before navigate');
+        console.log(str);
+        navigate(str);
+        console.log('After navigate');
         return;
       } else {
         toast.error(res.data.message, {
