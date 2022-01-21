@@ -10,7 +10,7 @@ const {
   organiserValidate,
   organiserValidationRules,
 } = require("../middlewares/validate");
-const { catRegister, login, logout } = require("./admin/login.js");
+const { catRegister, login, logout } = require("./admin/auth.js");
 const { verifyJwtInUser } = require("../utils/jwt.js");
 
 //Client Routes
