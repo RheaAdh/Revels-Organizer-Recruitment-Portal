@@ -1,12 +1,17 @@
 const express = require("express");
-const { categoryOrganisers } = require("./admin/organiser.js");
+const {
+  categoryOrganisers,
+  categoryOrganiserSheet,
+  setOrganiserStatus,
+} = require("./admin/organiser.js");
 const router = express.Router();
-const { register, addData } = require("./reg.js");
+const { register } = require("./reg.js");
 const {
   organiserValidate,
   organiserValidationRules,
 } = require("../middlewares/validate");
-const { Organiser } = require("../models/organiser.js");
+const { catRegister, login, logout } = require("./admin/login.js");
+const { verifyJwtInUser } = require("../utils/jwt.js");
 
 //Client Routes
 router.post(
@@ -15,8 +20,17 @@ router.post(
   organiserValidate,
   register
 );
-router.post("/add", addData);
+
 //ADMIN ROUTES
-router.get("/registrations/:category", categoryOrganisers);
+router.post("/categories/register", catRegister);
+router.post("/admin/login", login);
+router.post("/admin/logout", logout);
+router.get(
+  "/admin/registrations/:category",
+  verifyJwtInUser,
+  categoryOrganiserSheet
+);
+router.get("/admin/organisers/:category", verifyJwtInUser, categoryOrganisers);
+router.patch("/admin/organiser/status", verifyJwtInUser, setOrganiserStatus);
 
 module.exports = router;

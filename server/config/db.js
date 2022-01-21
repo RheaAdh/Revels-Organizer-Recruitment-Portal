@@ -1,12 +1,16 @@
 const mongoose = require("mongoose");
-const environment = require("./environment");
 
 async function connectDB() {
   mongoose
-    .connect(environment.mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    .connect(
+      "mongodb+srv://" +
+        process.env.mongo_dev +
+        "@cluster0.47gsc.mongodb.net/orgPortal?retryWrites=true&w=majority",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    )
     .then(() => {
       console.log("DB CONNECTED");
     })

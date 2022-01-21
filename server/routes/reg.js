@@ -89,7 +89,16 @@ const register = async (req, res) => {
     if (id_obj[0]) {
       id = id_obj[0].id + 1;
     }
-
+    const pref1 = {
+      category: pref_1,
+      slot: slot_1,
+      status: 0,
+    };
+    const pref2 = {
+      category: pref_2,
+      slot: slot_2,
+      status: 0,
+    };
     const organiser = new Organiser({
       id,
       name,
@@ -98,10 +107,8 @@ const register = async (req, res) => {
       registration_no,
       cgpa,
       branch,
-      pref_1,
-      pref_2,
-      slot_1,
-      slot_2,
+      pref_1: pref1,
+      pref_2: pref2,
     });
 
     const org = await organiser.save();

@@ -1,5 +1,19 @@
 const mongoose = require("mongoose");
 
+const pref = new mongoose.Schema({
+  category: {
+    type: String,
+    required: true,
+  },
+  slot: {
+    type: String,
+  },
+  status: {
+    type: Number,
+    default: 0,
+    enum: [0, 1, 2, 3],
+  },
+});
 const OrganiserSchema = new mongoose.Schema({
   id: {
     type: Number,
@@ -30,19 +44,8 @@ const OrganiserSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
-  pref_1: {
-    type: String,
-    required: true,
-  },
-  pref_2: {
-    type: String,
-  },
-  slot_1: {
-    type: String,
-  },
-  slot_2: {
-    type: String,
-  },
+  pref_1: pref,
+  pref_2: pref,
 });
 
 module.exports = {

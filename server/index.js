@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const environment = require("./config/environment");
 const logger = require("morgan");
 const organiserRoutes = require("./routes/index");
 const app = express();
@@ -25,7 +24,7 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 const start = () => {
-  if (!environment.mongoURI) {
+  if (!process.env.mongo_dev) {
     console.log("Error: mongoURI missing !!");
     return;
   }
