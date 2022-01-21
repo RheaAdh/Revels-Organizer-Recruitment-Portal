@@ -7,9 +7,11 @@ const generateAuthJwt = async (category) => {
       categoryId: category.categoryId,
       category: category.category,
     };
+
     const signedToken = await jwt.sign(payload, process.env.AUTH_SECRET, {
       expiresIn: "1h",
     });
+
     return {
       token: "Bearer " + signedToken,
       expiresIn: "1h",

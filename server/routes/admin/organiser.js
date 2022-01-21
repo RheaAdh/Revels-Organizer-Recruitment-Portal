@@ -116,6 +116,7 @@ const setOrganiserStatus = async (req, res) => {
     return res.json({ success: false, message: "Please Try Again" });
   }
 };
+
 module.exports = {
   createSheet,
   categoryOrganiserSheet,

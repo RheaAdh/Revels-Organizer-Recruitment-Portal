@@ -40,13 +40,23 @@ const login = async (req, res) => {
     const category = await Category.findOne({
       categoryId: req.body.categoryId,
     });
+
     if (!category) return res.status(401).json({ message: "Invalid category" });
+
     const isValid = req.body.password == category.password;
-    //await bcrypt.compare(req.body.password, category.password);
+
     if (!isValid) return res.status(401).json({ message: "Invalid password" });
+
     const jwt = await jwtUtils.generateAuthJwt(category);
+
     const tokenArray = jwt.token.split(" ");
+    console.log("tokenArray");
+    console.log(tokenArray);
+
     const jwtToken = tokenArray[1];
+    console.log("jwtToken");
+    console.log(jwtToken);
+
     const token = await Token.findOneAndUpdate(
       { categoryId: category._id },
       { token: jwtToken },
@@ -78,8 +88,23 @@ const logout = async (req, res) => {
   }
 };
 
+const getUserFromToken = async (req, res) => {
+  try {
+    console.log("hi");
+    const token = req.params.token;
+    console.log("tokennn", token);
+    const user = await Token.findOne({ token: token });
+    console.log(user);
+    if (user) return res.send({ success: true, data: user });
+    else return res.send({ success: false, data: "Invalid Token" });
+  } catch (error) {
+    return res.send({ success: false, message: "Something went wrong." });
+  }
+};
+
 module.exports = {
   catRegister: register,
   login: login,
   logout: logout,
+  getUserFromToken,
 };

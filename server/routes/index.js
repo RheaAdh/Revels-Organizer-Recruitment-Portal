@@ -10,7 +10,12 @@ const {
   organiserValidate,
   organiserValidationRules,
 } = require("../middlewares/validate");
-const { catRegister, login, logout } = require("./admin/auth.js");
+const {
+  catRegister,
+  login,
+  logout,
+  getUserFromToken,
+} = require("./admin/auth.js");
 const { verifyJwtInUser } = require("../utils/jwt.js");
 
 //Client Routes
@@ -25,6 +30,7 @@ router.post(
 router.post("/categories/register", catRegister);
 router.post("/admin/login", login);
 router.post("/admin/logout", logout);
+router.get("/admin/user/:token", getUserFromToken);
 router.get(
   "/admin/registrations/:category",
   verifyJwtInUser,

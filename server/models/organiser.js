@@ -14,6 +14,7 @@ const pref = new mongoose.Schema({
     enum: [0, 1, 2, 3],
   },
 });
+
 const OrganiserSchema = new mongoose.Schema({
   id: {
     type: Number,
