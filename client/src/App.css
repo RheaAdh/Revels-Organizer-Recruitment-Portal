@@ -296,16 +296,21 @@ option {
   padding: 3rem;
 }
 .admin {
-  display: flex;
   margin: 1rem;
   color: white;
-  justify-content: space-around;
 }
-
-.admin .left {
-  margin-left: 3rem;
-  margin-top: 3rem;
+.person {
+  border: solid 1px white;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
 }
 .person .btn {
   margin-right: 2rem;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }

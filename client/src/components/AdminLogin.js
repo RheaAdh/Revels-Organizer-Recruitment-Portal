@@ -9,9 +9,10 @@ const Login = () => {
   };
   return (
     <div className="login-page">
-      <div style={{ color: "white", textAlign: "center", margin: "1rem" }}>
+      <h2>REVELS '22</h2>
+      <h3 style={{ color: "white", textAlign: "center", margin: "1rem" }}>
         ADMIN LOGIN PAGE
-      </div>
+      </h3>
       <form className="login-form">
         <div className="row">
           <div className="user-box login">
@@ -24,7 +25,8 @@ const Login = () => {
             />
             <label>Category ID</label>
           </div>
-          <br />
+        </div>
+        <div className="row">
           <div className="user-box login">
             <input
               type="password"
@@ -38,7 +40,7 @@ const Login = () => {
         </div>
         <center>
           <button className="btn" type="submit" onClick={handleSubmit}>
-            Submit
+            Login
           </button>
         </center>
       </form>

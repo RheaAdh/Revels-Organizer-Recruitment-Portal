@@ -4,123 +4,177 @@ const Admin = () => {
   return (
     <div className="admin">
       {/* render acc to category */}
-      <div className="left">
-        <h2 className="revels">REVELS '22</h2>
+      <center>
         <h3 className="heading">App Dev</h3>
-        <h3>Category ID: 1RDI94P</h3>
         <button className="btn" type="submit">
-          <a href="http://localhost:5000/registrations/APP">
+          <a
+            href="http://localhost:5000/registrations/APP"
+            style={{ textDecoration: "none" }}
+          >
             Download Applicants
           </a>
         </button>
         <form>
-          <label>No.of slots per day</label>
-          <br />
-          <input type="number"></input>
-          <br />
+          <input
+            type="number"
+            placeholder="Slots per day?"
+            style={{
+              padding: "0.5rem",
+              backgroundColor: "black",
+              color: "white",
+              marginRight: "1rem",
+            }}
+          ></input>
           <button className="btn" type="submit">
             Update
           </button>
         </form>
-      </div>
+        <h1>Status of Applicants</h1>
+        {/* <input
+          placeholder="Search Applicant"
+          style={{ padding: "1rem" }}
+        ></input> */}
+      </center>
 
-      <div className="right">
-        <h1>List of Applicants</h1>
+      <div className="card-container">
+        {" "}
         <div className="person">
-          <span style={{ marginRight: "1rem" }}>Rhea</span>
-          <button className="btn">Selected</button>
-          <button className="btn">Rejected</button>
-          <button className="btn">Send Mail</button>
+          <span style={{ marginRight: "1rem" }}>Rhea Adhikari</span>
+          <div className="pref1">
+            <span style={{ marginRight: "1rem" }}>Pref 1</span>
+            <button className="btn">Selected</button>
+            <button className="btn" style={{ backgroundColor: "red" }}>
+              Rejected
+            </button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
+          <div className="pref2">
+            <span style={{ marginRight: "1rem" }}>Pref 2</span>
+            <button className="btn" style={{ backgroundColor: "green" }}>
+              Selected
+            </button>
+            <button className="btn">Rejected</button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
         </div>
         <div className="person">
-          <span style={{ marginRight: "1rem" }}>Ishan</span>
-          <button className="btn">Selected</button>
-          <button className="btn">Rejected</button>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Sent Mail
-          </button>
+          <span style={{ marginRight: "1rem" }}>Rhea Adhikari</span>
+          <div className="pref1">
+            <span style={{ marginRight: "1rem" }}>Pref 1</span>
+            <button className="btn">Selected</button>
+            <button className="btn" style={{ backgroundColor: "red" }}>
+              Rejected
+            </button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
+          <div className="pref2">
+            <span style={{ marginRight: "1rem" }}>Pref 2</span>
+            <button className="btn" style={{ backgroundColor: "green" }}>
+              Selected
+            </button>
+            <button className="btn">Rejected</button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
         </div>
         <div className="person">
-          <span style={{ marginRight: "1rem" }}>Rhea</span>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Selected
-          </button>
-          <button className="btn">Rejected</button>
-          <button className="btn">Send Mail</button>
+          <span style={{ marginRight: "1rem" }}>Rhea Adhikari</span>
+          <div className="pref1">
+            <span style={{ marginRight: "1rem" }}>Pref 1</span>
+            <button className="btn">Selected</button>
+            <button className="btn" style={{ backgroundColor: "red" }}>
+              Rejected
+            </button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
+          <div className="pref2">
+            <span style={{ marginRight: "1rem" }}>Pref 2</span>
+            <button className="btn" style={{ backgroundColor: "green" }}>
+              Selected
+            </button>
+            <button className="btn">Rejected</button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
         </div>
         <div className="person">
-          <span style={{ marginRight: "1rem" }}>Ishan</span>
-          <button className="btn">Selected</button>
-          <button className="btn" style={{ backgroundColor: "red" }}>
-            Rejected
-          </button>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Sent Mail
-          </button>
+          <span style={{ marginRight: "1rem" }}>Rhea Adhikari</span>
+          <div className="pref1">
+            <span style={{ marginRight: "1rem" }}>Pref 1</span>
+            <button className="btn">Selected</button>
+            <button className="btn" style={{ backgroundColor: "red" }}>
+              Rejected
+            </button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
+          <div className="pref2">
+            <span style={{ marginRight: "1rem" }}>Pref 2</span>
+            <button className="btn" style={{ backgroundColor: "green" }}>
+              Selected
+            </button>
+            <button className="btn">Rejected</button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
         </div>
         <div className="person">
-          <span style={{ marginRight: "1rem" }}>Ishan</span>
-          <button className="btn">Selected</button>
-          <button className="btn">Rejected</button>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Sent Mail
-          </button>
+          <span style={{ marginRight: "1rem" }}>Rhea Adhikari</span>
+          <div className="pref1">
+            <span style={{ marginRight: "1rem" }}>Pref 1</span>
+            <button className="btn">Selected</button>
+            <button className="btn" style={{ backgroundColor: "red" }}>
+              Rejected
+            </button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
+          <div className="pref2">
+            <span style={{ marginRight: "1rem" }}>Pref 2</span>
+            <button className="btn" style={{ backgroundColor: "green" }}>
+              Selected
+            </button>
+            <button className="btn">Rejected</button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
         </div>
         <div className="person">
-          <span style={{ marginRight: "1rem" }}>Rhea</span>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Selected
-          </button>
-          <button className="btn">Rejected</button>
-          <button className="btn">Send Mail</button>
-        </div>
-        <div className="person">
-          <span style={{ marginRight: "1rem" }}>Ishan</span>
-          <button className="btn">Selected</button>
-          <button className="btn">Rejected</button>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Sent Mail
-          </button>
-        </div>
-        <div className="person">
-          <span style={{ marginRight: "1rem" }}>Rhea</span>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Selected
-          </button>
-          <button className="btn">Rejected</button>
-          <button className="btn">Send Mail</button>
-        </div>
-        <div className="person">
-          <span style={{ marginRight: "1rem" }}>Ishan</span>
-          <button className="btn">Selected</button>
-          <button className="btn">Rejected</button>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Sent Mail
-          </button>
-        </div>
-        <div className="person">
-          <span style={{ marginRight: "1rem" }}>Rhea</span>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Selected
-          </button>
-          <button className="btn">Rejected</button>
-          <button className="btn">Send Mail</button>
-        </div>
-        <div className="person">
-          <span style={{ marginRight: "1rem" }}>Ishan</span>
-          <button className="btn">Selected</button>
-          <button className="btn">Rejected</button>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Sent Mail
-          </button>
-        </div>
-        <div className="person">
-          <span style={{ marginRight: "1rem" }}>Rhea</span>
-          <button className="btn" style={{ backgroundColor: "green" }}>
-            Selected
-          </button>
-          <button className="btn">Rejected</button>
-          <button className="btn">Send Mail</button>
+          <span style={{ marginRight: "1rem" }}>Rhea Adhikari</span>
+          <div className="pref1">
+            <span style={{ marginRight: "1rem" }}>Pref 1</span>
+            <button className="btn">Selected</button>
+            <button className="btn" style={{ backgroundColor: "red" }}>
+              Rejected
+            </button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
+          <div className="pref2">
+            <span style={{ marginRight: "1rem" }}>Pref 2</span>
+            <button className="btn" style={{ backgroundColor: "green" }}>
+              Selected
+            </button>
+            <button className="btn">Rejected</button>
+            {/* <button className="btn" disabled>
+              Send Mail
+            </button> */}
+          </div>
         </div>
       </div>
     </div>
