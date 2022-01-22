@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { TOKEN_ID } from "../../utils/constants";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import "./Admin.css";
+import StudentDetail from "./StudentDetail";
 
 const Admin = () => {
   const auth = useAuth();
-  const [slotCount, setSlotCount] = React.useState(0);
+  const [slotCount, setSlotCount] = useState(0);
+  const [applicants, setApplicants] = useState([]);
   const downloadApplicants = async () => {
     console.log(auth.category);
     console.log(
@@ -39,10 +41,24 @@ const Admin = () => {
           },
         }
       );
-      console.log(res);
     }
   };
-
+  const getApplicants = async () => {
+    console.log("applicants");
+    const res = await axios.get(
+      `http://localhost:5000/admin/organisers/${auth.category.category}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+        },
+      }
+    );
+    setApplicants(res.data.data);
+    console.log(applicants);
+  };
+  useEffect(() => {
+    getApplicants();
+  }, []);
   return (
     <div className="admin">
       {/* render acc to category */}
@@ -68,61 +84,12 @@ const Admin = () => {
           </button>
         </form>
         <h1>Status of Applicants</h1>
-        {/* <input
-          placeholder="Search Applicant"
-          style={{ padding: "1rem" }}
-        ></input> */}
       </center>
-      <StudentDetail />
-      <StudentDetail />
-      <StudentDetail />
+      {applicants.map((applicant) => (
+        <StudentDetail applicant={applicant} />
+      ))}
     </div>
   );
 };
-function StudentDetail() {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const r = window.confirm("Are you sure");
-    if (!r) {
-      return;
-    }
-    if (r) {
-    }
-  };
-  return (
-    <div className="studentdetails">
-      <div className="studentdetails-col col1">
-        <h4>Rhea Adhikari</h4>
-        <p>rheadhikari@gmail.com</p>
-        <p>9898989898</p>
-        <p>190911116</p>
-      </div>
-      <div className="studentdetails-col">
-        <h4>Pref 1: </h4>
-        <p>Not Reviewed</p>
-        <div className="status-btn">
-          <button className="btn selected">
-            Select <i className="fa fa-check"></i>
-          </button>
-          <button className="btn rejected">
-            Reject <i className="fa fa-close"></i>
-          </button>
-        </div>
-      </div>
-      <div className="studentdetails-col">
-        <h4>Pref 2: </h4>
-        <p>Not Reviewed</p>
-        <div className="status-btn">
-          <button className="btn selected">
-            Select <i className="fa fa-check"></i>
-          </button>
-          <button className="btn rejected">
-            Reject <i className="fa fa-close"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default Admin;
