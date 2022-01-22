@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,12 +35,11 @@ function Form() {
         slot_1,
         slot_2,
       };
-      console.log("here");
       const res = await axios.post("http://localhost:5000/register", data);
-      console.log(res);
       if (res.data.success) {
         toast.success(`${res.data.msg} \n We will contact you soon.`, {
           id: toastId,
+          duration: 5000
         });
         setName("");
         setRegistration_no("");

@@ -31,7 +31,7 @@ router.post(
 router.post("/categories/register", catRegister);
 router.post("/admin/login", login);
 router.post("/admin/logout", logout);
-router.get("/admin/category/:token", getCategoryFromToken);
+router.get("/admin/category/:token", verifyJwtInUser , getCategoryFromToken);
 router.get(
   "/admin/registrations/:category",
   verifyJwtInUser,

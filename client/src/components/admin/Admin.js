@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { TOKEN_ID } from "../../utils/constants";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+
 import "./Admin.css";
 import StudentDetail from "./StudentDetail";
 
@@ -11,7 +11,6 @@ const Admin = () => {
   const [slotCount, setSlotCount] = useState(0);
   const [applicants, setApplicants] = useState([]);
   const downloadApplicants = async () => {
-    console.log(auth.category);
     console.log(
       `http://localhost:5000/admin/registrations/${auth.category.category}`
     );
@@ -20,7 +19,17 @@ const Admin = () => {
       `http://localhost:5000/admin/registrations/${auth.category.category}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
-    console.log(res);
+    // var data = new Blob([res]);
+    // let url = window.URL.createObjectURL(data);
+		// 			let a = document.createElement('a');
+		// 			a.href = url;
+		// 			a.download = 'employees.xlsx';
+		// 			a.click();
+    // console.log(res);
+
+
+    
+  
   };
   const updateSlot = async (e) => {
     e.preventDefault();
@@ -44,28 +53,27 @@ const Admin = () => {
     }
   };
   const getApplicants = async () => {
-    console.log("applicants");
-    const res = await axios.get(
-      `http://localhost:5000/admin/organisers/${auth.category.category}`,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
-        },
-      }
-    );
-    setApplicants(res.data.data);
-    console.log(applicants);
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/organisers/${auth.category.category}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+          },
+        }
+      );
+      setApplicants(res.data.data);
+     
+    } catch (error) {
+      console.log(error.response);
+    }
   };
   useEffect(() => {
     getApplicants();
   }, []);
   return (
-    <div className="admin">
-      {/* render acc to category */}
-      <button className="btn" onClick={auth.logout}>
-        Logout
-      </button>
-      <center>
+    <div className="admin">    
+      
         <h3 className="heading">{auth.category.categoryId}</h3>
         <button className="btn" type="submit" onClick={downloadApplicants}>
           Download Applicants
@@ -74,12 +82,7 @@ const Admin = () => {
           <input
             type="number"
             placeholder="Slots per day?"
-            style={{
-              padding: "0.5rem",
-              backgroundColor: "black",
-              color: "white",
-              marginRight: "1rem",
-            }}
+            className="slot-input"
             onChange={(e) => setSlotCount(e.target.value)}
           ></input>
           <button className="btn" type="submit" onClick={updateSlot}>
@@ -87,10 +90,13 @@ const Admin = () => {
           </button>
         </form>
         <h1>Status of Applicants</h1>
-      </center>
-      {applicants.map((applicant) => (
-        <StudentDetail applicant={applicant} />
+      
+      {applicants.map((applicant,index) => (
+        <StudentDetail applicant={applicant} key={index} adminCategory={auth.category} />
       ))}
+      <button className="btn" onClick={auth.logout}>
+        Logout
+      </button>
     </div>
   );
 };

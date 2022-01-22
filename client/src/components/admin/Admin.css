@@ -5,6 +5,7 @@
 .admin {
   margin: 1rem;
   color: white;
+  text-align: center;
 }
 .person {
   border: solid 1px white;
@@ -40,7 +41,19 @@
 .studentdetails h4 {
   color: white;
 }
-
+.status-btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+.btns {
+  padding: 0.5rem 2rem;
+  margin: 25px 0;
+}
+.btns:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
 .selected {
   background-color: transparent;
   color: green;
@@ -51,10 +64,26 @@
   color: red;
   border: 1px solid red;
 }
-.status-btn {
-  display: flex;
-  justify-content: space-evenly;
+.in {
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  cursor: none;
+  border: none;
+}
+.out {
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  cursor: none;
+  border: none;
 }
 .col1 {
   text-align: left;
+}
+.slot-input {
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  margin-right: 1rem;
 }
