@@ -63,13 +63,13 @@ const login = async (req, res) => {
       { new: true, upsert: true }
     );
 
+    category.token = jwtToken;
+    await category.save();
+
     return res.status(200).json({
       message: "Category Signed in Successfully ",
       success: true,
-      data: {
-        categoryId: Category.categoryId,
-        token: token.token,
-      },
+      data: category,
     });
   } catch (error) {
     return res.status(500).json({ message: error.toString() });
@@ -88,15 +88,37 @@ const logout = async (req, res) => {
   }
 };
 
-const getUserFromToken = async (req, res) => {
+const getCategoryFromToken = async (req, res) => {
   try {
-    console.log("hi");
     const token = req.params.token;
-    console.log("tokennn", token);
-    const user = await Token.findOne({ token: token });
-    console.log(user);
-    if (user) return res.send({ success: true, data: user });
+    const category = await Category.findOne({ token: token }).select(
+      "-password"
+    );
+    if (category) return res.send({ success: true, data: category });
     else return res.send({ success: false, data: "Invalid Token" });
+  } catch (error) {
+    return res.send({ success: false, message: "Something went wrong." });
+  }
+};
+
+const updateSlot = async (req, res) => {
+  console.log("ophla", req.body.slot_count);
+  try {
+    const categoryId = req.params.categoryId;
+    const slot_count = req.body.slot_count;
+
+    const category = await Category.findOne({ categoryId: categoryId }).select(
+      "-password"
+    );
+    if (!category)
+      return res.send({ success: false, message: "Invalid category" });
+    const newslots = [];
+    for (let i = 0; i < 28; i++) {
+      newslots.push(slot_count);
+    }
+    category.slots = newslots;
+    await category.save();
+    return res.send({ success: true, data: category });
   } catch (error) {
     return res.send({ success: false, message: "Something went wrong." });
   }
@@ -106,5 +128,6 @@ module.exports = {
   catRegister: register,
   login: login,
   logout: logout,
-  getUserFromToken,
+  getCategoryFromToken: getCategoryFromToken,
+  updateSlot: updateSlot,
 };

@@ -14,7 +14,8 @@ const {
   catRegister,
   login,
   logout,
-  getUserFromToken,
+  getCategoryFromToken,
+  updateSlot,
 } = require("./admin/auth.js");
 const { verifyJwtInUser } = require("../utils/jwt.js");
 
@@ -30,7 +31,7 @@ router.post(
 router.post("/categories/register", catRegister);
 router.post("/admin/login", login);
 router.post("/admin/logout", logout);
-router.get("/admin/user/:token", getUserFromToken);
+router.get("/admin/category/:token", getCategoryFromToken);
 router.get(
   "/admin/registrations/:category",
   verifyJwtInUser,
@@ -38,5 +39,6 @@ router.get(
 );
 router.get("/admin/organisers/:category", verifyJwtInUser, categoryOrganisers);
 router.patch("/admin/organiser/status", verifyJwtInUser, setOrganiserStatus);
+router.post("/admin/updateslot/:categoryId", verifyJwtInUser, updateSlot);
 
 module.exports = router;

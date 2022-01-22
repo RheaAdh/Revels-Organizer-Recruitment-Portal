@@ -4,13 +4,11 @@ import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 import { TOKEN_ID } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
-import './Admin.css';
-
+import "./Admin.css";
 
 const Login = () => {
   const auth = useAuth();
   const navigate = useNavigate();
- 
 
   const [categoryId, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -30,21 +28,14 @@ const Login = () => {
         categoryId,
         password,
       };
-
-      console.log(data);
       const res = await axios.post("http://localhost:5000/admin/login", data);
-      console.log(res);
-
       if (res.data.success) {
         toast.success(res.data.message, {
           id: toastId,
         });
         localStorage.setItem(TOKEN_ID, res.data.data.token);
-        var str= "/admin/" + categoryId.substring(0,3);
-        console.log('before navigate');
-        console.log(str);
+        var str = "/admin/" + res.data.data.category;
         navigate(str);
-        console.log('After navigate');
         return;
       } else {
         toast.error(res.data.message, {

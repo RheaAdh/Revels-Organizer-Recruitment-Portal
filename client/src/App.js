@@ -10,8 +10,6 @@ import Landing from "./components/Landing";
 import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
-  const auth = useAuth();
-
   return (
     <BrowserRouter>
       <AuthProvider>

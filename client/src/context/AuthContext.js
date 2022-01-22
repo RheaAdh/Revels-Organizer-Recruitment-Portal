@@ -9,34 +9,30 @@ export const useAuth = () => {
 };
 
 export default function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const restoreUser = async () => {
-    console.log("restore user");
-    console.log(user);
+  const restoreCategory = async () => {
     const token = localStorage.getItem(TOKEN_ID);
-    console.log(token);
     if (token) {
       try {
         const token = localStorage.getItem(TOKEN_ID);
         const res = await axios.get(
-          `http://localhost:5000/admin/user/${token}`,
+          `http://localhost:5000/admin/category/${token}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-        console.log("im here");
         console.log(res);
         if (res.data.success) {
-          console.log(res.data.data);
-          setUser(res.data.data);
+          setCategory(res.data.data);
           setLoading(false);
-          console.log("im here setuser");
-          console.log(user);
-        } else console.log("oops");
+        } else {
+          // CHANGE THIS
+          alert("couldnt set category on login");
+        }
       } catch (error) {
         console.log(error);
       }
@@ -45,12 +41,12 @@ export default function AuthProvider({ children }) {
   };
 
   useEffect(() => {
-    restoreUser();
+    restoreCategory();
   }, []);
 
   const logout = async () => {
     try {
-      setUser(null);
+      setCategory(null);
       localStorage.removeItem(TOKEN_ID);
     } catch (err) {
       throw err;
@@ -58,9 +54,8 @@ export default function AuthProvider({ children }) {
   };
 
   const value = {
-    user,
+    category,
     logout,
-    restoreUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

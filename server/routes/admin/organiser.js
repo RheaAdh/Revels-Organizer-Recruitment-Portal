@@ -53,6 +53,7 @@ const categoryOrganiserSheet = async (req, res) => {
       const response = await Organiser.find({
         $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
       });
+      console.log(response);
       if (response) {
         await createSheet(response).then((file) => {
           file.write(category + "_registrations.xlsx", res);
