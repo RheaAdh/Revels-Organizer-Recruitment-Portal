@@ -62,6 +62,9 @@ const Admin = () => {
   return (
     <div className="admin">
       {/* render acc to category */}
+      <button className="btn" onClick={auth.logout}>
+        Logout
+      </button>
       <center>
         <h3 className="heading">{auth.category.categoryId}</h3>
         <button className="btn" type="submit" onClick={downloadApplicants}>
