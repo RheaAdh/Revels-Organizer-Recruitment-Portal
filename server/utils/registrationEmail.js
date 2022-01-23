@@ -1,4 +1,4 @@
-const constructTemplate = (name) => {
+const constructTemplate = (name , status , body) => {
   var message = `<html>
 
   <head>
@@ -91,7 +91,7 @@ const constructTemplate = (name) => {
                                                                                           <td align="center" width="100%">
                                                                                               <h1 style="padding:0;margin:0;color:#ffffff;font-weight:500;font-size:20px;font-family:Helvetica,Arial,sans-serif"
                                                                                                   ;line-height:24px">
-                                                                                                  Registration Successful
+                                                                                                  ${status}
                                                                                               </h1>
                                                                                           </td>
                                                                                       </tr>
@@ -115,13 +115,7 @@ const constructTemplate = (name) => {
                                                                                                   ${name},</h3>
                                                                                               <p
                                                                                                   style="margin: 20px 0 30px 0;font-size: 15px;text-align: center;color: #fff;">
-                                                                                                  You have successfully
-                                                                                                  registered for
-                                                                                                  <strong>REVELS'22
-                                                                                                  </strong> Organiser
-                                                                                                  Call.<br>Our
-                                                                                                  team will get back to
-                                                                                                  you shortly.
+                                                                                                  ${body}
                                                                                               </p>
                                                                                               <div
                                                                                                   style="font-weight: 200; text-align: center; margin: 25px;">

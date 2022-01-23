@@ -9,11 +9,16 @@ function Footer() {
       </div>
 
       <div className="icons">
+        <a href="https://www.instagram.com/revelsmit">
         <i className="fa fa-instagram fa-2x"></i>
+        </a>
+        
+        <a href="https://www.facebook.com/mitrevels">
         <i className="fa fa-facebook fa-2x"></i>
+        </a>
         <i className="fa fa-google fa-2x"></i>
       </div>
-      <p>Made by Web Dev & System Admin, Revels '22</p>
+      <p>Made by System Admin, Revels '22</p>
     </div>
   );
 }

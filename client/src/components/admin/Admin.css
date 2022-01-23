@@ -64,6 +64,11 @@
   color: red;
   border: 1px solid red;
 }
+.email {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
 .in {
   background-color: green;
   color: white;
@@ -86,4 +91,9 @@
   background-color: black;
   color: white;
   margin-right: 1rem;
+}
+
+.download a{
+  color: darkgray;
+  text-decoration: none;
 }

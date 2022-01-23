@@ -123,10 +123,13 @@ const register = async (req, res) => {
         { $set: { slots: category2.slots } }
       );
     }
-    const message = constructTemplate(org.name);
+    const status = "Registration Successful!";
+    const body = "You have successfully registered for REVELS'22 Organiser Call. Our team will get back to you shortly";
+    const message = constructTemplate(org.name,status,body);
+    
     main(
       org.email,
-      "Thank you for registering for Revels'22 Oraniser",
+      "Thank you for registering for Revels'22 Organiser",
       message
     );
     return res.json({ success: true, msg: "Successfully Registered!" });

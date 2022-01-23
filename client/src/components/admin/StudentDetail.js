@@ -7,7 +7,23 @@ import { TOKEN_ID } from "../../utils/constants";
 import toast from "react-hot-toast";
 
 function StudentDetail({ applicant, adminCategory }) {
-  const handleSendEmail = async () => {
+  const handleEmail = () => {
+    confirmAlert({
+      title: `Send Email : ${applicant.name} `,
+      message: `Are you sure?`,
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => sendEmail(),
+        },
+        {
+          label: "No",
+        },
+      ],
+    });
+    
+  };
+  const sendEmail = async()=> {
     const toastId = toast.loading("Sending...");
     const data = {
       organiserId: applicant._id,
@@ -41,7 +57,7 @@ function StudentDetail({ applicant, adminCategory }) {
         id: toastId,
       });
     }
-  };
+  }
   const handleSubmit = (value) => {
     confirmAlert({
       title: `${value} : ${applicant.name} `,
@@ -97,7 +113,6 @@ function StudentDetail({ applicant, adminCategory }) {
   return (
     <div className="studentdetails">
       <div className="studentdetails-col col1">
-        <h3>{applicant._id}</h3>
         <h4>{applicant.name}</h4>
         <p>{applicant.registration_no}</p>
         <p>{applicant.email}</p>
@@ -138,9 +153,11 @@ function StudentDetail({ applicant, adminCategory }) {
         {applicant.pref_1.status === 1 && (
           <div className="status-btn">
             <button className="btns in">Selected</button>
-            <button className="btns selected" onClick={handleSendEmail}>
-              Send Mail <i className="fa fa-check"></i>
-            </button>
+            {applicant.pref_1.category === adminCategory.category && (
+              <button className="btns email" onClick={handleEmail}>
+                Send Mail <i className="fa fa-paper-plane"></i>
+              </button>
+            )}
           </div>
         )}
         {applicant.pref_1.status === 3 && (
@@ -195,22 +212,28 @@ function StudentDetail({ applicant, adminCategory }) {
                         <p>Reviewed</p>
                         <div className="status-btn">
                           <button className="btns in">Selected</button>
-                          <button
-                            className="btns selected"
-                            value="Select"
-                            onClick={handleSendEmail}
-                          >
-                            Send Mail <i className="fa fa-check"></i>
-                          </button>
+                          {applicant.pref_2.category ===
+                            adminCategory.category && (
+                            <button
+                              className="btns email"
+                              value="Select"
+                              onClick={handleEmail}
+                            >
+                              Send Mail <i className="fa fa-paper-plane"></i>
+                            </button>
+                          )}
                         </div>
                       </div>
                     ) : (
                       <>
                         {applicant.pref_2.status === 3 && (
-                          <div className="status-btn">
-                            <button className="btns in">Selected</button>
-                            <button className="btns in">Mail Sent</button>
-                          </div>
+                          <>
+                            <p>Reviewed</p>
+                            <div className="status-btn">
+                              <button className="btns in">Selected</button>
+                              <button className="btns in">Mail Sent</button>
+                            </div>
+                          </>
                         )}
                         {applicant.pref_2.status === 2 && (
                           <>

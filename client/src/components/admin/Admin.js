@@ -55,9 +55,19 @@ const Admin = () => {
   return (
     <div className="admin">
       <h3 className="heading">{auth.category.categoryId}</h3>
-      <button className="btn" type="submit">
-        <a href={downloadLink}>Download</a>
+      <button className="btn download" type="submit">
+        <a href={downloadLink}>Download List <i className="fa fa-download"></i></a>
       </button>
+      
+      <h1>Status of Applicants</h1>
+
+      {applicants.map((applicant, index) => (
+        <StudentDetail
+          applicant={applicant}
+          key={index}
+          adminCategory={auth.category}
+        />
+      ))}
       <form>
         <input
           type="number"
@@ -69,18 +79,10 @@ const Admin = () => {
           Update
         </button>
       </form>
-      <h1>Status of Applicants</h1>
-
-      {applicants.map((applicant, index) => (
-        <StudentDetail
-          applicant={applicant}
-          key={index}
-          adminCategory={auth.category}
-        />
-      ))}
       <button className="btn" onClick={auth.logout}>
         Logout
       </button>
+      
     </div>
   );
 };

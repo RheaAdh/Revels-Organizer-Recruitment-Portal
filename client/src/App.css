@@ -27,7 +27,7 @@
   font-size: 60px;
   font-weight: 400;
   text-transform: uppercase;
-  background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);
+  background: linear-gradient(to right, #b721ff 0%, red);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;

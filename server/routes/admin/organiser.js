@@ -134,8 +134,11 @@ const confirmApplicant = async (req, res) => {
     }
     await org.save();
     console.log(org);
-    const message = `Congrats on getting selected as organizer for ${cat}.`;
-    main(org.email, "Revels'22", message);
+
+    const status = "Congratulations!";
+    const body = `You have been selected as an organiser for ${cat} Category - REVELS '22. You will be added to groups shortly`
+    const message = constructTemplate(org.name , status , body);
+    main(org.email, "Selected as Organizer - REVELS '22", message);
     return res.json({
       success: true,
       msg: "Successfully Confirmed Applicant!",

@@ -39,12 +39,12 @@ function Landing() {
             setTab(0);
           }}
           style={{
-            backgroundColor: tab === 0 ? "white" : "",
+            backgroundColor: tab === 0 ? "transparent" : "transparent",
           }}
         >
           <span
             style={{
-              color: tab === 0 ? "black" : "grey",
+              color: tab === 0 ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.5)",
               fontWeight: tab === 0 ? "bold" : "",
             }}
           >
@@ -55,12 +55,12 @@ function Landing() {
           className="tab"
           onClick={() => setTab(1)}
           style={{
-            backgroundColor: tab === 1 ? "white" : "",
+            backgroundColor: tab === 1 ? "transparent" : "transparent",
           }}
         >
           <span
             style={{
-              color: tab === 1 ? "black" : "grey",
+              color: tab === 1 ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.5)",
               fontWeight: tab === 1 ? "bold" : "",
             }}
           >
