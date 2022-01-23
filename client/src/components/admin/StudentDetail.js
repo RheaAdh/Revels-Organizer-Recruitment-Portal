@@ -7,6 +7,41 @@ import { TOKEN_ID } from "../../utils/constants";
 import toast from "react-hot-toast";
 
 function StudentDetail({ applicant, adminCategory }) {
+  const handleSendEmail = async () => {
+    const toastId = toast.loading("Sending...");
+    const data = {
+      organiserId: applicant._id,
+    };
+    try {
+      const res = await axios.post(
+        `http://localhost:5000/admin/confirmuser`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+          },
+        }
+      );
+      if (!res.data.success) {
+        toast.error(res.data.message, {
+          id: toastId,
+        });
+        return;
+      }
+      if (res.data.success) {
+        toast.success("Email Sent", {
+          id: toastId,
+        });
+        window.location.reload();
+        return;
+      }
+    } catch (error) {
+      console.log(error.response);
+      toast.error("Something went wrong", {
+        id: toastId,
+      });
+    }
+  };
   const handleSubmit = (value) => {
     confirmAlert({
       title: `${value} : ${applicant.name} `,
@@ -52,7 +87,6 @@ function StudentDetail({ applicant, adminCategory }) {
         window.location.reload();
         return;
       }
-      
     } catch (error) {
       console.log(error.response);
       toast.error("Something went wrong", {
@@ -63,6 +97,7 @@ function StudentDetail({ applicant, adminCategory }) {
   return (
     <div className="studentdetails">
       <div className="studentdetails-col col1">
+        <h3>{applicant._id}</h3>
         <h4>{applicant.name}</h4>
         <p>{applicant.registration_no}</p>
         <p>{applicant.email}</p>
@@ -103,6 +138,15 @@ function StudentDetail({ applicant, adminCategory }) {
         {applicant.pref_1.status === 1 && (
           <div className="status-btn">
             <button className="btns in">Selected</button>
+            <button className="btns selected" onClick={handleSendEmail}>
+              Send Mail <i className="fa fa-check"></i>
+            </button>
+          </div>
+        )}
+        {applicant.pref_1.status === 3 && (
+          <div className="status-btn">
+            <button className="btns in">Selected</button>
+            <button className="btns in">Mail Sent</button>
           </div>
         )}
         {applicant.pref_1.status === 2 && (
@@ -125,34 +169,49 @@ function StudentDetail({ applicant, adminCategory }) {
                 applicant.pref_2.status === 0 ? (
                   <>
                     <p>Not Reviewed</p>
-                    {applicant.pref_2.category === adminCategory.category && <div className="status-btn">
-                      <button
-                        className="btns selected"
-                        value="Select"
-                        onClick={(e) => handleSubmit(e.target.value)}
-                      >
-                        Select <i className="fa fa-check"></i>
-                      </button>
-                      <button
-                        className="btns rejected"
-                        value="Reject"
-                        onClick={(e) => handleSubmit(e.target.value)}
-                      >
-                        Reject <i className="fa fa-close"></i>
-                      </button>
-                    </div>}
+                    {applicant.pref_2.category === adminCategory.category && (
+                      <div className="status-btn">
+                        <button
+                          className="btns selected"
+                          value="Select"
+                          onClick={(e) => handleSubmit(e.target.value)}
+                        >
+                          Select <i className="fa fa-check"></i>
+                        </button>
+                        <button
+                          className="btns rejected"
+                          value="Reject"
+                          onClick={(e) => handleSubmit(e.target.value)}
+                        >
+                          Reject <i className="fa fa-close"></i>
+                        </button>
+                      </div>
+                    )}
                   </>
                 ) : (
                   <>
                     {applicant.pref_2.status === 1 ? (
-                      <>
+                      <div>
                         <p>Reviewed</p>
                         <div className="status-btn">
                           <button className="btns in">Selected</button>
+                          <button
+                            className="btns selected"
+                            value="Select"
+                            onClick={handleSendEmail}
+                          >
+                            Send Mail <i className="fa fa-check"></i>
+                          </button>
                         </div>
-                      </>
+                      </div>
                     ) : (
                       <>
+                        {applicant.pref_2.status === 3 && (
+                          <div className="status-btn">
+                            <button className="btns in">Selected</button>
+                            <button className="btns in">Mail Sent</button>
+                          </div>
+                        )}
                         {applicant.pref_2.status === 2 && (
                           <>
                             <p>Reviewed</p>

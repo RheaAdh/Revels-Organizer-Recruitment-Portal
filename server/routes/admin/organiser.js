@@ -126,16 +126,14 @@ const confirmApplicant = async (req, res) => {
     const org = await Organiser.findById(organiserId);
     var cat = "";
     if (org.pref_1.status == 1) {
-      console.log("here");
       cat = org.pref_1.category;
-      console.log(cat);
+      org.pref_1.status = 3;
     } else if (org.pref_2.status == 1) {
-      console.log("here2");
       cat = org.pref_2.category;
-    } else {
-      console.log("oh no");
+      org.pref_2.status = 3;
     }
-    console.log(cat);
+    await org.save();
+    console.log(org);
     const message = `Congrats on getting selected as organizer for ${cat}.`;
     main(org.email, "Revels'22", message);
     return res.json({
