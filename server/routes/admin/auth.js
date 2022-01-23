@@ -22,7 +22,6 @@ const register = async (req, res) => {
         token: null,
       });
       await newCategory.save();
-      console.log("Registered " + newCategory);
     });
     return res.status(200).json({
       message: {
@@ -50,12 +49,8 @@ const login = async (req, res) => {
     const jwt = await jwtUtils.generateAuthJwt(category);
 
     const tokenArray = jwt.token.split(" ");
-    console.log("tokenArray");
-    console.log(tokenArray);
 
     const jwtToken = tokenArray[1];
-    console.log("jwtToken");
-    console.log(jwtToken);
 
     const token = await Token.findOneAndUpdate(
       { categoryId: category._id },
@@ -102,7 +97,6 @@ const getCategoryFromToken = async (req, res) => {
 };
 
 const updateSlot = async (req, res) => {
-  console.log("ophla", req.body.slot_count);
   try {
     const categoryId = req.params.categoryId;
     const slot_count = req.body.slot_count;

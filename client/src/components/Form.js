@@ -22,6 +22,12 @@ function Form() {
       });
       return;
     }
+    if (pref_1 == pref_2) {
+      toast.error("Preferences cannot be same", {
+        id: toastId,
+      });
+      return;
+    }
     try {
       const data = {
         name,
@@ -39,7 +45,7 @@ function Form() {
       if (res.data.success) {
         toast.success(`${res.data.msg} \n We will contact you soon.`, {
           id: toastId,
-          duration: 5000
+          duration: 5000,
         });
         setName("");
         setRegistration_no("");

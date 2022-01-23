@@ -1,5 +1,7 @@
 const { Organiser } = require("../../models/organiser");
 const xl = require("excel4node");
+const main = require("../../utils/confirmationEmail");
+const constructTemplate = require("../../utils/registrationEmail");
 
 const createSheet = async (response) => {
   return new Promise(async (resolve) => {
@@ -53,7 +55,6 @@ const categoryOrganiserSheet = async (req, res) => {
     const response = await Organiser.find({
       $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
     });
-    console.log(response);
     if (response) {
       await createSheet(response).then((file) => {
         file.write(category + "_registrations.xlsx", res);
@@ -118,7 +119,35 @@ const setOrganiserStatus = async (req, res) => {
   }
 };
 
+const confirmApplicant = async (req, res) => {
+  try {
+    const { organiserId } = req.body;
+    console.log(organiserId);
+    const org = await Organiser.findById(organiserId);
+    var cat = "";
+    if (org.pref_1.status == 1) {
+      console.log("here");
+      cat = org.pref_1.category;
+      console.log(cat);
+    } else if (org.pref_2.status == 1) {
+      console.log("here2");
+      cat = org.pref_2.category;
+    } else {
+      console.log("oh no");
+    }
+    console.log(cat);
+    const message = `Congrats on getting selected as organizer for ${cat}.`;
+    main(org.email, "Revels'22", message);
+    return res.json({
+      success: true,
+      msg: "Successfully Confirmed Applicant!",
+    });
+  } catch (error) {
+    return res.json({ success: false, message: "Please Try Again" });
+  }
+};
 module.exports = {
+  confirmApplicant,
   createSheet,
   categoryOrganiserSheet,
   categoryOrganisers,

@@ -3,6 +3,7 @@ const {
   categoryOrganisers,
   categoryOrganiserSheet,
   setOrganiserStatus,
+  confirmApplicant,
 } = require("./admin/organiser.js");
 const router = express.Router();
 const { register } = require("./reg.js");
@@ -36,5 +37,6 @@ router.get("/admin/registrations/:category", categoryOrganiserSheet);
 router.get("/admin/organisers/:category", verifyJwtInUser, categoryOrganisers);
 router.patch("/admin/organiser/status", verifyJwtInUser, setOrganiserStatus);
 router.post("/admin/updateslot/:categoryId", verifyJwtInUser, updateSlot);
+router.post("/admin/confirmuser", verifyJwtInUser, confirmApplicant);
 
 module.exports = router;

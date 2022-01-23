@@ -40,9 +40,6 @@ const register = async (req, res) => {
     const slot1 = getDays(new Date(slot_1));
     const slot2 = getDays(new Date(slot_2));
 
-    console.log(slot1);
-    console.log(slot2);
-
     let category1 = null,
       category2 = null;
 
@@ -134,7 +131,6 @@ const register = async (req, res) => {
     );
     return res.json({ success: true, msg: "Successfully Registered!" });
   } catch (error) {
-    console.log(error);
     return res
       .status(500)
       .json({ message: "Registeration failed. Please Try Again !!" });
@@ -161,8 +157,6 @@ const addData = async (req, res) => {
   await category2.save();
 
   const cat = await Category.find({});
-  console.log(cat);
-
   return res.send({ success: true, msg: "hello there" });
 };
 
