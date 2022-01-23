@@ -49,17 +49,17 @@ const createSheet = async (response) => {
 const categoryOrganiserSheet = async (req, res) => {
   try {
     const { category } = req.params;
-    if (category == req.category.category) {
-      const response = await Organiser.find({
-        $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
+    // if (category == req.category.category) {
+    const response = await Organiser.find({
+      $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
+    });
+    console.log(response);
+    if (response) {
+      await createSheet(response).then((file) => {
+        file.write(category + "_registrations.xlsx", res);
       });
-      console.log(response);
-      if (response) {
-        await createSheet(response).then((file) => {
-          file.write(category + "_registrations.xlsx", res);
-        });
-      }
-    } else return res.json({ success: false, message: "Please Try Again" });
+    }
+    // } else return res.json({ success: false, message: "Please Try Again" });
   } catch (error) {
     return res.json({ success: false, message: "Please Try Again" });
   }

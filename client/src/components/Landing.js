@@ -11,25 +11,80 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 function Landing() {
+  const [tab, setTab] = useState(0);
+  // Supporting
   const [categories, setCategories] = useState([
-    { id: 1, title: "item #1" },
+    { id: 1, title: "APP" },
+    { id: 2, title: "SYS" },
+    { id: 3, title: "item #3" },
+    { id: 4, title: "item #4" },
+    { id: 5, title: "item #5" },
+  ]);
+  // Cultural
+  const [categories2, setCategories2] = useState([
+    { id: 1, title: "PV" },
     { id: 2, title: "item #2" },
     { id: 3, title: "item #3" },
     { id: 4, title: "item #4" },
     { id: 5, title: "item #5" },
   ]);
-
   return (
     <div className="App">
       <h2 className="revels">REVELS '22</h2>
       <h3 className="heading">Organizer Portal</h3>
-      <div className="glider">
-        <Carousel breakPoints={breakPoints}>
-          {categories.map((item) => {
-            return <Card key={item.id} />;
-          })}
-        </Carousel>
+      <div className="tab-container">
+        <button
+          className="tab"
+          onClick={() => {
+            setTab(0);
+          }}
+          style={{
+            backgroundColor: tab === 0 ? "white" : "",
+          }}
+        >
+          <span
+            style={{
+              color: tab === 0 ? "black" : "grey",
+              fontWeight: tab === 0 ? "bold" : "",
+            }}
+          >
+            SUPPORTING CATEGORIES
+          </span>
+        </button>
+        <button
+          className="tab"
+          onClick={() => setTab(1)}
+          style={{
+            backgroundColor: tab === 1 ? "white" : "",
+          }}
+        >
+          <span
+            style={{
+              color: tab === 1 ? "black" : "grey",
+              fontWeight: tab === 1 ? "bold" : "",
+            }}
+          >
+            CULTURAL CATEGORIES
+          </span>
+        </button>
       </div>
+      {tab === 0 ? (
+        <div className="glider">
+          <Carousel breakPoints={breakPoints}>
+            {categories.map((item) => {
+              return <Card key={item.id} item={item} />;
+            })}
+          </Carousel>
+        </div>
+      ) : (
+        <div className="glider">
+          <Carousel breakPoints={breakPoints}>
+            {categories2.map((item) => {
+              return <Card key={item.id} item={item} />;
+            })}
+          </Carousel>
+        </div>
+      )}
 
       <h3 className="heading">Blacklist Rules</h3>
       <div className="blacklist-text">

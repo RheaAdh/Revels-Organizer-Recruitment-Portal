@@ -290,9 +290,20 @@ select {
 option {
   background-color: black;
 }
-.loading{
+.loading {
   text-align: center;
   color: white;
-
 }
 
+.tab-container {
+  margin: 1rem;
+}
+.tab-container .tab {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
