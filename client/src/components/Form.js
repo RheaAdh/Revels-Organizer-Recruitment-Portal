@@ -8,8 +8,8 @@ function Form() {
     if (
       pref_1 === "--" ||
       pref_2 === "--" ||
-      slot_1 === "" ||
-      slot_2 === "" ||
+      // slot_1 === "" ||
+      // slot_2 === "" ||
       name === "" ||
       email === "" ||
       registration_no === "" ||
@@ -188,20 +188,6 @@ function Form() {
           </select>
         </div>
         <div className="user-box">
-          <label>Availability</label>
-          <input
-            type="date"
-            onChange={(e) => setSlot_1(e.target.value)}
-            className="slots-in"
-            value={slot_1}
-            min="2022-01-29"
-            max="2022-02-25"
-          ></input>
-        </div>
-      </div>
-
-      <div className="row slots">
-        <div className="user-box">
           <label>Preference 2</label>
           <select
             id="pref2"
@@ -222,7 +208,42 @@ function Form() {
             <option value="SYS">System admin and Web</option>
           </select>
         </div>
-        <div className="user-box">
+        {/* <div className="user-box">
+          <label>Availability</label>
+          <input
+            type="date"
+            onChange={(e) => setSlot_1(e.target.value)}
+            className="slots-in"
+            value={slot_1}
+            min="2022-01-29"
+            max="2022-02-25"
+          ></input>
+        </div> */}
+      </div>
+
+      <div className="row slots">
+        {/* <div className="user-box">
+          <label>Preference 2</label>
+          <select
+            id="pref2"
+            name="pref2"
+            value={pref_2}
+            onChange={(e) => setPref_2(e.target.value)}
+          >
+            <option value="default">--</option>
+            <option value="PROSHOW">Proshow</option>
+            <option value="social media">Social Media</option>
+            <option value="graphics">Graphics</option>
+            <option value="sponsorship"> Sponsorship</option>
+            <option value="pnp">Publicity and Printing</option>
+            <option value="logistics">Logistics</option>
+            <option value="OP">Operations</option>
+            <option value="om">Outstation management</option>
+            <option value="APP"> App Development</option>
+            <option value="SYS">System admin and Web</option>
+          </select>
+        </div> */}
+        {/* <div className="user-box">
           <div>
             <label>Availability</label>
             <input
@@ -234,7 +255,7 @@ function Form() {
               max="2022-02-25"
             ></input>
           </div>
-        </div>
+        </div> */}
       </div>
       <button className="btn" type="submit" onClick={handleSubmit}>
         Submit

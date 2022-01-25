@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -12,43 +12,41 @@ const Login = () => {
   const [password, setPassword] = useState("");
   useEffect(() => {
     if (!auth.loading) {
-      if(auth.category){
+      if (auth.category) {
         navigate(`/admin/${auth.category.category}`);
       }
     }
-   
-  },[auth.loading]);
+  }, [auth.loading]);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const toastId = toast.loading("Loading...",{position: 'bottom-center'});
-    
+    const toastId = toast.loading("Loading...", { position: "bottom-center" });
+
     if (categoryId === "" || password === "") {
       toast.error("All fields are required*", {
-        position: 'bottom-center',
+        position: "bottom-center",
         id: toastId,
       });
       return;
     }
 
     try {
-     const res = await auth.login(categoryId,password);
-     if(res.success){
-       toast.success(res.message , {position: 'bottom-center',id : toastId});
-       //console.log(res.data.category);
-       //navigate(`/admin/sdd`);
-     }
-     else{
-      toast.error(res.message , {position: 'bottom-center',id : toastId});
-     }
+      const res = await auth.login(categoryId, password);
+      if (res.success) {
+        toast.success(res.message, { position: "bottom-center", id: toastId });
+        //console.log(res.data.category);
+        //navigate(`/admin/sdd`);
+      } else {
+        toast.error(res.message, { position: "bottom-center", id: toastId });
+      }
     } catch (error) {
       toast.error(error.response.data.message, {
-        position: 'bottom-center',
+        position: "bottom-center",
         id: toastId,
       });
     }
   };
-  if(auth.loading){
-    return <Loading />
+  if (auth.loading) {
+    return <Loading />;
   }
   return (
     <div className="login-page">

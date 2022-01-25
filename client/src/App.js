@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider, { useAuth } from "./context/AuthContext";
 import Landing from "./components/Landing";
 import PrivateRoute from "./components/PrivateRoute";
+import SuperAdmin from "./components/admin/SuperAdmin";
 
 const App = () => {
   return (
@@ -22,6 +23,15 @@ const App = () => {
             element={
               <PrivateRoute>
                 <Admin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            exact
+            path="/admin/SUPERADMIN"
+            element={
+              <PrivateRoute>
+                <SuperAdmin />
               </PrivateRoute>
             }
           />

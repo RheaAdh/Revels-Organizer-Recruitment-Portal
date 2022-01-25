@@ -56,9 +56,13 @@ const Admin = () => {
     <div className="admin">
       <h3 className="heading">{auth.category.categoryId}</h3>
       <button className="btn download" type="submit">
-        <a href={downloadLink}>Download List <i className="fa fa-download"></i></a>
+        <a href={downloadLink}>
+          Download List <i className="fa fa-download"></i>
+        </a>
       </button>
-      
+      <button className="btn" onClick={auth.logout}>
+        Logout
+      </button>
       <h1>Status of Applicants</h1>
 
       {applicants.map((applicant, index) => (
@@ -68,7 +72,7 @@ const Admin = () => {
           adminCategory={auth.category}
         />
       ))}
-      <form>
+      {/* <form>
         <input
           type="number"
           placeholder="Slots per day?"
@@ -78,11 +82,7 @@ const Admin = () => {
         <button className="btn" type="submit" onClick={updateSlot}>
           Update
         </button>
-      </form>
-      <button className="btn" onClick={auth.logout}>
-        Logout
-      </button>
-      
+      </form> */}
     </div>
   );
 };

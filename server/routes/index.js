@@ -18,6 +18,11 @@ const {
   getCategoryFromToken,
   updateSlot,
 } = require("./admin/auth.js");
+const {
+  getCategories,
+  getOrganisers,
+  AllOrganiserSheet,
+} = require("./admin/superadmin.js");
 const { verifyJwtInUser } = require("../utils/jwt.js");
 
 //Client Routes
@@ -38,5 +43,10 @@ router.get("/admin/organisers/:category", verifyJwtInUser, categoryOrganisers);
 router.patch("/admin/organiser/status", verifyJwtInUser, setOrganiserStatus);
 router.post("/admin/updateslot/:categoryId", verifyJwtInUser, updateSlot);
 router.post("/admin/confirmuser", verifyJwtInUser, confirmApplicant);
+
+// SUPERADMIN ROUTES
+router.get("/superadmin/categories", verifyJwtInUser, getCategories);
+router.get("/superadmin/org", verifyJwtInUser, getOrganisers);
+router.get("/superadmin/sheet", AllOrganiserSheet);
 
 module.exports = router;

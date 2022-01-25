@@ -4,7 +4,7 @@ const jwtUtils = require("../../utils/jwt");
 
 const register = async (req, res) => {
   try {
-    const categories = ["SYS", "APP", "OP", "HPS"];
+    const categories = ["SYS", "APP", "OP", "HPS", "SUPERADMIN"];
     categories.forEach(async (cat) => {
       const slots = [];
       for (let i = 0; i < 28; i++) {
