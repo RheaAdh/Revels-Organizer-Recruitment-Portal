@@ -3,12 +3,14 @@ const supporting = [
     title: "Workshops",
     description:
       "What's a show without a trailer? Get a chance to organize and manage different workshops for the students, to showcase the ritual of Pre-Revels. It'll be your responsibility to ensure the feasibility to conduct the workshops as and when being approached by other categories.",
+    video: "https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1&showinfo=0&iv_load_policy=3&controls=0&modestbranding" 
   },
   {
     // Infodesk and Finance
     title: "Infodesk and Finance",
     description:
       "What if a student is having trouble understanding the categories or can't figure out how Revels will go about? The answer here is you. You will be the helping hand to guide the students ensuring they don't miss out on anything during Revels. While there's no parliament, but Revels is no less important hence, you'll be accountable for the budget discussions for the organization of each category of events.",
+    video: "https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1&showinfo=0&iv_load_policy=3&controls=0&modestbranding"
   },
   {
     // App Dev
