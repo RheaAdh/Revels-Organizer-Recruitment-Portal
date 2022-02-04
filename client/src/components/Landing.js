@@ -4,6 +4,7 @@ import { useState } from "react";
 import Card from "./Card";
 import Form from "./Form";
 import supportingCategories from "./supporting";
+import Categories from "./Categories";
 const breakPoints = [
   { width: 1, itemsToShow: 3 },
   { width: 550, itemsToShow: 1, itemsToScroll: 1 },
@@ -65,20 +66,11 @@ function Landing() {
         </button>
       </div>
       {tab === 0 ? (
+        <Categories categories={supportingCategories}/>
+      ) 
+      : (
         <div className="glider">
-          <Carousel breakPoints={breakPoints}>
-            {categories.map((item) => {
-              return <Card key={item.id} item={item} />;
-            })}
-          </Carousel>
-        </div>
-      ) : (
-        <div className="glider">
-          <Carousel breakPoints={breakPoints}>
-            {categories2.map((item) => {
-              return <Card key={item.id} item={item} />;
-            })}
-          </Carousel>
+          <Categories categories={categories2}/>
         </div>
       )}
 
