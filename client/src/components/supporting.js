@@ -102,4 +102,23 @@ const supporting = [
       "If dealing with numbers and shaking hands on a deal is your skill, then you have come to the right place. Building business relationships and bringing in funds from suitable companies to make Revels bigger and better is your agenda. It will be your job to make a portfolio describing various slabs of sponsorships for our potential sponsors and making sure the MOUs are in sync with the work being done, thus keeping both sides happy.",
   },
 ];
-export default supporting;
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+export default shuffle(supporting);

@@ -2,14 +2,15 @@ const { Organiser } = require("../../models/organiser");
 const { Category } = require("../../models/category");
 
 const createSheet = require("../../utils/createSheet");
+const category = require("../../models/category");
 
 const AllOrganiserSheet = async (req, res) => {
   try {
-    const response = await Organiser.find();
+    const response = await Organiser.find().sort({ name: 1 });
 
     if (response) {
       await createSheet(response).then((file) => {
-        file.write("All registrations.xlsx", res);
+        file.write("organisers.xlsx", res);
       });
     }
     // } else return res.json({ success: false, message: "Please Try Again" });
@@ -20,10 +21,25 @@ const AllOrganiserSheet = async (req, res) => {
 
 const getCategories = async (req, res) => {
   try {
+    // var l = [];
     if (req.category.category == "SUPERADMIN") {
       const categories = await Category.find({});
-      let catstats = {};
-      return res.send({ success: true, data: categories, catstats });
+      // await categories.forEach(async (cat) => {
+      //   console.log(cat.category);
+      //   const x = await Organiser.count({
+      //     $or: [
+      //       { "pref_1.category": cat.category },
+      //       { "pref_2.category": cat.category },
+      //     ],
+      //   });
+      //   console.log(x);
+      //   var c = {
+      //     ...cat._doc,
+      //     total_applicants: x,
+      //   };
+      //   l.push(c);
+      // });
+      return res.send({ success: true, data: categories });
     } else {
       return res.send({ success: false, message: "You are not authorized" });
     }
@@ -34,7 +50,7 @@ const getCategories = async (req, res) => {
 const getOrganisers = async (req, res) => {
   try {
     if (req.category.category == "SUPERADMIN") {
-      const organisers = await Organiser.find({});
+      const organisers = await Organiser.find({}).sort({ name: 1 });
       let total_applicants = 0;
       let total_selected = 0;
       let total_rejected = 0;
@@ -45,13 +61,13 @@ const getOrganisers = async (req, res) => {
         total_applicants++;
         if (
           organisers[i].pref_1.status == "2" &&
-          organisers[i].pref_1.status == "2"
+          organisers[i].pref_2.status == "2"
         ) {
           total_rejected++;
         }
         if (
-          organisers[i].pref_2.status == "1" ||
-          organisers[i].pref_1.status == "1"
+          organisers[i].pref_1.status == "1" ||
+          organisers[i].pref_2.status == "1"
         ) {
           total_selected++;
         }

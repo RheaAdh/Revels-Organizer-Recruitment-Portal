@@ -10,7 +10,7 @@ const categoryOrganiserSheet = async (req, res) => {
     // if (category == req.category.category) {
     const response = await Organiser.find({
       $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
-    });
+    }).sort({ name: 1 });
     if (response) {
       await createSheet(response).then((file) => {
         file.write(category + "_registrations.xlsx", res);
@@ -28,7 +28,7 @@ const categoryOrganisers = async (req, res) => {
     if (category == req.category.category) {
       const response = await Organiser.find({
         $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
-      });
+      }).sort({ name: 1 });
       return res.json({ success: true, data: response });
     }
     throw new Error();
