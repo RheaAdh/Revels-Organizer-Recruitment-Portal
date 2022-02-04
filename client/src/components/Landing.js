@@ -27,6 +27,7 @@ function Landing() {
     <div className="App">
       <h2 className="revels">REVELS '22</h2>
       <h3 className="heading">Organizer Portal</h3>
+
       <div className="tab-container">
         <button
           className="tab"
@@ -34,6 +35,8 @@ function Landing() {
             setTab(0);
           }}
           style={{
+            transform: tab === 0 ? "scale(1.05)" : "scale(1)",
+            border: tab === 0 ? "2px solid #fff" : "1px solid #fff",
             backgroundColor: tab === 0 ? "transparent" : "transparent",
           }}
         >
@@ -51,6 +54,8 @@ function Landing() {
           className="tab"
           onClick={() => setTab(1)}
           style={{
+            transform: tab === 1 ? "scale(1.05)" : "scale(1)",
+            border: tab === 1 ? "2px solid #fff" : "1px solid #fff",
             backgroundColor: tab === 1 ? "transparent" : "transparent",
           }}
         >
@@ -66,14 +71,12 @@ function Landing() {
         </button>
       </div>
       {tab === 0 ? (
-        <Categories categories={supportingCategories}/>
-      ) 
-      : (
+        <Categories categories={supportingCategories} />
+      ) : (
         <div className="glider">
-          <Categories categories={categories2}/>
+          <Categories categories={categories2} />
         </div>
       )}
-
       <h3 className="heading">Blacklist Rules</h3>
       <div className="blacklist-text">
         <p>

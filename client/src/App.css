@@ -2,6 +2,12 @@
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 .App {
   text-align: center;
@@ -43,7 +49,7 @@
 }
 .cat-card {
   background-image: linear-gradient(to right, #a123db 0%, rgb(196, 58, 58));
-  opacity: 50%;
+  opacity: 45%;
   padding: 0 1rem;
   height: 100px;
   min-width: 200px;
@@ -60,10 +66,20 @@
 .cat-card p {
   font-size: 1.3rem;
 }
+.cat-card:hover {
+  transform: scale(1.04);
+}
 .active {
   background-image: linear-gradient(to right, #9925cf 0%, rgb(196, 56, 56));
   color: white;
   opacity: 100%;
+  font-weight: bold;
+  margin: 0 15px;
+  transform: scale(1.1);
+}
+.active:hover {
+  margin: 0 15px;
+  transform: scale(1.1);
 }
 .category-info {
   width: 100%;
@@ -89,7 +105,7 @@
   width: 50%;
   padding: 1.5rem;
 }
-.desc p{
+.desc p {
   font-size: 1.15rem;
   color: #a1a5a1;
 }
@@ -124,7 +140,7 @@
 }
 .heading {
   font-size: 60px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   background: linear-gradient(to right, #b721ff 0%, red);
   -webkit-text-fill-color: transparent;
@@ -404,7 +420,7 @@ option {
   border: 1px solid #fff;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 }
 .category-tooltip {
   display: flex;
