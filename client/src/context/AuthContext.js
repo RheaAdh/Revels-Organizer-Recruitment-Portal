@@ -17,20 +17,17 @@ export default function AuthProvider({ children }) {
     if (token) {
       try {
         const token = localStorage.getItem(TOKEN_ID);
-        const res = await axios.get(
-          `http://localhost:5000/admin/category/${token}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const res = await axios.get(`/admin/category/${token}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         if (res.data.success) {
           console.log("from 30");
 
           setCategory(res.data.data);
           setLoading(false);
-          navigate(`/admin/${res.data.data.category}`)
+          navigate(`/admin/${res.data.data.category}`);
         }
         // } else {
         //   // CHANGE THIS
@@ -42,28 +39,25 @@ export default function AuthProvider({ children }) {
       }
     }
     setLoading(false);
-    
   };
 
   useEffect(() => {
     restoreCategory();
   }, []);
-   
+
   const login = async (categoryId, password) => {
     try {
-      const res = await axios.post('http://localhost:5000/admin/login', {
+      const res = await axios.post("/admin/login", {
         categoryId,
         password,
       });
-      if(!res.data.success) return res.data;
-      
+      if (!res.data.success) return res.data;
+
       localStorage.setItem(TOKEN_ID, res.data.data.token);
       restoreCategory();
       return res.data;
-      
-      
     } catch (err) {
-        throw err;
+      throw err;
     }
   };
 

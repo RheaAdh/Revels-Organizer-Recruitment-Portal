@@ -11,7 +11,7 @@ const Admin = () => {
   const [slotCount, setSlotCount] = useState(0);
   const [applicants, setApplicants] = useState([]);
   const [downloadLink, setDownloadLink] = useState(
-    `http://localhost:5000/admin/registrations/${auth.category.category}`
+    `/admin/registrations/${auth.category.category}`
   );
   const updateSlot = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const Admin = () => {
         slot_count: slotCount,
       };
       const res = await axios.post(
-        `http://localhost:5000/admin/updateslot/${auth.category.categoryId}`,
+        `/admin/updateslot/${auth.category.categoryId}`,
         data,
         {
           headers: {
@@ -37,7 +37,7 @@ const Admin = () => {
   const getApplicants = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/organisers/${auth.category.category}`,
+        `/admin/organisers/${auth.category.category}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,

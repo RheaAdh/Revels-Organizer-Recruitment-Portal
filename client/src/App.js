@@ -9,8 +9,9 @@ import AuthProvider, { useAuth } from "./context/AuthContext";
 import Landing from "./components/Landing";
 import PrivateRoute from "./components/PrivateRoute";
 import SuperAdmin from "./components/admin/SuperAdmin";
-
+import axios from "axios";
 const App = () => {
+  axios.defaults.baseURL = "http://64.227.184.83/api";
   return (
     <BrowserRouter>
       <AuthProvider>

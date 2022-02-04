@@ -41,7 +41,7 @@ function Form() {
         slot_1,
         slot_2,
       };
-      const res = await axios.post("http://localhost:5000/register", data);
+      const res = await axios.post("/register", data);
       if (res.data.success) {
         toast.success(`${res.data.msg} \n We will contact you soon.`, {
           id: toastId,

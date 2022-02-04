@@ -10,14 +10,12 @@ const SuperAdmin = () => {
   const auth = useAuth();
   const [applicants, setApplicants] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [downloadLink, setDownloadLink] = useState(
-    `http://localhost:5000/superadmin/sheet`
-  );
+  const [downloadLink, setDownloadLink] = useState(`/superadmin/sheet`);
   const [stats, setStats] = useState({});
   const [catstats, setCatStats] = useState({});
   const getApplicants = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/superadmin/org`, {
+      const res = await axios.get(`/superadmin/org`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
         },
@@ -32,14 +30,11 @@ const SuperAdmin = () => {
   };
   const getCategories = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:5000/superadmin/categories`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
-          },
-        }
-      );
+      const res = await axios.get(`/superadmin/categories`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+        },
+      });
       setCategories(res.data.data);
       setCatStats(res.data.catstats);
       console.log(res.data);

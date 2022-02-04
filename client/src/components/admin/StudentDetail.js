@@ -21,23 +21,18 @@ function StudentDetail({ applicant, adminCategory }) {
         },
       ],
     });
-    
   };
-  const sendEmail = async()=> {
+  const sendEmail = async () => {
     const toastId = toast.loading("Sending...");
     const data = {
       organiserId: applicant._id,
     };
     try {
-      const res = await axios.post(
-        `http://localhost:5000/admin/confirmuser`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
-          },
-        }
-      );
+      const res = await axios.post(`/admin/confirmuser`, data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+        },
+      });
       if (!res.data.success) {
         toast.error(res.data.message, {
           id: toastId,
@@ -57,7 +52,7 @@ function StudentDetail({ applicant, adminCategory }) {
         id: toastId,
       });
     }
-  }
+  };
   const handleSubmit = (value) => {
     confirmAlert({
       title: `${value} : ${applicant.name} `,
@@ -81,15 +76,11 @@ function StudentDetail({ applicant, adminCategory }) {
       status: value === "Select" ? 1 : 2,
     };
     try {
-      const res = await axios.patch(
-        `http://localhost:5000/admin/organiser/status`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
-          },
-        }
-      );
+      const res = await axios.patch(`/admin/organiser/status`, data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+        },
+      });
       if (!res.data.success) {
         toast.error(res.data.message, {
           id: toastId,
