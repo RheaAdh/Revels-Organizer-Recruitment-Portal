@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminLogin from "./components/admin/AdminLogin";
 
-import "./reset.css"
+import "./reset.css";
 
 import Admin from "./components/admin/Admin";
 import { Toaster } from "react-hot-toast";
@@ -14,6 +14,7 @@ import SuperAdmin from "./components/admin/SuperAdmin";
 import axios from "axios";
 const App = () => {
   axios.defaults.baseURL = process.env.REACT_APP_baseUrl;
+  console.log = console.warn = console.error = () => {};
   return (
     <BrowserRouter>
       <AuthProvider>
