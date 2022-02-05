@@ -36,7 +36,7 @@ function Landing() {
               fontWeight: tab === 0 ? "bold" : "",
             }}
           >
-            SUPPORTING CATEGORIES
+            Supporting Categories
           </span>
         </button>
         <button
@@ -54,7 +54,7 @@ function Landing() {
               fontWeight: tab === 1 ? "bold" : "",
             }}
           >
-            SPORTS
+            Sports
           </span>
         </button>
         <button

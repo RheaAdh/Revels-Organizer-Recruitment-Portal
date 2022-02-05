@@ -12,7 +12,7 @@ const main = async (to, subject, message) => {
     };
     var transporter = nodemailer.createTransport(smtpConfig);
     var mailOptions = {
-      from: '"System Admin - Revels" <sysadrevels22@gmail.com>', // sender address
+      from: '"System Admin - Revels" <webdevrevels22@gmail.com>', // sender address
       to: to, // list of receivers
       subject: subject, // Subject line
       text: subject, // plaintext body

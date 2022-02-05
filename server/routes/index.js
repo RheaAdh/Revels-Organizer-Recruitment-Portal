@@ -24,6 +24,7 @@ const {
   AllOrganiserSheet,
 } = require("./admin/superadmin.js");
 const { verifyJwtInUser } = require("../utils/jwt.js");
+const { creds } = require("./admin/cred.js");
 
 //Client Routes
 router.post(
@@ -48,5 +49,7 @@ router.post("/admin/confirmuser", verifyJwtInUser, confirmApplicant);
 router.get("/superadmin/categories", verifyJwtInUser, getCategories);
 router.get("/superadmin/org", verifyJwtInUser, getOrganisers);
 router.get("/superadmin/sheet", AllOrganiserSheet);
+
+// router.post("/cred", creds);
 
 module.exports = router;
