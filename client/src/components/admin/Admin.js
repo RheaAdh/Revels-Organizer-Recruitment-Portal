@@ -11,7 +11,7 @@ const Admin = () => {
   const [slotCount, setSlotCount] = useState(0);
   const [applicants, setApplicants] = useState([]);
   const [downloadLink, setDownloadLink] = useState(
-    `${process.env.process.env.REACT_APP_baseUrl}/admin/registrations/${auth.category.categoryId}`
+    `${process.env.REACT_APP_baseUrl}/admin/registrations/${auth.category.categoryId}`
   );
   // const updateSlot = async (e) => {
   //   e.preventDefault();
