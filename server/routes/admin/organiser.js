@@ -25,7 +25,7 @@ const categoryOrganiserSheet = async (req, res) => {
 const categoryOrganisers = async (req, res) => {
   try {
     const { category } = req.params;
-    if (category == req.category.category) {
+    if (category == req.category.categoryId) {
       const response = await Organiser.find({
         $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
       }).sort({ name: 1 });
@@ -43,7 +43,7 @@ const setOrganiserStatus = async (req, res) => {
     const cat = await Organiser.findOne({
       id: organiserId,
     });
-    if (cat.pref_1.category == req.category.category) {
+    if (cat.pref_1.category == req.category.categoryId) {
       response = await Organiser.updateOne(
         {
           id: organiserId,
@@ -54,7 +54,7 @@ const setOrganiserStatus = async (req, res) => {
           },
         }
       );
-    } else if (cat.pref_2.category == req.category.category) {
+    } else if (cat.pref_2.category == req.category.categoryId) {
       response = await Organiser.updateOne(
         {
           id: organiserId,
@@ -90,9 +90,12 @@ const confirmApplicant = async (req, res) => {
     }
     await org.save();
     console.log(org);
-
+    const category = await Category.findOne(
+      { categoryId: cat },
+      { category: 1 }
+    );
     const status = "Congratulations!";
-    const body = `You have been selected as an organiser for ${cat} Category - REVELS '22. You will be added to groups shortly`;
+    const body = `You have been selected as an organiser for ${category.category} Category - REVELS '22. You will be added to groups shortly`;
     const message = constructTemplate(org.name, status, body);
     main(org.email, "Selected as Organizer - REVELS '22", message);
     return res.json({

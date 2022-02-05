@@ -3,10 +3,10 @@ const { Organiser } = require("../models/organiser");
 const main = require("../utils/confirmationEmail");
 const constructTemplate = require("../utils/registrationEmail");
 
-const getDays = (date) => {
-  regStart = new Date("2022/01/29");
-  return parseInt((date - regStart) / (1000 * 60 * 60 * 24), 10);
-};
+// const getDays = (date) => {
+//   regStart = new Date("2022/01/29");
+//   return parseInt((date - regStart) / (1000 * 60 * 60 * 24), 10);
+// };
 
 const register = async (req, res) => {
   try {
@@ -19,10 +19,8 @@ const register = async (req, res) => {
       branch,
       pref_1,
       pref_2,
-      slot_1,
-      slot_2,
+      exp,
     } = req.body;
-
     // if (pref_1 == "Preference 1" || slot_1 == -1) {
     //   return res.send({
     //     success: false,
@@ -37,34 +35,33 @@ const register = async (req, res) => {
     //   });
     // }
 
-    const slot1 = getDays(new Date(slot_1));
-    const slot2 = getDays(new Date(slot_2));
+    // const slot1 = getDays(new Date(slot_1));
+    // const slot2 = getDays(new Date(slot_2));
 
     let category1 = null,
       category2 = null;
 
     category1 = await Category.findOne({
-      category: pref_1,
+      categoryId: pref_1,
     });
     //no.of slots for a day will be entered by category heads inside slots array of each category
-    if (category1.slots[slot1] <= 0) {
-      return res.send({
-        success: false,
-        msg: `Selected Slot not available for ${pref_1}. Check again!`,
-      });
-    }
-
+    // if (category1.slots[slot1] <= 0) {
+    //   return res.send({
+    //     success: false,
+    //     msg: `Selected Slot not available for ${pref_1}. Check again!`,
+    //   });
+    // }
     if (pref_2 != "Preference 2") {
       category2 = await Category.findOne({
-        category: pref_2,
+        categoryId: pref_2,
       });
 
-      if (category2.slots[slot2] <= 0) {
-        return res.send({
-          success: false,
-          msg: `Selected Slot not available for ${pref_2}. Check again!`,
-        });
-      }
+      // if (category2.slots[slot2] <= 0) {
+      //   return res.send({
+      //     success: false,
+      //     msg: `Selected Slot not available for ${pref_2}. Check again!`,
+      //   });
+      // }
     }
 
     const temp = await Organiser.findOne({
@@ -88,12 +85,10 @@ const register = async (req, res) => {
     }
     const pref1 = {
       category: pref_1,
-      slot: slot_1,
       status: 0,
     };
     const pref2 = {
       category: pref_2,
-      slot: slot_2,
       status: 0,
     };
     const organiser = new Organiser({
@@ -106,27 +101,29 @@ const register = async (req, res) => {
       branch,
       pref_1: pref1,
       pref_2: pref2,
+      experience: exp,
     });
 
     const org = await organiser.save();
 
-    category1.slots[slot1]--;
-    await Category.updateOne(
-      { category: pref_1 },
-      { $set: { slots: category1.slots } }
-    );
+    // category1.slots[slot1]--;
+    // await Category.updateOne(
+    //   { category: pref_1 },
+    //   { $set: { slots: category1.slots } }
+    // );
 
-    if (pref_2 != "Preference 2") {
-      category2.slots[slot2]--;
-      await Category.updateOne(
-        { category: pref_2 },
-        { $set: { slots: category2.slots } }
-      );
-    }
+    // if (pref_2 != "Preference 2") {
+    //   category2.slots[slot2]--;
+    //   await Category.updateOne(
+    //     { category: pref_2 },
+    //     { $set: { slots: category2.slots } }
+    //   );
+    // }
     const status = "Registration Successful!";
-    const body = "You have successfully registered for REVELS'22 Organiser Call. Our team will get back to you shortly";
-    const message = constructTemplate(org.name,status,body);
-    
+    const body =
+      "You have successfully registered for REVELS'22 Organiser Call. Our team will get back to you shortly";
+    const message = constructTemplate(org.name, status, body);
+
     main(
       org.email,
       "Thank you for registering for Revels'22 Organiser",

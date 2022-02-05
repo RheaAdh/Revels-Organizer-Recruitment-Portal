@@ -4,21 +4,134 @@ const jwtUtils = require("../../utils/jwt");
 
 const register = async (req, res) => {
   try {
-    const categories = ["SYS", "APP", "OP", "HPS", "SUPERADMIN"];
+    const categories = [
+      {
+        id: "superAdmin",
+        category: "SUPERADMIN",
+        email: "",
+      },
+      {
+        id: "sys",
+        category: "Web and System Admin",
+        email: "webdevrevels22@gmail.com",
+      },
+      {
+        id: "workshops",
+        category: "Workshops",
+        email: "workshops.revels22@gmail.com",
+      },
+      {
+        // Infodesk and Finance
+        id: "inf",
+        category: "Infodesk and Finance",
+        email: "inf.revels2022@gmail.com",
+      },
+      {
+        // App Dev
+        id: "app",
+        category: "App Dev",
+        email: "appdev.revels22@gmail.com",
+      },
+      {
+        id: "proshow",
+        category: "ProShow",
+        email: "proshow.revels22@gmail.com",
+      },
+      {
+        id: "certificate",
+        category: "Certificates and Prizes",
+        email: "logisticsrevels2022@gmail.com",
+      },
+      {
+        id: "logistics",
+        category: "Logistics",
+        email: "cnp.revels22@gmail.com",
+      },
+      {
+        id: "vigilance",
+        category: "Vigilance",
+        email: "vigilance.revels22@gmail.com",
+      },
+      {
+        id: "photography",
+        category: "Photography and Videography",
+        email: "pav.revels22@gmail.com ",
+      },
+      {
+        id: "informals",
+        category: "Informals",
+        email: "informals.revels22@gmail.com",
+      },
+      {
+        id: "hfs",
+        category: "HFS",
+        email: "hfs.revels22@gmail.com",
+      },
+      {
+        id: "judges",
+        category: "Judges",
+        email: "judgesrevels22@gmail.com",
+      },
+
+      {
+        id: "pnp",
+        category: "Publicity and Printing",
+        email: "pnprevels22@gmail.com",
+      },
+      {
+        id: "gaming",
+        category: "Gaming",
+        email: "gaming.revels22@gmail.com",
+      },
+      {
+        id: "outstation",
+        category: "Outstation Management",
+        email: "omrevels2022@gmail.com",
+      },
+
+      {
+        id: "socialmedia",
+        category: "Social Media",
+        email: "smcc.revels22@gmail.com",
+      },
+      {
+        id: "operations",
+        category: "Operations",
+        email: "operations.revels22@gmail.com",
+      },
+      {
+        id: "hrd",
+        category: "HRD",
+        email: "revels.hrd22@gmail.com",
+      },
+
+      {
+        id: "graphics",
+        category: "Graphics",
+        email: "graphics.revels22@gmail.com",
+      },
+      {
+        id: "sponsorhips",
+        category: "Sponsorships",
+        email: "sponsorship.revels22@gmail.com",
+      },
+
+      {
+        id: "sports",
+        category: "Sports",
+        email: "sports.revels22@gmail.com",
+      },
+    ];
     categories.forEach(async (cat) => {
-      const slots = [];
-      for (let i = 0; i < 28; i++) {
-        slots.push(10);
-      }
       const result = Math.random().toString(36).substring(2, 7);
-      const pass = cat + "_" + result;
+      const pass = cat.id + "_" + result;
       // const salt = await bcrypt.genSalt(10);
       // const hash = await bcrypt.hash(pass, salt);
       const newCategory = new Category({
-        categoryId: cat + "_" + Math.random().toString(36).substring(2, 5),
-        category: cat,
+        categoryId: cat.id,
+        category: cat.category,
+        email: cat.email,
         password: pass,
-        slots: slots,
         token: null,
       });
       await newCategory.save();

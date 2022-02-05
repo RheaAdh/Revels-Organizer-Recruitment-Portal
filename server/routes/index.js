@@ -34,7 +34,7 @@ router.post(
 );
 
 //ADMIN ROUTES
-router.post("/categories/register", catRegister);
+// router.post("/categories/register", catRegister);
 router.post("/admin/login", login);
 router.post("/admin/logout", logout);
 router.get("/admin/category/:token", verifyJwtInUser, getCategoryFromToken);

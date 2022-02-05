@@ -15,9 +15,9 @@ app.use(
 );
 app.use(express.json());
 
-app.use("/", organiserRoutes);
+app.use("/api", organiserRoutes);
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({ message: "Welcome to Organizer Portal API", success: true });
 });
 

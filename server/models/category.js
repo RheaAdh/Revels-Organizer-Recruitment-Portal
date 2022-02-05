@@ -6,6 +6,10 @@ const CategorySchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  email: {
+    type: String,
+    unique: true,
+  },
   password: {
     type: String,
     required: true,
@@ -18,7 +22,6 @@ const CategorySchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  slots: [Number],
 });
 
 const tokenSchema = new mongoose.Schema({

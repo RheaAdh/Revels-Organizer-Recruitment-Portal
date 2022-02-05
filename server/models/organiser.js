@@ -5,9 +5,6 @@ const pref = new mongoose.Schema({
     type: String,
     required: true,
   },
-  slot: {
-    type: String,
-  },
   status: {
     type: Number,
     default: 0,
@@ -47,6 +44,9 @@ const OrganiserSchema = new mongoose.Schema({
   },
   pref_1: pref,
   pref_2: pref,
+  experience: {
+    type: String,
+  },
 });
 
 module.exports = {

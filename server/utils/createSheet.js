@@ -18,6 +18,7 @@ const createSheet = async (response) => {
       "Pref_2",
       //   "Slot_2",
       "Status_2",
+      "Experience",
     ];
     let headingColumnIndex = 1;
     headingColumnNames.forEach((heading) => {
@@ -55,6 +56,7 @@ const createSheet = async (response) => {
           ? "Rejected"
           : "Mail Sent (Selected)"
       );
+      ws.cell(rowIndex, columnIndex++).string(resp.experience.toString());
       rowIndex++;
     });
     resolve(wb);
