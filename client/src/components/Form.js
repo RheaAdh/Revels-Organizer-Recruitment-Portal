@@ -1,7 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+
+import supportingCategories from "./supporting";
+
+import culturalCategories from "./cultural";
 function Form() {
+  let options = [
+    {
+      value: null,
+      label: "--",
+    },
+  ];
+  culturalCategories.forEach((cat) => {
+    options.push({
+      value: cat.id,
+      label: cat.title,
+    });
+  });
+  supportingCategories.forEach((cat) => {
+    options.push({
+      value: cat.id,
+      label: cat.title,
+    });
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const toastId = toast.loading("Loading...");
@@ -40,6 +63,7 @@ function Form() {
         pref_2,
         slot_1,
         slot_2,
+        exp,
       };
       const res = await axios.post("/register", data);
       if (res.data.success) {
@@ -57,6 +81,7 @@ function Form() {
         setSlot_2("");
         setPref_1("--");
         setPref_2("--");
+        setExp("");
         return;
       }
       if (!res.data.success) {
@@ -96,6 +121,7 @@ function Form() {
   const [pref_2, setPref_2] = useState("--");
   const [slot_1, setSlot_1] = useState("");
   const [slot_2, setSlot_2] = useState("");
+  const [exp, setExp] = useState("");
 
   return (
     <form className="login-form">
@@ -174,17 +200,9 @@ function Form() {
             value={pref_1}
             onChange={(e) => setPref_1(e.target.value)}
           >
-            <option value="default">--</option>
-            <option value="PROSHOW">Proshow</option>
-            <option value="social media">Social Media</option>
-            <option value="graphics">Graphics</option>
-            <option value="sponsorship"> Sponsorship</option>
-            <option value="pnp">Publicity and Printing</option>
-            <option value="logistics">Logistics</option>
-            <option value="OP">Operations</option>
-            <option value="OM">Outstation management</option>
-            <option value="APP"> App Development</option>
-            <option value="SYS">System admin and Web</option>
+            {options.map(({ value, label }, index) => (
+              <option value={value}>{label}</option>
+            ))}
           </select>
         </div>
         <div className="user-box">
@@ -195,17 +213,9 @@ function Form() {
             value={pref_2}
             onChange={(e) => setPref_2(e.target.value)}
           >
-            <option value="default">--</option>
-            <option value="PROSHOW">Proshow</option>
-            <option value="social media">Social Media</option>
-            <option value="graphics">Graphics</option>
-            <option value="sponsorship"> Sponsorship</option>
-            <option value="pnp">Publicity and Printing</option>
-            <option value="logistics">Logistics</option>
-            <option value="OP">Operations</option>
-            <option value="om">Outstation management</option>
-            <option value="APP"> App Development</option>
-            <option value="SYS">System admin and Web</option>
+            {options.map(({ value, label }, index) => (
+              <option value={value}>{label}</option>
+            ))}
           </select>
         </div>
         {/* <div className="user-box">
@@ -220,7 +230,18 @@ function Form() {
           ></input>
         </div> */}
       </div>
-
+      <div className="row">
+        <div className="user-box">
+          <input
+            type="text"
+            name=""
+            required
+            value={exp}
+            onChange={(e) => setExp(e.target.value)}
+          />
+          <label>Any Prior Experience you would like to mention</label>
+        </div>
+      </div>
       <div className="row slots">
         {/* <div className="user-box">
           <label>Preference 2</label>

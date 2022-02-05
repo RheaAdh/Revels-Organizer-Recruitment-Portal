@@ -112,7 +112,7 @@ function StudentDetail({ applicant, adminCategory }) {
       <div className="studentdetails-col">
         <h4>Pref 1 : {applicant.pref_1.category}</h4>
         {applicant.pref_1.status === 0 &&
-        applicant.pref_1.category === adminCategory.category ? (
+        applicant.pref_1.category === adminCategory.categoryId ? (
           <>
             <p>Not Reviewed </p>
             <div className="status-btn">
@@ -144,7 +144,7 @@ function StudentDetail({ applicant, adminCategory }) {
         {applicant.pref_1.status === 1 && (
           <div className="status-btn">
             <button className="btns in">Selected</button>
-            {applicant.pref_1.category === adminCategory.category && (
+            {applicant.pref_1.category === adminCategory.categoryId && (
               <button className="btns email" onClick={handleEmail}>
                 Send Mail <i className="fa fa-paper-plane"></i>
               </button>
@@ -177,7 +177,7 @@ function StudentDetail({ applicant, adminCategory }) {
                 applicant.pref_2.status === 0 ? (
                   <>
                     <p>Not Reviewed</p>
-                    {applicant.pref_2.category === adminCategory.category && (
+                    {applicant.pref_2.category === adminCategory.categoryId && (
                       <div className="status-btn">
                         <button
                           className="btns selected"
@@ -204,7 +204,7 @@ function StudentDetail({ applicant, adminCategory }) {
                         <div className="status-btn">
                           <button className="btns in">Selected</button>
                           {applicant.pref_2.category ===
-                            adminCategory.category && (
+                            adminCategory.categoryId && (
                             <button
                               className="btns email"
                               value="Select"

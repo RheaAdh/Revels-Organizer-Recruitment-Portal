@@ -13,7 +13,7 @@ const Login = () => {
   useEffect(() => {
     if (!auth.loading) {
       if (auth.category) {
-        navigate(`/admin/${auth.category.category}`);
+        navigate(`/admin/${auth.category.categoryId}`);
       }
     }
   }, [auth.loading]);

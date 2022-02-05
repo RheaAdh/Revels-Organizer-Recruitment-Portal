@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import logo from "../assets/mit-logo.png";
+import logo from "../assets/sc_logo.png";
 function Footer() {
   return (
     <div className="footer">
@@ -10,15 +10,17 @@ function Footer() {
 
       <div className="icons">
         <a href="https://www.instagram.com/revelsmit">
-        <i className="fa fa-instagram fa-2x"></i>
+          <i className="fa fa-instagram fa-2x"></i>
         </a>
-        
+
         <a href="https://www.facebook.com/mitrevels">
-        <i className="fa fa-facebook fa-2x"></i>
+          <i className="fa fa-facebook fa-2x"></i>
         </a>
         <i className="fa fa-google fa-2x"></i>
       </div>
-      <p>Made by System Admin, Revels '22</p>
+      <div className="copyrights">
+        <span>Made by SysAdmin and Web Dev, Revels '22</span>
+      </div>
     </div>
   );
 }

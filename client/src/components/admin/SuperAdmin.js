@@ -49,7 +49,7 @@ const SuperAdmin = () => {
   return (
     <div className="admin">
       <ReactTooltip html={true} />
-      <h3 className="heading">{auth.category.categoryId}</h3>
+      <h3 className="heading">{auth.category.category}</h3>
       <h4>Total Applicants : {stats.total_applicants}</h4>
       <h4>Total Mails Sent : {stats.total_mail_sent}</h4>
       <h4>Total Selected : {stats.total_selected}</h4>

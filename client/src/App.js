@@ -11,7 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import SuperAdmin from "./components/admin/SuperAdmin";
 import axios from "axios";
 const App = () => {
-  axios.defaults.baseURL = "http://64.227.184.83/api";
+  axios.defaults.baseURL = "http://localhost:5000/api";
   return (
     <BrowserRouter>
       <AuthProvider>

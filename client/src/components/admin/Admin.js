@@ -11,33 +11,33 @@ const Admin = () => {
   const [slotCount, setSlotCount] = useState(0);
   const [applicants, setApplicants] = useState([]);
   const [downloadLink, setDownloadLink] = useState(
-    `/admin/registrations/${auth.category.category}`
+    `http://localhost:5000/api/admin/registrations/${auth.category.categoryId}`
   );
-  const updateSlot = async (e) => {
-    e.preventDefault();
-    const verdict = window.confirm("Are you sure you want to update the slot?");
-    if (!verdict) {
-      return;
-    }
-    if (verdict) {
-      const data = {
-        slot_count: slotCount,
-      };
-      const res = await axios.post(
-        `/admin/updateslot/${auth.category.categoryId}`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
-          },
-        }
-      );
-    }
-  };
+  // const updateSlot = async (e) => {
+  //   e.preventDefault();
+  //   const verdict = window.confirm("Are you sure you want to update the slot?");
+  //   if (!verdict) {
+  //     return;
+  //   }
+  //   if (verdict) {
+  //     const data = {
+  //       slot_count: slotCount,
+  //     };
+  //     const res = await axios.post(
+  //       `/admin/updateslot/${auth.category.categoryId}`,
+  //       data,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+  //         },
+  //       }
+  //     );
+  //   }
+  // };
   const getApplicants = async () => {
     try {
       const res = await axios.get(
-        `/admin/organisers/${auth.category.category}`,
+        `/admin/organisers/${auth.category.categoryId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
@@ -54,7 +54,7 @@ const Admin = () => {
   }, []);
   return (
     <div className="admin">
-      <h3 className="heading">{auth.category.categoryId}</h3>
+      <h3 className="heading">{auth.category.category}</h3>
       <button className="btn download" type="submit">
         <a href={downloadLink}>
           Download List <i className="fa fa-download"></i>
@@ -65,7 +65,7 @@ const Admin = () => {
       </button>
       <h1>Status of Applicants</h1>
 
-      {applicants.map((applicant, index) => (
+      {applicants?.map((applicant, index) => (
         <StudentDetail
           applicant={applicant}
           key={index}

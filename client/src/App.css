@@ -147,6 +147,43 @@
   -webkit-background-clip: text;
   background-clip: text;
   margin: 20px 0;
+  letter-spacing: 1px;
+}
+.htitle {
+  margin-top: 20px;
+  text-transform: none;
+  font-weight: 600;
+  background: linear-gradient(to right, #b721ff, #fff);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.htitle::after {
+  content: "";
+  width: 20%;
+  height: 3px;
+  background: linear-gradient(to right, #b721ff 0%, red 100%);
+  position: absolute;
+  right: 0;
+  left: 0;
+  opacity: 0.7;
+  transform-origin: left center;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  transform: scaleX(1);
+  border-radius: 10px;
+}
+.av::after {
+  content: "";
+  width: 25%;
+  height: 3px;
+  background: linear-gradient(to right, #b721ff 0%, red 100%);
+  position: absolute;
+  right: 0;
+  left: 75%;
+  opacity: 0.7;
+  transform-origin: right center;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  transform: scaleX(1);
+  border-radius: 10px;
 }
 @media screen and (max-width: 600px) {
   .heading {
@@ -196,6 +233,7 @@ button.rec-dot:focus {
   width: 80%;
   margin: 0 auto;
   text-align: left;
+  letter-spacing: 1px;
 }
 .blacklist-text p {
   font-size: 15px;
@@ -436,4 +474,64 @@ option {
 }
 .tooltip-btn:hover {
   cursor: pointer;
+}
+.sc {
+  position: relative;
+  bottom: 250px;
+  left: 0;
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+  z-index: 1111;
+  opacity: 0.1;
+  border-radius: 40px;
+}
+.copyrights {
+  margin-bottom: 10px;
+}
+.copyrights span {
+  font-weight: bold;
+  font-size: 15px;
+  position: relative;
+}
+.copyrights span::after {
+  content: "";
+  height: 2px;
+  background: linear-gradient(to right, #fb7ba2, #fce043);
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -6px;
+  opacity: 0;
+  transform-origin: center;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  transform: scaleX(0);
+}
+.copyrights:hover span::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+.desc span {
+  font-weight: bold;
+  font-size: 2rem;
+  position: relative;
+}
+.desc span::after {
+  content: "";
+  width: 85%;
+  height: 3px;
+  background: linear-gradient(to right, #b721ff 0%, red 100%);
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -2px;
+  opacity: 0;
+  transform-origin: left center;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  transform: scaleX(0);
+  border-radius: 10px;
+}
+.desc:hover span::after {
+  transform: scaleX(1);
+  opacity: 1;
 }

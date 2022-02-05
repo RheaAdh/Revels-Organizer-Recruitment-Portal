@@ -4,29 +4,19 @@ import { useState } from "react";
 import Card from "./Card";
 import Form from "./Form";
 import supportingCategories from "./supporting";
+import culturalCategories from "./cultural";
+
 import Categories from "./Categories";
-const breakPoints = [
-  { width: 1, itemsToShow: 3 },
-  { width: 550, itemsToShow: 1, itemsToScroll: 1 },
-  { width: 768, itemsToShow: 2, itemsToScroll: 1 },
-  { width: 1200, itemsToShow: 3, itemsToScroll: 1 },
-];
+
 function Landing() {
   const [tab, setTab] = useState(0);
-  // Supporting
-  const [categories, setCategories] = useState(supportingCategories);
-  // Cultural
-  const [categories2, setCategories2] = useState([
-    { id: 1, title: "PV" },
-    { id: 2, title: "item #2" },
-    { id: 3, title: "item #3" },
-    { id: 4, title: "item #4" },
-    { id: 5, title: "item #5" },
-  ]);
   return (
     <div className="App">
       <h2 className="revels">REVELS '22</h2>
-      <h3 className="heading">Organizer Portal</h3>
+      <h3 className="heading">
+        <strong>Organizer Portal</strong>
+      </h3>
+      <br />
 
       <div className="tab-container">
         <button
@@ -35,15 +25,14 @@ function Landing() {
             setTab(0);
           }}
           style={{
-            transform: tab === 0 ? "scale(1.05)" : "scale(1)",
-            border: tab === 0 ? "2px solid #fff" : "1px solid #fff",
-            backgroundColor: tab === 0 ? "transparent" : "transparent",
+            border:
+              tab === 0 ? "2px solid #fff" : "1px solid rgba(255,255,255,0.5)",
+            backgroundColor: tab === 0 ? "#fff" : "transparent",
           }}
         >
           <span
             style={{
-              color:
-                tab === 0 ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.5)",
+              color: tab === 0 ? "rgba(0,0,0,1)" : "rgba(255,255,255,0.5)",
               fontWeight: tab === 0 ? "bold" : "",
             }}
           >
@@ -54,30 +43,36 @@ function Landing() {
           className="tab"
           onClick={() => setTab(1)}
           style={{
-            transform: tab === 1 ? "scale(1.05)" : "scale(1)",
-            border: tab === 1 ? "2px solid #fff" : "1px solid #fff",
-            backgroundColor: tab === 1 ? "transparent" : "transparent",
+            border:
+              tab === 1 ? "2px solid #fff" : "1px solid rgba(255,255,255,0.5)",
+            backgroundColor: tab === 1 ? "#fff" : "transparent",
           }}
         >
           <span
             style={{
-              color:
-                tab === 1 ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.5)",
+              color: tab === 1 ? "rgba(0,0,0,1)" : "rgba(255,255,255,0.5)",
               fontWeight: tab === 1 ? "bold" : "",
             }}
           >
-            CULTURAL CATEGORIES
+            SPORTS
           </span>
         </button>
       </div>
       {tab === 0 ? (
-        <Categories categories={supportingCategories} />
+        <Categories
+          categories={supportingCategories}
+          isList
+          item={supportingCategories[0]}
+        />
       ) : (
-        <div className="glider">
-          <Categories categories={categories2} />
-        </div>
+        <Categories
+          categories={culturalCategories}
+          isList={false}
+          item={culturalCategories[0]}
+        />
       )}
-      <h3 className="heading">Blacklist Rules</h3>
+      <br />
+      <h3 className="heading htitle">Blacklist Rules</h3>
       <div className="blacklist-text">
         <p>
           1. All organizers are supposed to attend all the interviews they have
@@ -100,7 +95,10 @@ function Landing() {
           <br />
         </p>
       </div>
-      <h3 className="heading">Registration</h3>
+      <br />
+
+      <h3 className="heading htitle av">Registration</h3>
+
       <Form />
       <Footer />
     </div>
