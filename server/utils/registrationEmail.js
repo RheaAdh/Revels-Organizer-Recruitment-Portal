@@ -166,7 +166,7 @@ const constructTemplate = (name, status, body) => {
                                                                           <td align="center" valign="middle" width="100%"
                                                                               style="border-top:1px solid #00A8CC;padding:12px 0px 20px 0px;text-align:center;color:#4c4c4c;font-weight:200;font-size:12px;line-height:18px">
                                                                               <img style="width:100%;height:100px;object-fit:contain;background: #1a1a1a"
-                                                                                  src="https://firebasestorage.googleapis.com/v0/b/filmgenie-c89c6.appspot.com/o/sc_logo.png?alt=media&token=524c257c-58a8-482c-b917-e31edd1c37ee">
+                                                                                  src="https://firebasestorage.googleapis.com/v0/b/filmgenie-c89c6.appspot.com/o/sc.png?alt=media&token=78375e21-1467-4b8c-b1a8-a9e62dca4ca8">
                                                                           </td>
                                                                       </tr>
                                                                   </tbody>

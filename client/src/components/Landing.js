@@ -57,6 +57,26 @@ function Landing() {
             SPORTS
           </span>
         </button>
+        <button
+          className="tab"
+          onClick={() => {
+            setTab(2);
+          }}
+          style={{
+            border:
+              tab === 2 ? "2px solid #fff" : "1px solid rgba(255,255,255,0.5)",
+            backgroundColor: tab === 2 ? "#fff" : "transparent",
+          }}
+        >
+          <span
+            style={{
+              color: tab === 2 ? "rgba(0,0,0,1)" : "rgba(255,255,255,0.5)",
+              fontWeight: tab === 2 ? "bold" : "",
+            }}
+          >
+            Cultural Categories
+          </span>
+        </button>
       </div>
       {tab === 0 ? (
         <Categories
@@ -64,12 +84,16 @@ function Landing() {
           isList
           item={supportingCategories[0]}
         />
-      ) : (
+      ) : tab === 1 ? (
         <Categories
           categories={culturalCategories}
           isList={false}
           item={culturalCategories[0]}
         />
+      ) : (
+        <>
+          <div class="cul">Starting Soon</div>
+        </>
       )}
       <br />
       <h3 className="heading htitle">Blacklist Rules</h3>

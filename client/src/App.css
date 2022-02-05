@@ -542,3 +542,74 @@ option {
   transform: scaleX(1);
   opacity: 1;
 }
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/exo2/v18/7cH1v4okm5zmbvwkAx_sfcEuiD8jvvKsOdC6.ttf)
+    format("truetype");
+}
+.cul {
+  text-decoration: blink;
+  -webkit-animation-name: blink;
+  -webkit-animation-duration: 0.6s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+  text-align: center;
+  margin: 13rem auto;
+}
+@media (max-width: 600px) {
+  .cul {
+    margin: 50px auto;
+    font-size: 4rem !important;
+  }
+}
+@-webkit-keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  79% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  80% {
+    color: #333;
+    text-shadow: none;
+  }
+  80.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  81% {
+    color: #333;
+    text-shadow: none;
+  }
+  81.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  82.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}
+.cul {
+  font: 100 5em "Exo 2";
+  color: #fff;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #4ff, 0 0 0.5em #4ff,
+    0 0 0.1em #4ff;
+}
+.cul b {
+  animation: blink linear infinite 5s;
+  font: inherit;
+}

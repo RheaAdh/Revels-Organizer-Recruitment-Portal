@@ -10,12 +10,12 @@ const Categories = (props) => {
   setTimeout(() => {
     activeCat.title !== "" &&
       document.getElementById(activeCat.title)?.classList.add("active");
-  }, 500);
+  }, 1000);
 
   // resets any active tiles
   const removeActive = () => {
     props.categories.forEach((category) => {
-      document.getElementById(category.title).classList.remove("active");
+      document.getElementById(category.title)?.classList.remove("active");
     });
   };
 
@@ -27,7 +27,7 @@ const Categories = (props) => {
       video: video,
     });
     removeActive();
-    document.getElementById(title).classList.add("active");
+    document.getElementById(title)?.classList.add("active");
   };
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Categories = (props) => {
       description: props.categories[0].description,
       video: props.categories[0].video,
     });
-    document.getElementById(props.categories[0].title).classList.add("active");
+    document.getElementById(props.categories[0].title)?.classList.add("active");
   }, []);
 
   return (
