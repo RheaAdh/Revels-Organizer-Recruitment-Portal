@@ -73,7 +73,7 @@ const Categories = (props) => {
             frameborder="0"
           ></iframe>
           <div className="desc">
-            <h3>{props.isList ? activeCat.title : props.item.title}</h3>
+            <span>{props.isList ? activeCat.title : props.item.title}</span>
             <p>
               {props.isList ? activeCat.description : props.item.description}
             </p>

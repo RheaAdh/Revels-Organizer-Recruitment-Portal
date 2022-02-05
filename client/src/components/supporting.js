@@ -47,7 +47,7 @@ const supporting = [
     description:
       "The management of all the data and resources that are required during the events has to be done meticulously to have a successful fest, and if you believe that your data management and problem-solving skills , come forth and be a part of the logistics team. You’re the person who maintains a proper database of every resource starting from stationery to major props that are used and the borrowers of those resources.",
     video:
-      "https://youtube.com/embed/Zj-czl53i0Q?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+      "https://youtube.com/embed/1Thp4-L6YE0?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
   {
     id: "vigilance",
