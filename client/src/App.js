@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminLogin from "./components/admin/AdminLogin";
 
+import "./reset.css"
+
 import Admin from "./components/admin/Admin";
 import { Toaster } from "react-hot-toast";
 import AuthProvider, { useAuth } from "./context/AuthContext";

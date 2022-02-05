@@ -326,8 +326,11 @@ select {
 
 .row .user-box input,
 select {
-  border-image: linear-gradient(to right, #b721ff 0%, red 100%);
+  -o-border-image: linear-gradient(to right, #b721ff 0%, red 100%);
+     border-image: linear-gradient(to right, #b721ff 0%, red 100%);
+  -webkit-border-image: -webkit-linear-gradient(left, #b721ff 0%, red 100%);
   border-image-slice: 1;
+  -webkit-border-image-slice: 1;
 }
 .slots select,
 .slots-in {
