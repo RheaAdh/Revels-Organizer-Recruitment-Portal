@@ -63,6 +63,13 @@
   text-align: center;
   cursor: pointer;
 }
+@media (max-width: 600px) {
+  .cat-card {
+    height: 80px;
+    width: 100px;
+    padding: 0 0.2rem;
+  }
+}
 .cat-card p {
   font-size: 1.3rem;
 }

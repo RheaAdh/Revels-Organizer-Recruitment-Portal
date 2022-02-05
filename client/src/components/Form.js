@@ -239,7 +239,7 @@ function Form() {
             value={exp}
             onChange={(e) => setExp(e.target.value)}
           />
-          <label>Any Prior Experience you would like to mention</label>
+          <label>Prior Experience</label>
         </div>
       </div>
       <div className="row slots">
