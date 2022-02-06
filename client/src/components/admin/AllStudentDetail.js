@@ -20,17 +20,19 @@ function AllStudentDetail({ applicant }) {
         <p>{applicant.registration_no}</p>
         <p>{applicant.email}</p>
         <p>Phone : {applicant.phone}</p>
-        <Popup
-          trigger={<button> Prior Experience</button>}
-          {...{
-            contentStyle,
-            overlayStyle,
-            arrowStyle,
-          }}
-          position="right center"
-        >
-          <div>{applicant.experience}</div>
-        </Popup>
+        {applicant.experience && (
+          <Popup
+            trigger={<button> Prior Experience</button>}
+            {...{
+              contentStyle,
+              overlayStyle,
+              arrowStyle,
+            }}
+            position="right center"
+          >
+            <div>{applicant.experience}</div>
+          </Popup>
+        )}
       </div>
       <div className="studentdetails-col">
         <h4>Pref 1 : {applicant.pref_1.category}</h4>
