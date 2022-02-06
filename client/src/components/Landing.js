@@ -117,6 +117,9 @@ function Landing() {
           6. Blacklisted organizers wont receive certification and also wont be
           allowed to participate in future fests.
           <br />
+          7. If selected in supporting or sports category, you won't be allowed
+          to apply for cultural category.
+          <br />
         </p>
       </div>
       <br />
