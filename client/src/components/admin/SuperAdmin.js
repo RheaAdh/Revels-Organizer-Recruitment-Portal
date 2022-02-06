@@ -61,6 +61,9 @@ const SuperAdmin = () => {
             className="tooltip-btn"
           >
             {category.category}
+            <h4>Total Applicants : {category.total_applicants}</h4>
+            <h4>Total Selected : {category.total_selected}</h4>
+            <h4>Total Rejected : {category.total_rejected}</h4>{" "}
           </span>
         </div>
       ))}
