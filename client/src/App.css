@@ -327,7 +327,7 @@ select {
 .row .user-box input,
 select {
   -o-border-image: linear-gradient(to right, #b721ff 0%, red 100%);
-     border-image: linear-gradient(to right, #b721ff 0%, red 100%);
+  border-image: linear-gradient(to right, #b721ff 0%, red 100%);
   -webkit-border-image: -webkit-linear-gradient(left, #b721ff 0%, red 100%);
   border-image-slice: 1;
   -webkit-border-image-slice: 1;
@@ -493,6 +493,12 @@ option {
   align-items: center;
   justify-content: center;
   margin: 1rem;
+}
+.Categories {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .tooltip-btn {
   padding: 1rem;

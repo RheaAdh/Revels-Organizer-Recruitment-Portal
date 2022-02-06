@@ -54,19 +54,6 @@ const SuperAdmin = () => {
       <h4>Total Mails Sent : {stats.total_mail_sent}</h4>
       <h4>Total Selected : {stats.total_selected}</h4>
       <h4>Total Rejected : {stats.total_rejected}</h4>{" "}
-      {categories.map((category) => (
-        <div key={category._id} className="category-tooltip">
-          <span
-            data-tip="<b>HTML tooltip</b><br/><b>HTML tooltip</b><br/><b>HTML tooltip</b><br/><b>HTML tooltip</b>"
-            className="tooltip-btn"
-          >
-            {category.category}
-            <h4>Total Applicants : {category.total_applicants}</h4>
-            <h4>Total Selected : {category.total_selected}</h4>
-            <h4>Total Rejected : {category.total_rejected}</h4>{" "}
-          </span>
-        </div>
-      ))}
       <button className="btn download" type="submit">
         <a href={downloadLink}>
           Download List <i className="fa fa-download"></i>
@@ -75,6 +62,28 @@ const SuperAdmin = () => {
       <button className="btn" onClick={auth.logout}>
         Logout
       </button>
+      <div className="Categories">
+        {categories.map((category) => (
+          <div key={category._id} className="category-tooltip">
+            <span
+              data-tip="<b>HTML tooltip</b><br/><b>HTML tooltip</b><br/><b>HTML tooltip</b><br/><b>HTML tooltip</b>"
+              className="tooltip-btn"
+            >
+              {category.category}
+              <h4>
+                Total Applicants :{" "}
+                {category.total_applicants_1 + category.total_applicants_2}
+              </h4>
+              <span>
+                Preference 1: {category.total_applicants_1} <br /> Preference 2:{" "}
+                {category.total_applicants_2}
+              </span>
+              <h4>Total Selected : {category.total_selected}</h4>
+              <h4>Total Rejected : {category.total_rejected}</h4>{" "}
+            </span>
+          </div>
+        ))}
+      </div>
       <h1>Status of Applicants</h1>
       {applicants.map((applicant, index) => (
         <AllStudentDetail applicant={applicant} key={index} />

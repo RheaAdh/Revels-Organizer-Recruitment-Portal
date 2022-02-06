@@ -93,7 +93,23 @@
   margin-right: 1rem;
 }
 
-.download a{
+.download a {
   color: darkgray;
   text-decoration: none;
+}
+.studentdetails-col button {
+  cursor: pointer;
+  margin: 10px 0;
+  padding: 5px 30px;
+  border-radius: 5px;
+  width: fit-content;
+  font-weight: 700;
+  box-shadow: none;
+  border: 1px solid #fff;
+  background-color: #17141d;
+  color: #fff;
+}
+.studentdetails-col button:hover {
+  background-color: #fff;
+  color: #17141d;
 }
