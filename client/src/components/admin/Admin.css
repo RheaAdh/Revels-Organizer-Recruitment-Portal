@@ -38,6 +38,24 @@
   flex-direction: column;
   text-align: center;
 }
+.popUpD {
+  display: block;
+}
+.popUpM {
+  display: none;
+}
+@media (max-width: 600px) {
+  .studentdetails {
+    flex-direction: column;
+  }
+  .popUpD {
+    display: none;
+  }
+  .popUpM {
+    display: block;
+  }
+}
+
 .studentdetails h4 {
   color: white;
 }

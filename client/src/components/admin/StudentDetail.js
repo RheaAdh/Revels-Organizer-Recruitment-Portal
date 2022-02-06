@@ -117,13 +117,31 @@ function StudentDetail({ applicant, adminCategory }) {
         <p>Phone : {applicant.phone}</p>
         {applicant.experience && (
           <Popup
-            trigger={<button className="popUpExp"> Prior Experience</button>}
+            className="popUpD"
+            position="right center"
+            trigger={
+              <button className="popUpExp popUpD"> Prior Experience</button>
+            }
             {...{
               contentStyle,
               overlayStyle,
               arrowStyle,
             }}
-            position="right center"
+          >
+            <div>{applicant.experience}</div>
+          </Popup>
+        )}
+        {applicant.experience && (
+          <Popup
+            position="bottom center"
+            trigger={
+              <button className="popUpExp popUpM"> Prior Experience</button>
+            }
+            {...{
+              contentStyle,
+              overlayStyle,
+              arrowStyle,
+            }}
           >
             <div>{applicant.experience}</div>
           </Popup>
