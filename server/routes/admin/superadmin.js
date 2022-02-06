@@ -68,7 +68,7 @@ const categories = [
   },
   {
     categoryId: "photography",
-    category: "Photography and VcategoryIdeography",
+    category: "Photography and Videography",
     email: "pav.revels22@gmail.com ",
   },
   {
