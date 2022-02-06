@@ -163,7 +163,7 @@ const sys = {
   description:
     "As we welcome various participants not only from our own college but also from different colleges to be a part of Revels, it’ll be your job to help maintain the database for each participant throughout as a part of the system admin team while also assisting with the the front-end and back-end development of the different payment procedures and Gateways. You need to create and maintain portals to ensure the smooth working of other committees.",
   video:
-    "https://youtube.com/embed/zVU9A7NksbU?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+    "https://youtube.com/embed/uzXLcM4QUP0?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
 };
 
 function shuffle(array) {
