@@ -69,9 +69,28 @@ const register = async (req, res) => {
     });
 
     if (temp) {
+      if (
+        (temp.isEdited == null || temp.isEdited == false) &&
+        (exp != null || exp != "")
+      ) {
+        await Organiser.updateOne(
+          { phone, email, registration_no },
+          {
+            $set: {
+              experience: exp,
+              isEdited: true,
+            },
+          }
+        );
+        return res.send({
+          success: true,
+          msg: "User Details Updated. ",
+        });
+      }
+
       return res.send({
         success: false,
-        msg: "User with similiar credentials already registered!",
+        msg: "User with similiar credentials already registered! ",
       });
     }
 

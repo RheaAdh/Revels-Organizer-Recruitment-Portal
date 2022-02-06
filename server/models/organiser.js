@@ -47,6 +47,10 @@ const OrganiserSchema = new mongoose.Schema({
   experience: {
     type: String,
   },
+  isEdited: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = {
