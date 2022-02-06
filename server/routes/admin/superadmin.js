@@ -20,11 +20,6 @@ const AllOrganiserSheet = async (req, res) => {
 };
 const categories = [
   {
-    categoryId: "superAdmin",
-    category: "SUPERADMIN",
-    email: "",
-  },
-  {
     categoryId: "sys",
     category: "Web and System Admin",
     email: "webdevrevels22@gmail.com",
