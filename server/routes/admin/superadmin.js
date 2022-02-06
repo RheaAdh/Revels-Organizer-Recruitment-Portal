@@ -6,7 +6,7 @@ const category = require("../../models/category");
 
 const AllOrganiserSheet = async (req, res) => {
   try {
-    const response = await Organiser.find().sort({ name: 1 });
+    const response = await Organiser.find().sort({ id: 1 });
 
     if (response) {
       await createSheet(response).then((file) => {
@@ -168,6 +168,14 @@ const totalApplicants = async (cat) => {
   });
   return n;
 };
+const totalApplicants_1 = async (cat) => {
+  const n = await Organiser.count({ "pref_1.category": cat.categoryId });
+  return n;
+};
+const totalApplicants_2 = async (cat) => {
+  const n = await Organiser.count({ "pref_2.category": cat.categoryId });
+  return n;
+};
 const getCategories = async (req, res) => {
   try {
     if (req.category.category == "SUPERADMIN") {
@@ -175,7 +183,8 @@ const getCategories = async (req, res) => {
       await categories.forEach(async (cat) => {
         var c = {
           ...cat,
-          total_applicants: await totalApplicants(cat),
+          total_applicants_1: await totalApplicants_1(cat),
+          total_applicants_2: await totalApplicants_2(cat),
           total_selected: await totalSelected(cat),
           total_rejected: await totalRejected(cat),
         };
@@ -194,7 +203,7 @@ const getCategories = async (req, res) => {
 const getOrganisers = async (req, res) => {
   try {
     if (req.category.category == "SUPERADMIN") {
-      const organisers = await Organiser.find({}).sort({ name: 1 });
+      const organisers = await Organiser.find({}).sort({ id: 1 });
       let total_applicants = 0;
       let total_selected = 0;
       let total_rejected = 0;
