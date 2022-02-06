@@ -10,7 +10,7 @@ const SuperAdmin = () => {
   const auth = useAuth();
   const [applicants, setApplicants] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [downloadLink, setDownloadLink] = useState(`/superadmin/sheet`);
+  const [downloadLink, setDownloadLink] = useState(`/api/superadmin/sheet`);
   const [stats, setStats] = useState({});
   const [catstats, setCatStats] = useState({});
   const getApplicants = async () => {
