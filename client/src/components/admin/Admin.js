@@ -73,6 +73,10 @@ const Admin = () => {
       <h4>
         Total Applicants : {stats.total_applicants_1 + stats.total_applicants_2}
       </h4>
+      <span>
+        Preference 1: {stats.total_applicants_1} <br /> Preference 2:{" "}
+        {stats.total_applicants_2}
+      </span>
       <h4>Total Selected : {stats.total_selected}</h4>
       <h4>Total Rejected : {stats.total_rejected}</h4>{" "}
       <button className="btn download" type="submit">
