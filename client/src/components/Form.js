@@ -133,6 +133,7 @@ function Form() {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
+            maxLength={100}
           />
           <label>Name</label>
         </div>
@@ -143,6 +144,7 @@ function Form() {
             required
             value={registration_no}
             onChange={(e) => setRegistration_no(e.target.value)}
+            maxLength={10}
           />
           <label>Registration No.</label>
         </div>
@@ -155,6 +157,7 @@ function Form() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            maxLength={100}
           />
           <label>Email ID</label>
         </div>
@@ -165,6 +168,7 @@ function Form() {
             required
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            maxLength={20}
           />
           <label>Phone</label>
         </div>
@@ -177,6 +181,7 @@ function Form() {
             required
             value={branch}
             onChange={(e) => setBranch(e.target.value)}
+            maxLength={50}
           />
           <label>Branch</label>
         </div>
@@ -187,6 +192,7 @@ function Form() {
             required
             value={cgpa}
             onChange={(e) => setCgpa(e.target.value)}
+            maxLength={5}
           />
           <label>CGPA</label>
         </div>
@@ -238,6 +244,7 @@ function Form() {
             required
             value={exp}
             onChange={(e) => setExp(e.target.value)}
+            maxLength={300}
           />
           <label>Prior Experience</label>
         </div>
