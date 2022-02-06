@@ -3,7 +3,7 @@ const main = require("../../utils/confirmationEmail");
 const constructTemplate = require("../../utils/registrationEmail");
 const { Category } = require("../../models/category");
 const createSheet = require("../../utils/createSheet");
-
+const { getStats } = require("./stats");
 const categoryOrganiserSheet = async (req, res) => {
   try {
     const { category } = req.params;
@@ -22,6 +22,18 @@ const categoryOrganiserSheet = async (req, res) => {
   }
 };
 
+const getCategoryDetails = async (req, res) => {
+  try {
+    if (req.category.categoryId == req.params.category) {
+      var c = await getStats(req.params.category);
+      return res.json({ success: true, data: c });
+    } else {
+      return res.send({ success: false, message: "You are not authorized" });
+    }
+  } catch (error) {
+    return res.send({ success: false, message: "Something went wrong" });
+  }
+};
 const categoryOrganisers = async (req, res) => {
   try {
     const { category } = req.params;
@@ -29,6 +41,7 @@ const categoryOrganisers = async (req, res) => {
       const response = await Organiser.find({
         $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
       }).sort({ id: 1 });
+
       return res.json({ success: true, data: response });
     }
     throw new Error();
@@ -78,7 +91,6 @@ const setOrganiserStatus = async (req, res) => {
 const confirmApplicant = async (req, res) => {
   try {
     const { organiserId } = req.body;
-    console.log(organiserId);
     const org = await Organiser.findById(organiserId);
     var cat = "";
     if (org.pref_1.status == 1) {
@@ -89,7 +101,6 @@ const confirmApplicant = async (req, res) => {
       org.pref_2.status = 3;
     }
     await org.save();
-    console.log(org);
     const category = await Category.findOne(
       { categoryId: cat },
       { category: 1 }
@@ -112,4 +123,5 @@ module.exports = {
   categoryOrganiserSheet,
   categoryOrganisers,
   setOrganiserStatus,
+  getCategoryDetails,
 };

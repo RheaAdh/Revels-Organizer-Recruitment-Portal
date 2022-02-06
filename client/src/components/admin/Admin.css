@@ -97,11 +97,14 @@
   color: darkgray;
   text-decoration: none;
 }
+
 .studentdetails-col button {
+  border-radius: 5px;
+}
+.studentdetails-col .popUpExp {
   cursor: pointer;
   margin: 10px 0;
   padding: 5px 30px;
-  border-radius: 5px;
   width: fit-content;
   font-weight: 700;
   box-shadow: none;
@@ -109,7 +112,7 @@
   background-color: #17141d;
   color: #fff;
 }
-.studentdetails-col button:hover {
+.studentdetails-col .popUpExp:hover {
   background-color: #fff;
   color: #17141d;
 }

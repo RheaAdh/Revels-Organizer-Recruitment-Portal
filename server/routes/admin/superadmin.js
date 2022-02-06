@@ -1,8 +1,7 @@
 const { Organiser } = require("../../models/organiser");
 const { Category } = require("../../models/category");
-
+const { getStats } = require("./stats");
 const createSheet = require("../../utils/createSheet");
-const category = require("../../models/category");
 
 const AllOrganiserSheet = async (req, res) => {
   try {
@@ -21,7 +20,7 @@ const AllOrganiserSheet = async (req, res) => {
 const categories = [
   {
     categoryId: "sys",
-    category: "Web and System Admin",
+    category: "System Admin And Web Dev",
     email: "webdevrevels22@gmail.com",
   },
   {
@@ -131,62 +130,15 @@ const categories = [
     email: "sports.revels22@gmail.com",
   },
 ];
-const totalSelected = async (cat) => {
-  const n = await Organiser.count({
-    $or: [
-      { $and: [{ "pref_1.category": cat.categoryId }, { "pref_1.status": 1 }] },
-      { $and: [{ "pref_2.category": cat.categoryId }, { "pref_2.status": 1 }] },
-    ],
-  });
-  return n;
-};
-const totalRejected = async (cat) => {
-  const n = await Organiser.count({
-    $or: [
-      { $and: [{ "pref_1.category": cat.categoryId }, { "pref_1.status": 2 }] },
-      { $and: [{ "pref_2.category": cat.categoryId }, { "pref_2.status": 2 }] },
-    ],
-  });
-  return n;
-};
-const totalMailSent = async (cat) => {
-  const n = await Organiser.count({
-    $or: [
-      { $and: [{ "pref_1.category": cat.categoryId }, { "pref_1.status": 3 }] },
-      { $and: [{ "pref_2.category": cat.categoryId }, { "pref_2.status": 3 }] },
-    ],
-  });
-  return n;
-};
-
-const totalApplicants = async (cat) => {
-  const n = await Organiser.count({
-    $or: [
-      { "pref_1.category": cat.categoryId },
-      { "pref_2.category": cat.categoryId },
-    ],
-  });
-  return n;
-};
-const totalApplicants_1 = async (cat) => {
-  const n = await Organiser.count({ "pref_1.category": cat.categoryId });
-  return n;
-};
-const totalApplicants_2 = async (cat) => {
-  const n = await Organiser.count({ "pref_2.category": cat.categoryId });
-  return n;
-};
 const getCategories = async (req, res) => {
   try {
     if (req.category.category == "SUPERADMIN") {
       let l = [];
       await categories.forEach(async (cat) => {
+        const stats = await getStats(cat.categoryId);
         var c = {
           ...cat,
-          total_applicants_1: await totalApplicants_1(cat),
-          total_applicants_2: await totalApplicants_2(cat),
-          total_selected: await totalSelected(cat),
-          total_rejected: await totalRejected(cat),
+          ...stats,
         };
         l.push(c);
 

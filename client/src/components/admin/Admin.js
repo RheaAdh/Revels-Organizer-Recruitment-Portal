@@ -10,6 +10,7 @@ const Admin = () => {
   const auth = useAuth();
   const [slotCount, setSlotCount] = useState(0);
   const [applicants, setApplicants] = useState([]);
+  const [stats, setStats] = useState({});
   const [downloadLink, setDownloadLink] = useState(
     `${process.env.REACT_APP_baseUrl}/admin/registrations/${auth.category.categoryId}`
   );
@@ -34,6 +35,19 @@ const Admin = () => {
   //     );
   //   }
   // };
+  const getCatDetails = async () => {
+    try {
+      const res = await axios.get(`/admin/stats/${auth.category.categoryId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+        },
+      });
+      console.log("stats", res.data.data);
+      setStats(res.data.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
   const getApplicants = async () => {
     try {
       const res = await axios.get(
@@ -51,10 +65,16 @@ const Admin = () => {
   };
   useEffect(() => {
     getApplicants();
+    getCatDetails();
   }, []);
   return (
     <div className="admin">
       <h3 className="heading">{auth.category.category}</h3>
+      <h4>
+        Total Applicants : {stats.total_applicants_1 + stats.total_applicants_2}
+      </h4>
+      <h4>Total Selected : {stats.total_selected}</h4>
+      <h4>Total Rejected : {stats.total_rejected}</h4>{" "}
       <button className="btn download" type="submit">
         <a href={downloadLink}>
           Download List <i className="fa fa-download"></i>
@@ -64,7 +84,6 @@ const Admin = () => {
         Logout
       </button>
       <h1>Status of Applicants</h1>
-
       {applicants?.map((applicant, index) => (
         <StudentDetail
           applicant={applicant}

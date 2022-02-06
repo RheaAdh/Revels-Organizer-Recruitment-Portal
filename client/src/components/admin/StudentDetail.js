@@ -6,6 +6,8 @@ import axios from "axios";
 import { TOKEN_ID } from "../../utils/constants";
 import toast from "react-hot-toast";
 
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 function StudentDetail({ applicant, adminCategory }) {
   const handleEmail = () => {
     confirmAlert({
@@ -101,6 +103,10 @@ function StudentDetail({ applicant, adminCategory }) {
       });
     }
   };
+  const contentStyle = { background: "#fff" };
+  const overlayStyle = { background: "rgba(0,0,0,0.5)" };
+  const arrowStyle = { color: "#fff" }; // style for an svg element
+
   return (
     <div className="studentdetails">
       <div className="studentdetails-col col1">
@@ -108,6 +114,19 @@ function StudentDetail({ applicant, adminCategory }) {
         <p>{applicant.registration_no}</p>
         <p>{applicant.email}</p>
         <p>Phone : {applicant.phone}</p>
+        {applicant.experience && (
+          <Popup
+            trigger={<button className="popUpExp"> Prior Experience</button>}
+            {...{
+              contentStyle,
+              overlayStyle,
+              arrowStyle,
+            }}
+            position="right center"
+          >
+            <div>{applicant.experience}</div>
+          </Popup>
+        )}
       </div>
       <div className="studentdetails-col">
         <h4>Pref 1 : {applicant.pref_1.category}</h4>

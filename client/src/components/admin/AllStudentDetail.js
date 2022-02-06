@@ -22,7 +22,7 @@ function AllStudentDetail({ applicant }) {
         <p>Phone : {applicant.phone}</p>
         {applicant.experience && (
           <Popup
-            trigger={<button> Prior Experience</button>}
+            trigger={<button className="popUpExp"> Prior Experience</button>}
             {...{
               contentStyle,
               overlayStyle,

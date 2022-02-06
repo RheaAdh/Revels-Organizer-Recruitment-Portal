@@ -28,7 +28,7 @@ const main = async (to, subject, message) => {
       }
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     throw error;
   }
 };

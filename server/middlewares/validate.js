@@ -21,7 +21,7 @@ const organiserValidationRules = () => {
       })
       .custom((phone) => {
         if (isNaN(phone)) {
-          console.log(typeof phone);
+          // console.log(typeof phone);
           throw new Error("Check mobiles  number");
         } else if (`${phone}`.includes("+")) {
           throw new Error("Check mobile number");

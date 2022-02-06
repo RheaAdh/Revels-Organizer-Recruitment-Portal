@@ -4,6 +4,7 @@ const {
   categoryOrganiserSheet,
   setOrganiserStatus,
   confirmApplicant,
+  getCategoryDetails,
 } = require("./admin/organiser.js");
 const router = express.Router();
 const { register } = require("./reg.js");
@@ -42,6 +43,8 @@ router.get("/admin/category/:token", verifyJwtInUser, getCategoryFromToken);
 router.get("/admin/registrations/:category", categoryOrganiserSheet);
 router.get("/admin/organisers/:category", verifyJwtInUser, categoryOrganisers);
 router.patch("/admin/organiser/status", verifyJwtInUser, setOrganiserStatus);
+
+router.get("/admin/stats/:category", verifyJwtInUser, getCategoryDetails);
 router.post("/admin/updateslot/:categoryId", verifyJwtInUser, updateSlot);
 router.post("/admin/confirmuser", verifyJwtInUser, confirmApplicant);
 
