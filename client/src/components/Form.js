@@ -239,12 +239,14 @@ function Form() {
       <div className="row">
         <div className="user-box">
           <input
-            type="text"
             name=""
             required
             value={exp}
             onChange={(e) => setExp(e.target.value)}
             maxLength={300}
+            onKeyPress={(e) => {
+              e.key === "Enter" && e.preventDefault();
+            }}
           />
           <label>Prior Experience</label>
         </div>
