@@ -143,7 +143,7 @@ function Form() {
             name=""
             required
             value={registration_no}
-            onChange={(e) => setRegistration_no(e.target.value)}
+            onChange={(e) => setRegistration_no(e.target.value.trim())}
             maxLength={10}
           />
           <label>Registration No.</label>
@@ -156,7 +156,7 @@ function Form() {
             name=""
             required
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.trim())}
             maxLength={100}
           />
           <label>Email ID</label>
@@ -167,7 +167,7 @@ function Form() {
             name=""
             required
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => setPhone(e.target.value.trim())}
             maxLength={20}
           />
           <label>Phone</label>
@@ -191,7 +191,7 @@ function Form() {
             name=""
             required
             value={cgpa}
-            onChange={(e) => setCgpa(e.target.value)}
+            onChange={(e) => setCgpa(e.target.value.trim())}
             maxLength={5}
           />
           <label>CGPA</label>
