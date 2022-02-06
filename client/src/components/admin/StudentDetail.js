@@ -110,6 +110,7 @@ function StudentDetail({ applicant, adminCategory }) {
   return (
     <div className="studentdetails">
       <div className="studentdetails-col col1">
+        <h1>{applicant.id}</h1>
         <h4>{applicant.name}</h4>
         <p>{applicant.registration_no}</p>
         <p>{applicant.email}</p>
