@@ -165,7 +165,7 @@ const getOrganisers = async (req, res) => {
       for (let i = 0; i < organisers.length; i++) {
         total_applicants++;
         if (
-          organisers[i].pref_1.status == "2" &&
+          organisers[i].pref_1.status == "2" ||
           organisers[i].pref_2.status == "2"
         ) {
           total_rejected++;
