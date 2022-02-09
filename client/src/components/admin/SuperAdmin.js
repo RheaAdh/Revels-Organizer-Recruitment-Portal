@@ -79,7 +79,8 @@ const SuperAdmin = () => {
                 {category.total_applicants_2}
               </span>
               <h4>Total Selected : {category.total_selected}</h4>
-              <h4>Total Rejected : {category.total_rejected}</h4>{" "}
+              <h4>Total Rejected : {category.total_rejected}</h4>
+              <h4>Rejected (Pref 1): {category.pref1_rejected}</h4>{" "}
             </span>
           </div>
         ))}

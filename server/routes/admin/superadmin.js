@@ -160,15 +160,15 @@ const getOrganisers = async (req, res) => {
       let total_selected = 0;
       let total_rejected = 0;
       let total_mail_sent = 0;
-      let total_not_reviewed = 0;
+      let pref1_rejected = 0;
 
       for (let i = 0; i < organisers.length; i++) {
         total_applicants++;
-        if (
-          organisers[i].pref_1.status == "2" ||
-          organisers[i].pref_2.status == "2"
-        ) {
-          total_rejected++;
+        if (organisers[i].pref_1.status == "2") {
+          pref1_rejected++;
+          if (organisers[i].pref_2.status == "2") {
+            total_rejected++;
+          }
         }
         if (
           organisers[i].pref_1.status == "1" ||
@@ -188,6 +188,7 @@ const getOrganisers = async (req, res) => {
         total_applicants,
         total_selected,
         total_rejected,
+        pref1_rejected,
         total_mail_sent,
       };
 
