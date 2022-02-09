@@ -54,6 +54,7 @@ const SuperAdmin = () => {
       <h4>Total Mails Sent : {stats.total_mail_sent}</h4>
       <h4>Total Selected : {stats.total_selected}</h4>
       <h4>Total Rejected : {stats.total_rejected}</h4>{" "}
+      <h4>Rejected (Pref 1): {stats.pref1_rejected}</h4>{" "}
       <button className="btn download" type="submit">
         <a href={downloadLink}>
           Download List <i className="fa fa-download"></i>
@@ -80,7 +81,6 @@ const SuperAdmin = () => {
               </span>
               <h4>Total Selected : {category.total_selected}</h4>
               <h4>Total Rejected : {category.total_rejected}</h4>
-              <h4>Rejected (Pref 1): {category.pref1_rejected}</h4>{" "}
             </span>
           </div>
         ))}
