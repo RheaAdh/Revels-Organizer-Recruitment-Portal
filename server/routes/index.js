@@ -7,7 +7,7 @@ const {
   getCategoryDetails,
 } = require("./admin/organiser.js");
 const router = express.Router();
-const { register } = require("./reg.js");
+const { register, cultural } = require("./reg.js");
 const {
   organiserValidate,
   organiserValidationRules,
@@ -29,10 +29,16 @@ const { creds } = require("./admin/cred.js");
 
 //Client Routes
 router.post(
-  "/register",
+  "/register/sup",
   organiserValidationRules(),
   organiserValidate,
   register
+);
+router.post(
+  "/register/cul",
+  organiserValidationRules(),
+  organiserValidate,
+  cultural
 );
 
 //ADMIN ROUTES

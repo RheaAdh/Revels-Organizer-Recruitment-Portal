@@ -20,6 +20,10 @@ function AllStudentDetail({ applicant }) {
         <p>{applicant.registration_no}</p>
         <p>{applicant.email}</p>
         <p>Phone : {applicant.phone}</p>
+        <strong>
+          {" "}
+          {applicant.type === 1 ? <p>Supporting/Sports</p> : <p>Cultural</p>}
+        </strong>
         {applicant.experience && (
           <Popup
             className="popUpD"

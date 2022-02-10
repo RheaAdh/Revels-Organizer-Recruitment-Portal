@@ -10,7 +10,7 @@ const Categories = (props) => {
   setTimeout(() => {
     activeCat.title !== "" &&
       document.getElementById(activeCat.title)?.classList.add("active");
-  }, 1000);
+  }, 100);
 
   // resets any active tiles
   const removeActive = () => {

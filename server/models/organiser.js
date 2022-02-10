@@ -51,6 +51,10 @@ const OrganiserSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  type: {
+    type: Number,
+    default: 1,
+  },
 });
 
 module.exports = {

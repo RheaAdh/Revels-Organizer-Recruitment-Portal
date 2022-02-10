@@ -87,7 +87,10 @@ function Form() {
         slot_2,
         exp,
       };
-      const res = await axios.post("/register", data);
+      const res =
+        cat === 1
+          ? await axios.post("/register/sup", data)
+          : await axios.post("/register/cul", data);
       if (res.data.success) {
         toast.success(`${res.data.msg} \n We will contact you soon.`, {
           id: toastId,
@@ -135,6 +138,7 @@ function Form() {
 
   const [name, setName] = useState("");
   const [options, setOptions] = useState(options1);
+  const [cat, setCat] = useState(1);
   const [registration_no, setRegistration_no] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -220,7 +224,7 @@ function Form() {
           <label>CGPA</label>
         </div>
       </div>
-      {/* <div className="toggle-option">
+      <div className="toggle-option">
         <button
           type="button"
           className="active"
@@ -228,6 +232,7 @@ function Form() {
           onClick={() => {
             setPref_1("--");
             setPref_2("--");
+            setCat(1);
             document.getElementById("btn-1")?.classList.add("active");
             document.getElementById("btn-2")?.classList.remove("active");
             setOptions(options1);
@@ -241,6 +246,7 @@ function Form() {
           onClick={() => {
             setPref_1("--");
             setPref_2("--");
+            setCat(2);
             document.getElementById("btn-2")?.classList.add("active");
             document.getElementById("btn-1")?.classList.remove("active");
             setOptions(options2);
@@ -248,7 +254,7 @@ function Form() {
         >
           Cultural
         </button>
-      </div> */}
+      </div>
       <div className="row slots">
         <div className="user-box">
           <label>Preference 1</label>

@@ -1,4 +1,5 @@
 const { Category } = require("../models/category");
+const { Cultural } = require("../models/cultural");
 const { Organiser } = require("../models/organiser");
 const main = require("../utils/confirmationEmail");
 const constructTemplate = require("../utils/registrationEmail");
@@ -10,6 +11,7 @@ const constructTemplate = require("../utils/registrationEmail");
 
 const register = async (req, res) => {
   try {
+    console.log(req.body);
     const {
       name,
       phone,
@@ -21,76 +23,28 @@ const register = async (req, res) => {
       pref_2,
       exp,
     } = req.body;
-    // if (pref_1 == "Preference 1" || slot_1 == -1) {
-    //   return res.send({
-    //     success: false,
-    //     msg: "1st Preference is neccessary!",
-    //   });
-    // }
 
-    // if (pref_2 != "Preference 2" && slot_2 == -1) {
-    //   return res.send({
-    //     success: false,
-    //     msg: "Please select slot for 2nd Preference",
-    //   });
-    // }
-
-    // const slot1 = getDays(new Date(slot_1));
-    // const slot2 = getDays(new Date(slot_2));
-
-    let category1 = null,
-      category2 = null;
-
-    category1 = await Category.findOne({
-      categoryId: pref_1,
-    });
-    //no.of slots for a day will be entered by category heads inside slots array of each category
-    // if (category1.slots[slot1] <= 0) {
-    //   return res.send({
-    //     success: false,
-    //     msg: `Selected Slot not available for ${pref_1}. Check again!`,
-    //   });
-    // }
-    if (pref_2 != "Preference 2") {
-      category2 = await Category.findOne({
-        categoryId: pref_2,
-      });
-
-      // if (category2.slots[slot2] <= 0) {
-      //   return res.send({
-      //     success: false,
-      //     msg: `Selected Slot not available for ${pref_2}. Check again!`,
-      //   });
-      // }
-    }
-
-    const temp = await Organiser.findOne({
+    let temp = await Organiser.findOne({
       $or: [{ phone }, { email }, { registration_no }],
+      type: 2,
     });
 
     if (temp) {
-      if (
-        (temp.isEdited == null || temp.isEdited == false) &&
-        (exp != null || exp != "")
-      ) {
-        await Organiser.updateOne(
-          { phone, email, registration_no },
-          {
-            $set: {
-              experience: exp,
-              isEdited: true,
-            },
-          }
-        );
+      if (!(temp.pref_1.status === 2 && temp.pref_2.status === 2)) {
         return res.send({
-          success: true,
-          msg: "User Details Updated. ",
+          success: false,
+          msg: "User already registered. Please wait while the cultural category interviews are in process. ",
         });
       }
-
+    }
+    temp = await Organiser.findOne({
+      $or: [{ phone }, { email }, { registration_no }],
+      type: 1,
+    });
+    if (temp) {
       return res.send({
         success: false,
-        msg: "User with similiar credentials already registered! ",
+        msg: "User with similiar credentials already registered.",
       });
     }
 
@@ -125,19 +79,95 @@ const register = async (req, res) => {
 
     const org = await organiser.save();
 
-    // category1.slots[slot1]--;
-    // await Category.updateOne(
-    //   { category: pref_1 },
-    //   { $set: { slots: category1.slots } }
-    // );
+    const status = "Registration Successful!";
+    const body =
+      "You have successfully registered for REVELS'22 Organiser Call. Our team will get back to you shortly";
+    const message = constructTemplate(org.name, status, body);
 
-    // if (pref_2 != "Preference 2") {
-    //   category2.slots[slot2]--;
-    //   await Category.updateOne(
-    //     { category: pref_2 },
-    //     { $set: { slots: category2.slots } }
-    //   );
-    // }
+    main(
+      org.email,
+      "Thank you for registering for Revels'22 Organiser",
+      message
+    );
+    return res.json({ success: true, msg: "Successfully Registered!" });
+  } catch (error) {
+    console.log(error.toString());
+    return res
+      .status(500)
+      .json({ message: "Registeration failed. Please Try Again !!" });
+  }
+};
+
+const cultural = async (req, res) => {
+  try {
+    const {
+      name,
+      phone,
+      email,
+      registration_no,
+      cgpa,
+      branch,
+      pref_1,
+      pref_2,
+      exp,
+    } = req.body;
+
+    let temp = await Organiser.findOne({
+      $or: [{ phone }, { email }, { registration_no }],
+      type: 1,
+    });
+
+    if (temp) {
+      if (!(temp.pref_1.status === 2 && temp.pref_2.status === 2)) {
+        return res.send({
+          success: false,
+          msg: "User already registered. Please wait while the supporting category interviews are in process. ",
+        });
+      }
+    }
+    temp = await Organiser.findOne({
+      $or: [{ phone }, { email }, { registration_no }],
+      type: 2,
+    });
+    if (temp) {
+      return res.send({
+        success: false,
+        msg: "User with similiar credentials already registered.",
+      });
+    }
+
+    let id = 1;
+    let id_obj = await Organiser.find({}, { id: 1, _id: 0 })
+      .sort({ id: -1 })
+      .limit(1);
+
+    if (id_obj[0]) {
+      id = id_obj[0].id + 1;
+    }
+    const pref1 = {
+      category: pref_1,
+      status: 0,
+    };
+    const pref2 = {
+      category: pref_2,
+      status: 0,
+    };
+    const organiser = new Organiser({
+      id,
+      name,
+      phone,
+      email,
+      registration_no,
+      cgpa,
+      branch,
+      pref_1: pref1,
+      pref_2: pref2,
+      experience: exp,
+      type: 2,
+    });
+
+    const org = await organiser.save();
+
     const status = "Registration Successful!";
     const body =
       "You have successfully registered for REVELS'22 Organiser Call. Our team will get back to you shortly";
@@ -181,5 +211,6 @@ const addData = async (req, res) => {
 
 module.exports = {
   register,
+  cultural,
   addData,
 };

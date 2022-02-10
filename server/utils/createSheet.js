@@ -6,6 +6,7 @@ const createSheet = async (response) => {
     var ws = wb.addWorksheet("Sheet");
     const headingColumnNames = [
       "id",
+      "Type",
       "Name",
       "Email",
       "Phone Number",
@@ -28,6 +29,9 @@ const createSheet = async (response) => {
     response.forEach((resp) => {
       let columnIndex = 1;
       ws.cell(rowIndex, columnIndex++).string(resp.id.toString());
+      ws.cell(rowIndex, columnIndex++).string(
+        resp.type == 1 ? "Supporting/Sports" : "Cultural"
+      );
       ws.cell(rowIndex, columnIndex++).string(resp.name.toString());
       ws.cell(rowIndex, columnIndex++).string(resp.email.toString());
       ws.cell(rowIndex, columnIndex++).string(resp.phone.toString());

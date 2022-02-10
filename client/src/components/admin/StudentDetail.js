@@ -182,11 +182,11 @@ function StudentDetail({ applicant, adminCategory }) {
         {applicant.pref_1.status === 1 && (
           <div className="status-btn">
             <button className="btns in">Selected</button>
-            {applicant.pref_1.category === adminCategory.categoryId && (
+            {/* {applicant.pref_1.category === adminCategory.categoryId && (
               <button className="btns email" onClick={handleEmail}>
                 Send Mail <i className="fa fa-paper-plane"></i>
               </button>
-            )}
+            )} */}
           </div>
         )}
         {applicant.pref_1.status === 3 && (
@@ -241,7 +241,7 @@ function StudentDetail({ applicant, adminCategory }) {
                         <p>Reviewed</p>
                         <div className="status-btn">
                           <button className="btns in">Selected</button>
-                          {applicant.pref_2.category ===
+                          {/* {applicant.pref_2.category ===
                             adminCategory.categoryId && (
                             <button
                               className="btns email"
@@ -250,7 +250,7 @@ function StudentDetail({ applicant, adminCategory }) {
                             >
                               Send Mail <i className="fa fa-paper-plane"></i>
                             </button>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     ) : (

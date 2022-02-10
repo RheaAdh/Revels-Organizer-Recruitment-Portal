@@ -14,7 +14,7 @@ import SuperAdmin from "./components/admin/SuperAdmin";
 import axios from "axios";
 const App = () => {
   axios.defaults.baseURL = process.env.REACT_APP_baseUrl;
-  console.log = console.warn = console.error = () => {};
+  // console.log = console.warn = console.error = () => {};
   return (
     <BrowserRouter>
       <AuthProvider>
