@@ -37,7 +37,7 @@ const Categories = (props) => {
       video: props.categories[0].video,
     });
     document.getElementById(props.categories[0].title)?.classList.add("active");
-  }, []);
+  }, [props.categories]);
 
   return (
     <div className="categories">
