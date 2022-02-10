@@ -356,7 +356,7 @@ select {
 /* Cards */
 .card {
   display: flex;
-  height: 400px;
+  height: 500px;
   width: 400px;
   background-color: #17141d;
   border-radius: 10px;
@@ -368,13 +368,10 @@ select {
   margin: 0 auto;
   color: white;
   flex-direction: column;
-  overflow-y: scroll;
+
+  font-size: 1.5rem;
 }
-@media (max-width: 700px) {
-  .card {
-    height: 500px;
-  }
-}
+
 .card hr {
   width: 80%;
   margin: 0 auto;
@@ -389,19 +386,19 @@ select {
 .card-text {
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 16px;
   width: 80%;
   margin: 0 auto;
   height: 100%;
 }
-@media (max-width: 400px) {
+
+@media (max-width: 600px) {
   .card {
-    height: 380px;
+    height: 500px;
+    font-size: 2rem;
   }
-}
-@media screen and (max-width: 350px) {
-  .card-text {
-    font-size: 12px;
+  .card-text p {
+    font-size: 15px;
   }
 }
 
