@@ -91,7 +91,8 @@ const cultural = [
     id: "Consulere",
     title: "Consulere",
 
-    description: "",
+    description:
+      "A compendium of events that test your analytical wits and real-world knowledge. A platform designed to bring out the creative, cautious genius in you - Suit up and make your case to take home not just the prize money but also tonnes of acuity! It is time to incubate your unique perspective and solve problems that pester everyone ranging from behemoth corporations to your modest sabziwala in day-to-day life.",
   },
   {
     id: "Dramebaaz",
