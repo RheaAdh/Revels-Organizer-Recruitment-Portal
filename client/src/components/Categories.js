@@ -48,16 +48,27 @@ const Categories = (props) => {
               <div
                 key={index}
                 id={category.title}
-                className="cat-card"
-                onClick={() =>
-                  handleCardClick(
-                    category.title,
-                    category.description,
-                    category.video
-                  )
-                }
+                className={!category.blocked ? "cat-card" : "cat-card disabled"}
+                onClick={() => {
+                  if (!category.blocked)
+                    handleCardClick(
+                      category.title,
+                      category.description,
+                      category.video
+                    );
+                }}
               >
                 <p>{category.title}</p>
+                {category.blocked ? (
+                  <>
+                    <br />
+                    <p style={{ fontSize: "10px", padding: "2px" }}>
+                      closed
+                    </p>{" "}
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             );
           })

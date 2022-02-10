@@ -4,26 +4,48 @@ import toast from "react-hot-toast";
 
 import supportingCategories from "./supporting";
 
+import sportsCategories from "./sports";
 import culturalCategories from "./cultural";
 function Form() {
-  let options = [
+  let options1 = [
     {
       value: null,
       label: "--",
     },
   ];
-  culturalCategories.forEach((cat) => {
-    options.push({
+  let options2 = [
+    {
+      value: null,
+      label: "--",
+    },
+  ];
+  sportsCategories.forEach((cat) => {
+    options1.push({
       value: cat.id,
       label: cat.title,
+      blocked: cat.blocked,
     });
   });
   supportingCategories.forEach((cat) => {
-    options.push({
+    options1.push({
       value: cat.id,
       label: cat.title,
+      blocked: cat.blocked,
     });
   });
+  culturalCategories.forEach((cat) => {
+    options2.push({
+      value: cat.title.toLowerCase(),
+      label: cat.title,
+      blocked: cat.blocked,
+    });
+  });
+  // culturalCategories.forEach((cat) => {
+  //   options2.push({
+  //     value: cat.id,
+  //     label: cat.title,
+  //   });
+  // });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -112,6 +134,7 @@ function Form() {
   }
 
   const [name, setName] = useState("");
+  const [options, setOptions] = useState(options1);
   const [registration_no, setRegistration_no] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -197,6 +220,35 @@ function Form() {
           <label>CGPA</label>
         </div>
       </div>
+      {/* <div className="toggle-option">
+        <button
+          type="button"
+          className="active"
+          id="btn-1"
+          onClick={() => {
+            setPref_1("--");
+            setPref_2("--");
+            document.getElementById("btn-1")?.classList.add("active");
+            document.getElementById("btn-2")?.classList.remove("active");
+            setOptions(options1);
+          }}
+        >
+          Supporting & Sports
+        </button>
+        <button
+          type="button"
+          id="btn-2"
+          onClick={() => {
+            setPref_1("--");
+            setPref_2("--");
+            document.getElementById("btn-2")?.classList.add("active");
+            document.getElementById("btn-1")?.classList.remove("active");
+            setOptions(options2);
+          }}
+        >
+          Cultural
+        </button>
+      </div> */}
       <div className="row slots">
         <div className="user-box">
           <label>Preference 1</label>
@@ -206,9 +258,15 @@ function Form() {
             value={pref_1}
             onChange={(e) => setPref_1(e.target.value)}
           >
-            {options.map(({ value, label }, index) => (
-              <option value={value}>{label}</option>
-            ))}
+            {options.map(({ value, label, blocked }, index) =>
+              !blocked ? (
+                <option value={value}>{label}</option>
+              ) : (
+                <option value={value} disabled>
+                  {label}
+                </option>
+              )
+            )}
           </select>
         </div>
         <div className="user-box">
@@ -219,9 +277,15 @@ function Form() {
             value={pref_2}
             onChange={(e) => setPref_2(e.target.value)}
           >
-            {options.map(({ value, label }, index) => (
-              <option value={value}>{label}</option>
-            ))}
+            {options.map(({ value, label, blocked }, index) =>
+              !blocked ? (
+                <option value={value}>{label}</option>
+              ) : (
+                <option value={value} disabled>
+                  {label}
+                </option>
+              )
+            )}
           </select>
         </div>
         {/* <div className="user-box">

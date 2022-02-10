@@ -25,14 +25,7 @@ const supporting = [
     video:
       "https://youtube.com/embed/0Z8iGJ-8H5E?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
-  {
-    id: "proshow",
-    title: "ProShow",
-    description:
-      "Get the opportunity to work in one of the most prestigious categories in all of revels: Work closely with the CCs to help decide the line up, assist in ensuring that performers have what they need while in town, and get involved in setting up the venue and making sure this event is utterly memorable",
-    video:
-      "https://youtube.com/embed/7v86zo9Oaxg?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
+
   {
     id: "certificate",
     title: "Certificates and Prizes",
@@ -41,14 +34,7 @@ const supporting = [
     video:
       "https://youtube.com/embed/N3rHNGjxaBw?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
-  {
-    id: "logistics",
-    title: "Logistics",
-    description:
-      "The management of all the data and resources that are required during the events has to be done meticulously to have a successful fest, and if you believe that your data management and problem-solving skills , come forth and be a part of the logistics team. You’re the person who maintains a proper database of every resource starting from stationery to major props that are used and the borrowers of those resources.",
-    video:
-      "https://youtube.com/embed/1Thp4-L6YE0?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
+
   {
     id: "vigilance",
     title: "Vigilance",
@@ -65,14 +51,7 @@ const supporting = [
     video:
       "https://youtube.com/embed/xfvNsNO912A?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
-  {
-    id: "informals",
-    title: "Informals",
-    description:
-      "We all deserve a relaxing break after a wild day of celebration and the informals are the ones we count on. From little stalls for taking pictures with fun games like a treasure hunt and foodathon, you'll be organizing and managing it all. It'll be your responsibility to have your station on and going throughout the fest.",
-    video:
-      "https://youtube.com/embed/hEpG66-keEs?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
+
   {
     id: "hfs",
     title: "HFS",
@@ -106,14 +85,6 @@ const supporting = [
     video:
       "https://youtube.com/embed/yllcAZSwiFU?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
-  {
-    id: "outstation",
-    title: "Outstation Management",
-    description:
-      "Do you enjoy interacting with new people and enjoy being a host? Then imagine sending invites as a representative of the college and being the first point of contact for the students coming to the fest from other colleges. You will need to take care of food, accommodation, and all other essential requirements of these students as they are our guests.",
-    video:
-      "https://youtube.com/embed/QKr3T5JJf8k?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
 
   {
     id: "socialmedia",
@@ -123,23 +94,6 @@ const supporting = [
     video:
       "https://youtube.com/embed/LtVgTqecYaQ?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
-  {
-    id: "operations",
-    title: "Operations",
-    description:
-      "Are you a dedicated worker? Do you like to keep things in order? If yes, then come be a part of the Revels operations team to polish this skill even further. Operations makes the timetable of the fest, ensures proper distributions of events, and allocates the venues for them. Making Revels function like a well oiled machine falls on your shoulders",
-    video:
-      "https://youtube.com/embed/dJ_99zgHRPM?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
-  {
-    id: "hrd",
-    title: "HRD",
-    description:
-      "Ever wondered who delegates volunteers to various categories? Yes it's HRD. You will be responsible to provide volunteers to a particular category, as and when required. You will need to have good people management skills and ensure there is no conflict of interest between anyone.",
-    video:
-      "https://youtube.com/embed/nenpAsHfosI?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
-
   {
     id: "graphics",
     title: "Graphics",
@@ -166,6 +120,63 @@ const sys = {
     "https://youtube.com/embed/uzXLcM4QUP0?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
 };
 
+const closed = [
+  {
+    id: "informals",
+    blocked: true,
+    title: "Informals",
+    description:
+      "We all deserve a relaxing break after a wild day of celebration and the informals are the ones we count on. From little stalls for taking pictures with fun games like a treasure hunt and foodathon, you'll be organizing and managing it all. It'll be your responsibility to have your station on and going throughout the fest.",
+    video:
+      "https://youtube.com/embed/hEpG66-keEs?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+  {
+    id: "proshow",
+    blocked: true,
+    title: "ProShow",
+    description:
+      "Get the opportunity to work in one of the most prestigious categories in all of revels: Work closely with the CCs to help decide the line up, assist in ensuring that performers have what they need while in town, and get involved in setting up the venue and making sure this event is utterly memorable",
+    video:
+      "https://youtube.com/embed/7v86zo9Oaxg?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+  {
+    id: "logistics",
+    blocked: true,
+    title: "Logistics",
+    description:
+      "The management of all the data and resources that are required during the events has to be done meticulously to have a successful fest, and if you believe that your data management and problem-solving skills , come forth and be a part of the logistics team. You’re the person who maintains a proper database of every resource starting from stationery to major props that are used and the borrowers of those resources.",
+    video:
+      "https://youtube.com/embed/1Thp4-L6YE0?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+  {
+    id: "outstation",
+    blocked: true,
+    title: "Outstation Management",
+    description:
+      "Do you enjoy interacting with new people and enjoy being a host? Then imagine sending invites as a representative of the college and being the first point of contact for the students coming to the fest from other colleges. You will need to take care of food, accommodation, and all other essential requirements of these students as they are our guests.",
+    video:
+      "https://youtube.com/embed/QKr3T5JJf8k?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+
+  {
+    id: "operations",
+    blocked: true,
+    title: "Operations",
+    description:
+      "Are you a dedicated worker? Do you like to keep things in order? If yes, then come be a part of the Revels operations team to polish this skill even further. Operations makes the timetable of the fest, ensures proper distributions of events, and allocates the venues for them. Making Revels function like a well oiled machine falls on your shoulders",
+    video:
+      "https://youtube.com/embed/dJ_99zgHRPM?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+  {
+    id: "hrd",
+    blocked: true,
+    title: "HRD",
+    description:
+      "Ever wondered who delegates volunteers to various categories? Yes it's HRD. You will be responsible to provide volunteers to a particular category, as and when required. You will need to have good people management skills and ensure there is no conflict of interest between anyone.",
+    video:
+      "https://youtube.com/embed/nenpAsHfosI?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+];
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -206,6 +217,6 @@ function shuffleSS(array) {
   return array;
 }
 const categories = shuffle(supporting);
-const res = shuffleSS([sys, ...categories]);
+const res = shuffleSS([sys, ...categories, ...closed]);
 
 export default res;

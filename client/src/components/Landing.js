@@ -4,8 +4,8 @@ import { useState } from "react";
 import Card from "./Card";
 import Form from "./Form";
 import supportingCategories from "./supporting";
+import sportsCategories from "./sports";
 import culturalCategories from "./cultural";
-
 import Categories from "./Categories";
 
 function Landing() {
@@ -83,12 +83,14 @@ function Landing() {
           categories={supportingCategories}
           isList
           item={supportingCategories[0]}
+          tab={0}
         />
       ) : tab === 1 ? (
         <Categories
-          categories={culturalCategories}
+          categories={sportsCategories}
           isList={false}
-          item={culturalCategories[0]}
+          item={sportsCategories[0]}
+          tab={1}
         />
       ) : (
         <>
