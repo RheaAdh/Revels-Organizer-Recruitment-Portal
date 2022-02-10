@@ -12,7 +12,9 @@ const Admin = () => {
   const [applicants, setApplicants] = useState([]);
   const [stats, setStats] = useState({});
   const [downloadLink, setDownloadLink] = useState(
-    `${process.env.REACT_APP_baseUrl}/admin/registrations/${auth.category.categoryId}`
+    `${
+      process.env.REACT_APP_baseUrl
+    }/admin/registrations/${auth.category.categoryId.toLowerCase()}`
   );
   // const updateSlot = async (e) => {
   //   e.preventDefault();
@@ -37,11 +39,14 @@ const Admin = () => {
   // };
   const getCatDetails = async () => {
     try {
-      const res = await axios.get(`/admin/stats/${auth.category.categoryId}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
-        },
-      });
+      const res = await axios.get(
+        `/admin/stats/${auth.category.categoryId.toLowerCase()}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,
+          },
+        }
+      );
       console.log("stats", res.data.data);
       setStats(res.data.data);
     } catch (error) {
@@ -51,7 +56,7 @@ const Admin = () => {
   const getApplicants = async () => {
     try {
       const res = await axios.get(
-        `/admin/organisers/${auth.category.categoryId}`,
+        `/admin/organisers/${auth.category.categoryId.toLowerCase()}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem(TOKEN_ID)}`,

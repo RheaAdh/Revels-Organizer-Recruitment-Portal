@@ -24,7 +24,7 @@ const categoryOrganiserSheet = async (req, res) => {
 
 const getCategoryDetails = async (req, res) => {
   try {
-    if (req.category.categoryId == req.params.category) {
+    if (req.category.categoryId.toLowerCase() == req.params.category) {
       var c = await getStats(req.params.category);
       return res.json({ success: true, data: c });
     } else {
@@ -37,7 +37,7 @@ const getCategoryDetails = async (req, res) => {
 const categoryOrganisers = async (req, res) => {
   try {
     const { category } = req.params;
-    if (category == req.category.categoryId) {
+    if (category == req.category.categoryId.toLowerCase()) {
       const response = await Organiser.find({
         $or: [{ "pref_1.category": category }, { "pref_2.category": category }],
       }).sort({ id: 1 });
@@ -56,7 +56,7 @@ const setOrganiserStatus = async (req, res) => {
     const cat = await Organiser.findOne({
       id: organiserId,
     });
-    if (cat.pref_1.category == req.category.categoryId) {
+    if (cat.pref_1.category == req.category.categoryId.toLowerCase()) {
       response = await Organiser.updateOne(
         {
           id: organiserId,
@@ -67,7 +67,7 @@ const setOrganiserStatus = async (req, res) => {
           },
         }
       );
-    } else if (cat.pref_2.category == req.category.categoryId) {
+    } else if (cat.pref_2.category == req.category.categoryId.toLowerCase()) {
       response = await Organiser.updateOne(
         {
           id: organiserId,
