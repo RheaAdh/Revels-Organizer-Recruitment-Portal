@@ -25,8 +25,7 @@ const register = async (req, res) => {
     } = req.body;
 
     let temp = await Organiser.findOne({
-      $or: [{ phone }, { email }, { registration_no }],
-      type: 2,
+      $and: [{ $or: [{ phone }, { email }, { registration_no }] }, { type: 2 }],
     });
 
     if (temp) {
@@ -38,8 +37,7 @@ const register = async (req, res) => {
       }
     }
     temp = await Organiser.findOne({
-      $or: [{ phone }, { email }, { registration_no }],
-      type: 1,
+      $and: [{ $or: [{ phone }, { email }, { registration_no }] }, { type: 1 }],
     });
     if (temp) {
       return res.send({
@@ -113,8 +111,7 @@ const cultural = async (req, res) => {
     } = req.body;
 
     let temp = await Organiser.findOne({
-      $or: [{ phone }, { email }, { registration_no }],
-      type: 1,
+      $and: [{ $or: [{ phone }, { email }, { registration_no }] }, { type: 1 }],
     });
 
     if (temp) {
@@ -126,8 +123,7 @@ const cultural = async (req, res) => {
       }
     }
     temp = await Organiser.findOne({
-      $or: [{ phone }, { email }, { registration_no }],
-      type: 2,
+      $and: [{ $or: [{ phone }, { email }, { registration_no }] }, { type: 2 }],
     });
     if (temp) {
       return res.send({
