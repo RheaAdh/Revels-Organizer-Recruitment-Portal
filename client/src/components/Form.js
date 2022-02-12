@@ -35,7 +35,7 @@ function Form() {
   });
   culturalCategories.forEach((cat) => {
     options2.push({
-      value: cat.title.toLowerCase(),
+      value: cat.id.toLowerCase(),
       label: cat.title,
       blocked: cat.blocked,
     });
