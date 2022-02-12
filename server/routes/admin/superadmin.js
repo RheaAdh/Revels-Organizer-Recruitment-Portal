@@ -129,13 +129,98 @@ const categories = [
     category: "Sports",
     email: "sports.revels22@gmail.com",
   },
+  {
+    id: "Anubhuti",
+    title: "Anubhuti",
+    email: "revelsgoonj22@gmail.com",
+  },
+  {
+    // Infodesk and Finance
+    id: "Ampersand",
+    title: "Ampersand",
+    email: "revels.ampersand@gmail.com",
+  },
+  {
+    // App Dev
+    id: "Ergo",
+    title: "Ergo",
+    email: "ergo.revels@gmail.com",
+  },
+  {
+    id: "Psychus",
+    title: "Psychus",
+    email: "psychus.revelsmit@gmail.com",
+  },
+  {
+    id: "Kalakriti",
+    title: "Kalakriti",
+    email: "revelskalakriti2022@gmail.com",
+  },
+  {
+    id: "Crescendo",
+    title: "Crescendo",
+    email: "crescendo.revelscc@gmail.com",
+  },
+  {
+    id: "Footloose",
+    title: "Footloose",
+    email: "footloose.revels@gmail.com",
+  },
+  {
+    id: "HauteCouture",
+    title: "Haute Couture",
+    email: "hautecouturerevels22@gmail.com",
+  },
+  {
+    id: "Animania",
+    title: "Animania",
+    email: "revels.animania.mit@gmail.com",
+  },
+  {
+    id: "Xventure",
+    title: "Xventure",
+    email: "revels.xventure@gmail.com",
+  },
+  {
+    id: "HumanLibrary",
+    title: "Human Library",
+    email: "humanlibrary.revelsmit@gmail.com",
+  },
+
+  {
+    id: "Lensation",
+    title: "Lensation",
+    email: "lensation.revels22@gmail.com",
+  },
+  {
+    id: "Iridescent",
+    title: "Iridescent",
+    email: "iridecent.revels22@gmail.com",
+  },
+  {
+    id: "Altaebir",
+    title: "Altaebir",
+    email: "revelsfilmfestival2022@gmail.com",
+  },
+
+  {
+    id: "Consulere",
+    title: "Consulere",
+
+    email: "manipalacademy@180dc.org",
+  },
+  {
+    id: "Dramebaaz",
+    title: "Dramebaaz",
+    email: "dramebaaz.mit@gmail.com",
+  },
 ];
 const getCategories = async (req, res) => {
   try {
     if (req.category.category == "SUPERADMIN") {
       let l = [];
       await categories.forEach(async (cat) => {
-        const stats = await getStats(cat.categoryId);
+        const stats = await getStats(cat.categoryId.toLowerCase());
         var c = {
           ...cat,
           ...stats,
