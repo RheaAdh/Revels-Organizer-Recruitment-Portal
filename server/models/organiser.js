@@ -25,6 +25,7 @@ const OrganiserSchema = new mongoose.Schema({
   registration_no: {
     type: Number,
     required: true,
+    unique: true
   },
   email: {
     type: String,
