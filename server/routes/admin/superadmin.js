@@ -130,87 +130,87 @@ const categories = [
     email: "sports.revels22@gmail.com",
   },
   {
-    id: "Anubhuti",
+    categoryId: "Anubhuti",
     title: "Anubhuti",
     email: "revelsgoonj22@gmail.com",
   },
   {
     // Infodesk and Finance
-    id: "Ampersand",
+    categoryId: "Ampersand",
     title: "Ampersand",
     email: "revels.ampersand@gmail.com",
   },
   {
     // App Dev
-    id: "Ergo",
+    categoryId: "Ergo",
     title: "Ergo",
     email: "ergo.revels@gmail.com",
   },
   {
-    id: "Psychus",
+    categoryId: "Psychus",
     title: "Psychus",
     email: "psychus.revelsmit@gmail.com",
   },
   {
-    id: "Kalakriti",
+    categoryId: "Kalakriti",
     title: "Kalakriti",
     email: "revelskalakriti2022@gmail.com",
   },
   {
-    id: "Crescendo",
+    categoryId: "Crescendo",
     title: "Crescendo",
     email: "crescendo.revelscc@gmail.com",
   },
   {
-    id: "Footloose",
+    categoryId: "Footloose",
     title: "Footloose",
     email: "footloose.revels@gmail.com",
   },
   {
-    id: "HauteCouture",
+    categoryId: "HauteCouture",
     title: "Haute Couture",
     email: "hautecouturerevels22@gmail.com",
   },
   {
-    id: "Animania",
+    categoryId: "Animania",
     title: "Animania",
     email: "revels.animania.mit@gmail.com",
   },
   {
-    id: "Xventure",
+    categoryId: "Xventure",
     title: "Xventure",
     email: "revels.xventure@gmail.com",
   },
   {
-    id: "HumanLibrary",
+    categoryId: "HumanLibrary",
     title: "Human Library",
     email: "humanlibrary.revelsmit@gmail.com",
   },
 
   {
-    id: "Lensation",
+    categoryId: "Lensation",
     title: "Lensation",
     email: "lensation.revels22@gmail.com",
   },
   {
-    id: "Iridescent",
+    categoryId: "Iridescent",
     title: "Iridescent",
     email: "iridecent.revels22@gmail.com",
   },
   {
-    id: "Altaebir",
+    categoryId: "Altaebir",
     title: "Altaebir",
     email: "revelsfilmfestival2022@gmail.com",
   },
 
   {
-    id: "Consulere",
+    categoryId: "Consulere",
     title: "Consulere",
 
     email: "manipalacademy@180dc.org",
   },
   {
-    id: "Dramebaaz",
+    categoryId: "Dramebaaz",
     title: "Dramebaaz",
     email: "dramebaaz.mit@gmail.com",
   },
