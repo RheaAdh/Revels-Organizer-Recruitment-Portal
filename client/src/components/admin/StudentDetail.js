@@ -150,7 +150,7 @@ function StudentDetail({ applicant, adminCategory }) {
       <div className="studentdetails-col">
         <h4>Pref 1 : {applicant.pref_1.category}</h4>
         {applicant.pref_1.status === 0 &&
-        applicant.pref_1.category === adminCategory.categoryId ? (
+        applicant.pref_1.category === adminCategory.categoryId.toLowerCase() ? (
           <>
             <p>Not Reviewed </p>
             <div className="status-btn">
@@ -215,7 +215,8 @@ function StudentDetail({ applicant, adminCategory }) {
                 applicant.pref_2.status === 0 ? (
                   <>
                     <p>Not Reviewed</p>
-                    {applicant.pref_2.category === adminCategory.categoryId && (
+                    {applicant.pref_2.category ===
+                      adminCategory.categoryId.toLowerCase() && (
                       <div className="status-btn">
                         <button
                           className="btns selected"
