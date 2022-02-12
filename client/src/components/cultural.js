@@ -45,7 +45,7 @@ const cultural = [
   },
   {
     id: "HauteCouture",
-    title: "HauteCouture",
+    title: "Haute Couture",
     description:
       "Fashion brings out the designer in us, an expressionist beaming with confidence. To test the same, Revels’22 brings you HAUTE COUTURE, a gala of glamour and grace.",
   },
@@ -63,7 +63,7 @@ const cultural = [
   },
   {
     id: "HumanLibrary",
-    title: "HumanLibrary",
+    title: "Human Library",
     description:
       "Human Library strives to encourage dialogue around stereotypes and prejudices in our communities through a unique event. Participate and learn how to unjudge the person behind the cover.",
   },
