@@ -131,87 +131,87 @@ const categories = [
   },
   {
     categoryId: "Anubhuti",
-    title: "Anubhuti",
+    category: "Anubhuti",
     email: "revelsgoonj22@gmail.com",
   },
   {
     // Infodesk and Finance
     categoryId: "Ampersand",
-    title: "Ampersand",
+    category: "Ampersand",
     email: "revels.ampersand@gmail.com",
   },
   {
     // App Dev
     categoryId: "Ergo",
-    title: "Ergo",
+    category: "Ergo",
     email: "ergo.revels@gmail.com",
   },
   {
     categoryId: "Psychus",
-    title: "Psychus",
+    category: "Psychus",
     email: "psychus.revelsmit@gmail.com",
   },
   {
     categoryId: "Kalakriti",
-    title: "Kalakriti",
+    category: "Kalakriti",
     email: "revelskalakriti2022@gmail.com",
   },
   {
     categoryId: "Crescendo",
-    title: "Crescendo",
+    category: "Crescendo",
     email: "crescendo.revelscc@gmail.com",
   },
   {
     categoryId: "Footloose",
-    title: "Footloose",
+    category: "Footloose",
     email: "footloose.revels@gmail.com",
   },
   {
     categoryId: "HauteCouture",
-    title: "Haute Couture",
+    category: "Haute Couture",
     email: "hautecouturerevels22@gmail.com",
   },
   {
     categoryId: "Animania",
-    title: "Animania",
+    category: "Animania",
     email: "revels.animania.mit@gmail.com",
   },
   {
     categoryId: "Xventure",
-    title: "Xventure",
+    category: "Xventure",
     email: "revels.xventure@gmail.com",
   },
   {
     categoryId: "HumanLibrary",
-    title: "Human Library",
+    category: "Human Library",
     email: "humanlibrary.revelsmit@gmail.com",
   },
 
   {
     categoryId: "Lensation",
-    title: "Lensation",
+    category: "Lensation",
     email: "lensation.revels22@gmail.com",
   },
   {
     categoryId: "Iridescent",
-    title: "Iridescent",
+    category: "Iridescent",
     email: "iridecent.revels22@gmail.com",
   },
   {
     categoryId: "Altaebir",
-    title: "Altaebir",
+    category: "Altaebir",
     email: "revelsfilmfestival2022@gmail.com",
   },
 
   {
     categoryId: "Consulere",
-    title: "Consulere",
+    category: "Consulere",
 
     email: "manipalacademy@180dc.org",
   },
   {
     categoryId: "Dramebaaz",
-    title: "Dramebaaz",
+    category: "Dramebaaz",
     email: "dramebaaz.mit@gmail.com",
   },
 ];
