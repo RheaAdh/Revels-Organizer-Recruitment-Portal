@@ -137,8 +137,8 @@ function Form() {
   }
 
   const [name, setName] = useState("");
-  const [options, setOptions] = useState(options1);
-  const [cat, setCat] = useState(1);
+  const [options, setOptions] = useState([]);
+  const [cat, setCat] = useState(2);
   const [registration_no, setRegistration_no] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -225,34 +225,12 @@ function Form() {
         </div>
       </div>
       <div className="toggle-option">
-        <button
-          type="button"
-          className="active"
-          id="btn-1"
-          onClick={() => {
-            setPref_1("--");
-            setPref_2("--");
-            setCat(1);
-            document.getElementById("btn-1")?.classList.add("active");
-            document.getElementById("btn-2")?.classList.remove("active");
-            setOptions(options1);
-          }}
-        >
-          Supporting & Sports
-        </button>
-        <button
-          type="button"
-          id="btn-2"
-          onClick={() => {
-            setPref_1("--");
-            setPref_2("--");
-            setCat(2);
-            document.getElementById("btn-2")?.classList.add("active");
-            document.getElementById("btn-1")?.classList.remove("active");
-            setOptions(options2);
-          }}
-        >
+        <button disbaled type="button" id="btn-2" className="cat-closed">
           Cultural
+        </button>
+        &emsp;
+        <button disabled type="button" id="btn-1" className="cat-closed">
+          Supporting & Sports
         </button>
       </div>
       <div className="row slots">
@@ -357,7 +335,7 @@ function Form() {
           </div>
         </div> */}
       </div>
-      <button className="btn" type="submit" onClick={handleSubmit}>
+      <button disabled className="btn cat-closed" type="submit">
         Submit
       </button>
     </form>

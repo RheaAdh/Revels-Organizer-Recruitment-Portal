@@ -17,7 +17,7 @@ function Landing() {
     { width: 1450, itemsToShow: 5, itemsToScroll: 5 },
     { width: 1750, itemsToShow: 6, itemsToScroll: 6 },
   ];
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState(2);
   return (
     <div className="App">
       <h2 className="revels">REVELS '22</h2>
@@ -87,27 +87,17 @@ function Landing() {
         </button>
       </div>
       {tab === 0 ? (
-        <Categories
-          categories={supportingCategories}
-          isList
-          item={supportingCategories[0]}
-          tab={0}
-        />
+        <>
+          <div class="cul">CLOSED</div>
+        </>
       ) : tab === 1 ? (
-        <Categories
-          categories={sportsCategories}
-          isList={false}
-          item={sportsCategories[0]}
-          tab={1}
-        />
+        <>
+          <div class="cul">CLOSED</div>
+        </>
       ) : (
-        <div className="glider">
-          <Carousel breakPoints={breakPoints}>
-            {culturalCategories.map((item) => {
-              return <Card key={item.id} item={item} />;
-            })}
-          </Carousel>
-        </div>
+        <>
+          <div class="cul">CLOSED</div>
+        </>
       )}
       <br />
       <h3 className="heading htitle">Blacklist Rules</h3>
@@ -147,3 +137,24 @@ function Landing() {
 }
 
 export default Landing;
+
+/* <Categories
+  categories={supportingCategories}
+  isList
+  item={supportingCategories[0]}
+  tab={0}
+/> */
+
+/* <Categories
+  categories={sportsCategories}
+  isList={false}
+  item={sportsCategories[0]}
+  tab={1}
+/> */
+/* <div className="glider">
+<Carousel breakPoints={breakPoints}>
+  {culturalCategories.map((item) => {
+    return <Card key={item.id} item={item} />;
+  })}
+</Carousel>
+</div> */
