@@ -155,6 +155,7 @@ function Form() {
       <div className="row">
         <div className="user-box">
           <input
+            disabled
             type="text"
             name=""
             required
@@ -166,6 +167,7 @@ function Form() {
         </div>
         <div className="user-box">
           <input
+            disabled
             type="text"
             name=""
             required
@@ -179,6 +181,7 @@ function Form() {
       <div className="row">
         <div className="user-box">
           <input
+            disabled
             type="text"
             name=""
             required
@@ -190,6 +193,7 @@ function Form() {
         </div>
         <div className="user-box">
           <input
+            disabled
             type="text"
             name=""
             required
@@ -203,6 +207,7 @@ function Form() {
       <div className="row">
         <div className="user-box">
           <input
+            disabled
             type="text"
             name=""
             required
@@ -214,6 +219,7 @@ function Form() {
         </div>
         <div className="user-box">
           <input
+            disabled
             type="text"
             name=""
             required
@@ -237,6 +243,7 @@ function Form() {
         <div className="user-box">
           <label>Preference 1</label>
           <select
+            disabled
             id="pref1"
             name="pref1"
             value={pref_1}
@@ -256,6 +263,7 @@ function Form() {
         <div className="user-box">
           <label>Preference 2</label>
           <select
+            disabled
             id="pref2"
             name="pref2"
             value={pref_2}
@@ -274,19 +282,20 @@ function Form() {
         </div>
         {/* <div className="user-box">
           <label>Availability</label>
-          <input
+          <input disabled
             type="date"
             onChange={(e) => setSlot_1(e.target.value)}
             className="slots-in"
             value={slot_1}
             min="2022-01-29"
             max="2022-02-25"
-          ></input>
+          ></input disabled>
         </div> */}
       </div>
       <div className="row">
         <div className="user-box">
           <input
+            disabled
             name=""
             required
             value={exp}
@@ -324,14 +333,14 @@ function Form() {
         {/* <div className="user-box">
           <div>
             <label>Availability</label>
-            <input
+            <input disabled
               type="date"
               onChange={(e) => setSlot_2(e.target.value)}
               className="slots-in"
               value={slot_2}
               min="2022-01-29"
               max="2022-02-25"
-            ></input>
+            ></input disabled>
           </div>
         </div> */}
       </div>

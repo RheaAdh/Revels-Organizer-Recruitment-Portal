@@ -26,7 +26,7 @@ function Landing() {
       </h3>
       <br />
 
-      <div className="tab-container">
+      {/* <div className="tab-container">
         <button
           className="tab"
           onClick={() => {
@@ -85,8 +85,8 @@ function Landing() {
             Cultural Categories
           </span>
         </button>
-      </div>
-      {tab === 0 ? (
+      </div> */}
+      {/* {tab === 0 ? (
         <>
           <div class="cul">CLOSED</div>
         </>
@@ -98,7 +98,17 @@ function Landing() {
         <>
           <div class="cul">CLOSED</div>
         </>
-      )}
+      )} */}
+      <>
+        <div class="cul">
+          CLOSED
+          <p>
+            Those who have already registered will receive an email shortly
+            notifying them of their selection status.
+          </p>
+        </div>
+      </>
+
       <br />
       <h3 className="heading htitle">Blacklist Rules</h3>
       <div className="blacklist-text">

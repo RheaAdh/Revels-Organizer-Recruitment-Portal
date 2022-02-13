@@ -675,3 +675,8 @@ option {
   opacity: 0.4;
   cursor: not-allowed !important;
 }
+.cul p {
+  margin-top: 10px;
+  font-size: 1rem !important;
+  font-weight: 500;
+}
