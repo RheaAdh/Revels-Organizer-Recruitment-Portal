@@ -157,14 +157,14 @@ function StudentDetail({ applicant, adminCategory }) {
               <button
                 className="btns selected"
                 value="Select"
-                onClick={(e) => handleSubmit(e.target.value)}
+                onClick={(e) => handleSubmit("Select")}
               >
                 Select <i className="fa fa-check"></i>
               </button>
               <button
                 className="btns rejected"
                 value="Reject"
-                onClick={(e) => handleSubmit(e.target.value)}
+                onClick={(e) => handleSubmit("Reject")}
               >
                 Reject <i className="fa fa-close"></i>
               </button>
@@ -221,14 +221,14 @@ function StudentDetail({ applicant, adminCategory }) {
                         <button
                           className="btns selected"
                           value="Select"
-                          onClick={(e) => handleSubmit(e.target.value)}
+                          onClick={(e) => handleSubmit("Select")}
                         >
                           Select <i className="fa fa-check"></i>
                         </button>
                         <button
                           className="btns rejected"
                           value="Reject"
-                          onClick={(e) => handleSubmit(e.target.value)}
+                          onClick={(e) => handleSubmit("Reject")}
                         >
                           Reject <i className="fa fa-close"></i>
                         </button>
