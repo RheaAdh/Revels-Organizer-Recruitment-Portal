@@ -3,7 +3,7 @@ const { Organiser } = require("../../models/organiser");
 const totalSelected = async (cat) => {
   const n = await Organiser.count({
     $or: [
-      { $and: [{ "pref_1.category": cat }, { "pref_1.status": 1 }] },
+      { $and: [{ "pref_1.category": cat }, { "pref_1.status": 3 }] },
       { $and: [{ "pref_2.category": cat }, { "pref_2.status": 1 }] },
     ],
   });
@@ -12,7 +12,7 @@ const totalSelected = async (cat) => {
 const totalRejected = async (cat) => {
   const n = await Organiser.count({
     $or: [
-      { $and: [{ "pref_1.category": cat }, { "pref_1.status": 2 }] },
+      { $and: [{ "pref_1.category": cat }, { "pref_1.status": 4 }] },
       { $and: [{ "pref_2.category": cat }, { "pref_2.status": 2 }] },
     ],
   });
