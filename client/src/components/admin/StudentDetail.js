@@ -217,7 +217,7 @@ function StudentDetail({ applicant, adminCategory }) {
               <p>Selected for Pref 1</p>
             ) : (
               <>
-                {applicant.pref_1.status === 2 &&
+                {applicant.pref_1.status === 4 &&
                 applicant.pref_2.status === 0 ? (
                   <>
                     <p>Not Reviewed</p>
