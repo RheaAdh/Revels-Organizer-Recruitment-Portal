@@ -200,6 +200,12 @@ function StudentDetail({ applicant, adminCategory }) {
             <button className="btns out">Rejected</button>
           </div>
         )}
+        {applicant.pref_1.status === 4 && (
+          <div className="status-btn">
+            <button className="btns out">Rejected</button>
+            <button className="btns in">Selected</button>
+          </div>
+        )}
       </div>
       <div className="studentdetails-col">
         <h4>Pref 2 : {applicant.pref_2.category}</h4>
