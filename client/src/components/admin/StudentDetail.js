@@ -203,7 +203,7 @@ function StudentDetail({ applicant, adminCategory }) {
         {applicant.pref_1.status === 4 && (
           <div className="status-btn">
             <button className="btns out">Rejected</button>
-            <button className="btns in">Selected</button>
+            <button className="btns in">Mail Sent</button>
           </div>
         )}
       </div>
