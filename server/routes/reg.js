@@ -3,6 +3,7 @@ const { Cultural } = require("../models/cultural");
 const { Organiser } = require("../models/organiser");
 const main = require("../utils/confirmationEmail");
 const constructTemplate = require("../utils/registrationEmail");
+const { sendEmailNotif } = require("../utils/ses");
 
 // const getDays = (date) => {
 //   regStart = new Date("2022/01/29");
@@ -29,7 +30,10 @@ const register = async (req, res) => {
     });
 
     if (temp) {
-      if (!(temp.pref_1.status === 2 && temp.pref_2.status === 2)) {
+      if (
+        !(temp.pref_1.status === 2 && temp.pref_2.status === 2) ||
+        !(temp.pref_1.status === 4 && temp.pref_2.status === 4)
+      ) {
         return res.send({
           success: false,
           msg: "User already registered. Please wait while the cultural category interviews are in process. ",
@@ -82,7 +86,7 @@ const register = async (req, res) => {
       "You have successfully registered for REVELS'22 Organiser Call. Our team will get back to you shortly";
     const message = constructTemplate(org.name, status, body);
 
-    main(
+    sendEmailNotif(
       org.email,
       "Thank you for registering for Revels'22 Organiser",
       message
@@ -115,7 +119,10 @@ const cultural = async (req, res) => {
     });
 
     if (temp) {
-      if (!(temp.pref_1.status === 2 && temp.pref_2.status === 2)) {
+      if (
+        !(temp.pref_1.status === 2 && temp.pref_2.status === 2) ||
+        !(temp.pref_1.status === 4 && temp.pref_2.status === 4)
+      ) {
         return res.send({
           success: false,
           msg: "User already registered. Please wait while the supporting category interviews are in process. ",
@@ -169,7 +176,7 @@ const cultural = async (req, res) => {
       "You have successfully registered for REVELS'22 Organiser Call. Our team will get back to you shortly";
     const message = constructTemplate(org.name, status, body);
 
-    main(
+    sendEmailNotif(
       org.email,
       "Thank you for registering for Revels'22 Organiser",
       message

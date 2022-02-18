@@ -1,14 +1,5 @@
 const supporting = [
   {
-    id: "workshops",
-    title: "Workshops",
-    blocked: true,
-    description:
-      "What's a show without a trailer? Get a chance to organize and manage different workshops for the students, to showcase the ritual of Pre-Revels. It'll be your responsibility to ensure the feasibility to conduct the workshops as and when being approached by other categories.",
-    video:
-      "https://youtube.com/embed/aKz94QXTa2Y?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
-  {
     // Infodesk and Finance
     id: "inf",
     title: "Infodesk and Finance",
@@ -40,15 +31,6 @@ const supporting = [
   },
 
   {
-    id: "vigilance",
-    title: "Vigilance",
-    blocked: true,
-    description:
-      "When it comes to a grand fest like Revels, safety, protection, and security play one of the most important roles without a doubt. Here, you'll be the go-to person for every important checkpoint that requires approvals and confirmations. You must make sure that everyone is abiding by the rules for the smooth running of the events without any disruptions. ",
-    video:
-      "https://youtube.com/embed/Lv6e4acRI1A?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
-  {
     id: "photography",
     title: "Photography and Videography",
     blocked: true,
@@ -66,15 +48,6 @@ const supporting = [
       "One cannot enjoy the fest well, if not dined well. So if you feel happy in making people's day, join the HFS team and be responsible for all the food stalls throughout the fest. You'll be responsible for giving out the redeemable food coupons when required and ensuring there's no issue in doing so.",
     video:
       "https://youtube.com/embed/77DqPFtQvIE?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
-  {
-    id: "judges",
-    title: "Judges",
-    blocked: true,
-    description:
-      "Do you feel you can interact well with professionals and manage to convince them to judge for an event? This category involves deciding which judge will be judging an event and ensures that they reach the event on time. You will have to make sure whatever the judges require is taken care of.",
-    video:
-      "https://youtube.com/embed/JBHZwWVbDwo?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
 
   {
@@ -96,24 +69,6 @@ const supporting = [
       "https://youtube.com/embed/yllcAZSwiFU?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
 
-  {
-    id: "socialmedia",
-    title: "Social Media",
-    blocked: true,
-    description:
-      "Is Instagram the first thing you open in the morning? Think you know enough about social media trends and how to use them? Then come be a part of the team that will manage the content for the revels page for close to 4k followers on Instagram and other platforms.You will have to engage with the public by coming up with innovative ideas and work closely with the graphics and photography team.",
-    video:
-      "https://youtube.com/embed/LtVgTqecYaQ?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
-  {
-    id: "graphics",
-    title: "Graphics",
-    blocked: true,
-    description:
-      "While Revels builds tons of memories for each student, it’s the visuals that make Revels memorable for the world ahead with its marvelous creativity. So, come show off your artistry with the graphic designing involved in making the posters, banners, and other marketing material related to Revels. While working hand in hand with the social media team, your work is to promote/market content related to the fest all over the platforms and make sure we stretch to reach maximum engagement.",
-    video:
-      "https://youtube.com/embed/HzfwG2-y7Oc?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
   {
     id: "sponsorhips",
     title: "Sponsorships",
@@ -170,24 +125,72 @@ const supporting = [
       "https://youtube.com/embed/dJ_99zgHRPM?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
   {
-    id: "hrd",
+    id: "sys",
+    title: "System Admin and Web Dev",
     blocked: true,
+    description:
+      "As we welcome various participants not only from our own college but also from different colleges to be a part of Revels, it’ll be your job to help maintain the database for each participant throughout as a part of the system admin team while also assisting with the the front-end and back-end development of the different payment procedures and Gateways. You need to create and maintain portals to ensure the smooth working of other committees.",
+    video:
+      "https://youtube.com/embed/uzXLcM4QUP0?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+];
+const open = [
+  {
+    id: "hrd",
+    blocked: false,
     title: "HRD",
     description:
       "Ever wondered who delegates volunteers to various categories? Yes it's HRD. You will be responsible to provide volunteers to a particular category, as and when required. You will need to have good people management skills and ensure there is no conflict of interest between anyone.",
     video:
       "https://youtube.com/embed/nenpAsHfosI?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
+  {
+    id: "socialmedia",
+    title: "Social Media",
+    blocked: false,
+    description:
+      "Is Instagram the first thing you open in the morning? Think you know enough about social media trends and how to use them? Then come be a part of the team that will manage the content for the revels page for close to 4k followers on Instagram and other platforms.You will have to engage with the public by coming up with innovative ideas and work closely with the graphics and photography team.",
+    video:
+      "https://youtube.com/embed/LtVgTqecYaQ?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+  {
+    id: "graphics",
+    title: "Graphics",
+    blocked: false,
+    description:
+      "While Revels builds tons of memories for each student, it’s the visuals that make Revels memorable for the world ahead with its marvelous creativity. So, come show off your artistry with the graphic designing involved in making the posters, banners, and other marketing material related to Revels. While working hand in hand with the social media team, your work is to promote/market content related to the fest all over the platforms and make sure we stretch to reach maximum engagement.",
+    video:
+      "https://youtube.com/embed/HzfwG2-y7Oc?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+  {
+    id: "workshops",
+    title: "Workshops",
+    blocked: false,
+    description:
+      "What's a show without a trailer? Get a chance to organize and manage different workshops for the students, to showcase the ritual of Pre-Revels. It'll be your responsibility to ensure the feasibility to conduct the workshops as and when being approached by other categories.",
+    video:
+      "https://youtube.com/embed/aKz94QXTa2Y?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+
+  {
+    id: "vigilance",
+    title: "Vigilance",
+    blocked: false,
+    description:
+      "When it comes to a grand fest like Revels, safety, protection, and security play one of the most important roles without a doubt. Here, you'll be the go-to person for every important checkpoint that requires approvals and confirmations. You must make sure that everyone is abiding by the rules for the smooth running of the events without any disruptions. ",
+    video:
+      "https://youtube.com/embed/Lv6e4acRI1A?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+  {
+    id: "judges",
+    title: "Judges",
+    blocked: false,
+    description:
+      "Do you feel you can interact well with professionals and manage to convince them to judge for an event? This category involves deciding which judge will be judging an event and ensures that they reach the event on time. You will have to make sure whatever the judges require is taken care of.",
+    video:
+      "https://youtube.com/embed/JBHZwWVbDwo?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
 ];
-const sys = {
-  id: "sys",
-  title: "System Admin and Web Dev",
-  blocked: true,
-  description:
-    "As we welcome various participants not only from our own college but also from different colleges to be a part of Revels, it’ll be your job to help maintain the database for each participant throughout as a part of the system admin team while also assisting with the the front-end and back-end development of the different payment procedures and Gateways. You need to create and maintain portals to ensure the smooth working of other committees.",
-  video:
-    "https://youtube.com/embed/uzXLcM4QUP0?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-};
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -208,26 +211,7 @@ function shuffle(array) {
   return array;
 }
 
-function shuffleSS(array) {
-  let currentIndex = 3,
-    randomIndex;
-
-  // While there remain elements to shuffle...
-  while (currentIndex !== 0) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
-const categories = shuffle(supporting);
-const res = shuffleSS([sys, ...categories]);
+const categories = shuffle(open);
+const res = [...categories, ...supporting];
 
 export default res;

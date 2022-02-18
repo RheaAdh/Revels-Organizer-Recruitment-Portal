@@ -4,7 +4,7 @@ import { useState } from "react";
 import Card from "./Card";
 import Form from "./Form";
 import supportingCategories from "./supporting";
-import sportsCategories from "./sports";
+// import sportsCategories from "./sports";
 import culturalCategories from "./cultural";
 import Categories from "./Categories";
 
@@ -26,7 +26,7 @@ function Landing() {
       </h3>
       <br />
 
-      {/* <div className="tab-container">
+      <div className="tab-container">
         <button
           className="tab"
           onClick={() => {
@@ -85,29 +85,27 @@ function Landing() {
             Cultural Categories
           </span>
         </button>
-      </div> */}
-      {/* {tab === 0 ? (
-        <>
-          <div class="cul">CLOSED</div>
-        </>
+      </div>
+      {tab === 0 ? (
+        <Categories
+          categories={supportingCategories}
+          isList
+          item={supportingCategories[0]}
+          tab={0}
+        />
       ) : tab === 1 ? (
         <>
           <div class="cul">CLOSED</div>
         </>
       ) : (
-        <>
-          <div class="cul">CLOSED</div>
-        </>
-      )} */}
-      <>
-        <div class="cul">
-          CLOSED
-          <p>
-            Those who have already registered will receive an email shortly
-            notifying them of their selection status.
-          </p>
+        <div className="glider">
+          <Carousel breakPoints={breakPoints}>
+            {culturalCategories.map((item) => {
+              return <Card key={item.id} item={item} />;
+            })}
+          </Carousel>
         </div>
-      </>
+      )}
 
       <br />
       <h3 className="heading htitle">Blacklist Rules</h3>
@@ -147,24 +145,9 @@ function Landing() {
 }
 
 export default Landing;
-
 /* <Categories
-  categories={supportingCategories}
-  isList
-  item={supportingCategories[0]}
-  tab={0}
-/> */
-
-/* <Categories
-  categories={sportsCategories}
-  isList={false}
-  item={sportsCategories[0]}
-  tab={1}
-/> */
-/* <div className="glider">
-<Carousel breakPoints={breakPoints}>
-  {culturalCategories.map((item) => {
-    return <Card key={item.id} item={item} />;
-  })}
-</Carousel>
-</div> */
+          categories={sportsCategories}
+          isList={false}
+          item={sportsCategories[0]}
+          tab={1}
+        /> */

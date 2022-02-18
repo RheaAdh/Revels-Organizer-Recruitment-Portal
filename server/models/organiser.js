@@ -12,50 +12,53 @@ const pref = new mongoose.Schema({
   },
 });
 
-const OrganiserSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true,
-    unique: true,
+const OrganiserSchema = new mongoose.Schema(
+  {
+    id: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    registration_no: {
+      type: Number,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: Number,
+      required: true,
+    },
+    branch: {
+      type: String,
+      required: true,
+    },
+    cgpa: {
+      type: Number,
+      require: true,
+    },
+    pref_1: pref,
+    pref_2: pref,
+    experience: {
+      type: String,
+    },
+    isEdited: {
+      type: Boolean,
+      default: false,
+    },
+    type: {
+      type: Number,
+      default: 1,
+    },
   },
-  name: {
-    type: String,
-    required: true,
-  },
-  registration_no: {
-    type: Number,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  phone: {
-    type: Number,
-    required: true,
-  },
-  branch: {
-    type: String,
-    required: true,
-  },
-  cgpa: {
-    type: Number,
-    require: true,
-  },
-  pref_1: pref,
-  pref_2: pref,
-  experience: {
-    type: String,
-  },
-  isEdited: {
-    type: Boolean,
-    default: false,
-  },
-  type: {
-    type: Number,
-    default: 1,
-  },
-});
+  { timestamps: true }
+);
 
 module.exports = {
   Organiser: mongoose.model("Organiser", OrganiserSchema),
