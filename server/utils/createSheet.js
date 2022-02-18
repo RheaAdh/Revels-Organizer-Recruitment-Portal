@@ -47,18 +47,22 @@ const createSheet = async (response) => {
           ? "Selected"
           : resp.pref_1.status.toString() == "2"
           ? "Rejected"
-          : "Mail Sent (Selected)"
+          : resp.pref_1.status.toString() == "3"
+          ? "Mail Sent (Selected)"
+          : "Mail Sent (Rejected)"
       );
       ws.cell(rowIndex, columnIndex++).string(resp.pref_2.category.toString());
       //   ws.cell(rowIndex, columnIndex++).string(resp.pref_2.slot.toString());
       ws.cell(rowIndex, columnIndex++).string(
         resp.pref_2.status.toString() == "0"
           ? "Not Reviewed"
-          : resp.pref_2.status.toString() == "1"
+          : resp.pref_1.status.toString() == "1"
           ? "Selected"
-          : resp.pref_2.status.toString() == "2"
+          : resp.pref_1.status.toString() == "2"
           ? "Rejected"
-          : "Mail Sent (Selected)"
+          : resp.pref_1.status.toString() == "3"
+          ? "Mail Sent (Selected)"
+          : "Mail Sent (Rejected)"
       );
       ws.cell(rowIndex, columnIndex++).string(resp.experience.toString());
       rowIndex++;
