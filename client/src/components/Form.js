@@ -288,7 +288,9 @@ function Form() {
               !blocked ? (
                 <option value={value}>{label}</option>
               ) : (
-                <option value={value}>{label}</option>
+                <option value={value} disabled>
+                  {label}
+                </option>
               )
             )}
           </select>
