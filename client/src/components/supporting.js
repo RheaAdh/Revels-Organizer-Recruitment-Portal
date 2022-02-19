@@ -51,15 +51,6 @@ const supporting = [
   },
 
   {
-    id: "pnp",
-    title: "Publicity and Printing",
-    blocked: true,
-    description:
-      "By coming up with different strategies to market traditionally in and around the campus, and ultimately decide the size of the event. You get the chance to steer a nerve of excitement around you through your engagement skills which also includes promotion through artwork and putting out the posters in everyone’s reach. You will also have the authority to paint the walls on campus and decorate the student plaza according to your imagination.",
-    video:
-      "https://youtube.com/embed/GIifBck1HPs?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
-  },
-  {
     id: "gaming",
     title: "Gaming",
     blocked: true,
@@ -189,6 +180,16 @@ const open = [
       "Do you feel you can interact well with professionals and manage to convince them to judge for an event? This category involves deciding which judge will be judging an event and ensures that they reach the event on time. You will have to make sure whatever the judges require is taken care of.",
     video:
       "https://youtube.com/embed/JBHZwWVbDwo?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
+  },
+
+  {
+    id: "pnp",
+    title: "Publicity and Printing",
+    blocked: false,
+    description:
+      "By coming up with different strategies to market traditionally in and around the campus, and ultimately decide the size of the event. You get the chance to steer a nerve of excitement around you through your engagement skills which also includes promotion through artwork and putting out the posters in everyone’s reach. You will also have the authority to paint the walls on campus and decorate the student plaza according to your imagination.",
+    video:
+      "https://youtube.com/embed/GIifBck1HPs?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1",
   },
 ];
 function shuffle(array) {
